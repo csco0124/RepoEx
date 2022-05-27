@@ -1,14 +1,21 @@
 <template>
-  <div>
-    <textarea v-model="message"></textarea>
-  </div>
+  <select v-model="selectedValue" @change="changeSelect">
+    <option value="서울">서울</option>
+    <option value="부산">부산</option>
+    <option value="제주">제주</option>
+  </select>
 </template>
 <script>
-  export default {
+export default {
   data() {
     return {
-      message: 'efewfwefewf'
+      selectedValue: "제주",
     };
-  }
-  }
+  },
+  methods: {
+    changeSelect() {
+      alert(this.selectedValue);
+    },
+  },
+};
 </script>

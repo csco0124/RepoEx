@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
+    <router-link to="/kakaoLogin">kakaoLogin</router-link> |
     <router-link to="/databinding">databinding</router-link> | 
     <router-link to="/comp">comp</router-link>
   </nav>

@@ -11,7 +11,7 @@ module.exports = defineConfig({
         changeOrigin:true
       }
     }
-  }
+  },
   chainWebpack: (config) => {
     config.plugins.delete("prefetch"); //prefetch 삭제
   },

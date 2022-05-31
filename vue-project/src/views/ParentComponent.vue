@@ -1,20 +1,17 @@
 <template>
- <button type="button" @click="checkChild">자식 컴포넌트 데이터 조회</button>
- <child-component ref="child_component" />
+  <ChildComponent />
 </template>
+
 <script>
+import { provide } from 'vue';  //provide 추가
 import ChildComponent from './ChildComponent';
+
 export default {
- components: {ChildComponent},
- computed: {
-   msg(){
-     return this.$refs.child_component.msg;
-   }
- },
- methods: {
-   checkChild() {
-     alert(this.msg);
-   }
- }
+  components: {
+    ChildComponent
+  },
+  setup() {
+    provide('title', 'Vue.js 프로젝트');  //provide 함수를 통해서 전달 할 키(key), 값(value) 설정
+  }
 }
 </script>

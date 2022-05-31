@@ -1,17 +1,15 @@
 <template>
-<button type="button" @click="childFunc" ref="btn">자식 컴포넌트 데이터 변경</button>
+  <h1>{{title}}</h1>
 </template>
+
 <script>
+import { inject } from 'vue'; //inject 추가 
+
 export default {
- data() {
-   return {
-     msg: '메시지'
-   };
- },
- methods: {
-   childFunc() {
-     this.msg = '변경된 메시지';
-   }
- }
+  setup() {
+    const title = inject('title');  //inject를 사용해서 provide에서 정의한 키(key)로 데이터를 전달 받음
+
+    return {title};
+  }
 }
 </script>

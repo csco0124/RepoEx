@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Object</title>
+</head>
+<body>
+	<script>
+		var promise = new Promise(function(resolve, reject) {
+			setTimeout(function() {
+				console.log("Hello");
+				reject("World");
+			}, 1000);
+		});
+		
+		promise.then(function(response) {
+			console.log("Success!");
+		}).catch(function(error) {
+			console.log(error);
+		});
+		
+		console.log("Executed!!!");
+		
+	</script>
+</body>
+</html>

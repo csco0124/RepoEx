@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Object</title>
+</head>
+<body>
+	<script>
+		const LINE = Symbol("line");
+		const RECTANGLE = Symbol("rectangle");
+	
+		console.log(LINE.toString());
+		
+		console.log(RECTANGLE.toString());
+		
+		let shape = LINE;
+		
+		if(shape === LINE) {
+			console.log("shape === LINE");
+		}
+		else {
+			console.log("shape !== LINE");
+		}
+	</script>
+</body>
+</html>

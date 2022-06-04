@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Object</title>
+</head>
+<body>
+	<script>
+		function welcomeToWorld() {
+			setTimeout(function() {
+				console.log("Welcome");
+				setTimeout(function() {
+					console.log("to");
+					setTimeout(function() {
+						console.log("World");
+						end("!");
+					}, 1000);
+				}, 2000);
+			}, 3000);
+		}
+		
+		function end(response) {
+			console.log(response);
+		}
+	
+		welcomeToWorld();
+		
+		console.log("Executed!!!");
+		
+	</script>
+</body>
+</html>

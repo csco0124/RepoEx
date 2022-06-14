@@ -18,6 +18,12 @@ import com.shop.constant.ItemSellStatus;
 import com.shop.entity.Item;
 import com.shop.entity.QItem;
 
+import com.querydsl.core.BooleanBuilder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.thymeleaf.util.StringUtils;
+
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 class ItemRepositoryTest {
@@ -89,7 +95,7 @@ class ItemRepositoryTest {
                 .orderBy(qItem.price.desc());
 
         List<Item> itemList = query.fetch();
-
+        
         for(Item item : itemList){
             System.out.println(item.toString());
         }
@@ -120,5 +126,33 @@ class ItemRepositoryTest {
             itemRepository.save(item);
         }
     }
+    
+    @Test
+    @DisplayName("상품 Querydsl 조회 테스트 2")
+    public void queryDslTest2(){
 
+        this.createItemList2();
+
+        BooleanBuilder booleanBuilder = new BooleanBuilder();
+        QItem item = QItem.item;
+        String itemDetail = "테스트 상품 상세 설명";
+        int price = 10003;
+        String itemSellStat = "SELL";
+
+        booleanBuilder.and(item.itemDetail.like("%" + itemDetail + "%"));
+        booleanBuilder.and(item.price.gt(price));
+        System.out.println(ItemSellStatus.SELL);
+        if(StringUtils.equals(itemSellStat, ItemSellStatus.SELL)){
+            booleanBuilder.and(item.itemSellStatus.eq(ItemSellStatus.SELL));
+        }
+
+        Pageable pageable = PageRequest.of(0, 5);
+        Page<Item> itemPagingResult = itemRepository.findAll(booleanBuilder, pageable);
+        System.out.println("total elements : " + itemPagingResult. getTotalElements ());
+
+        List<Item> resultItemList = itemPagingResult.getContent();
+        for(Item resultItem: resultItemList){
+            System.out.println(resultItem.toString());
+        }
+    }
 }

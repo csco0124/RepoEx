@@ -8,20 +8,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig{
 	
-	@Override
+	/*@Override
     protected void configure(HttpSecurity http) throws Exception {
-        
-    }
+		//http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+    }*/
 	
-	/*@Bean
+	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		return null;
+		/*return null;
 		http.formLogin()
 	        .loginPage("/members/login")
 	        .defaultSuccessUrl("/")
@@ -40,8 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.exceptionHandling()
 		    .authenticationEntryPoint(new CustomAuthenticationEntryPoint());
 		
+		return http.build();*/
+		http.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 		return http.build();
-	}*/
+	}
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {

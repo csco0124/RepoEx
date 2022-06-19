@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -53,6 +54,7 @@ public class SecurityConfig {
 	        .defaultSuccessUrl("/")			// 로그인 성공시 이동할 URL
 	        .usernameParameter("email")		// 로그인시 사용할 파라미터 name
 	        .failureUrl("/members/login/error")	// 로그인 실패시 이동할 URL
+	        .successHandler(new ConfigAuthenticationSuccessHandler())
 	        .and()
 	        .logout()
 	        .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))	// 로그아웃 URL

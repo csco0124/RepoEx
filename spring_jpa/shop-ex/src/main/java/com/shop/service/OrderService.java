@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.StringUtils;
 
 import com.shop.dto.OrderDto;
 import com.shop.dto.OrderHistDto;
@@ -75,5 +76,29 @@ public class OrderService {
 		}
 
 		return new PageImpl<OrderHistDto>(orderHistDtos, pageable, totalCount);
+	}
+	
+	/**
+	 * 파라미터로 들어온 주문건에 대하여, 주문데이터 생성자와 파라미터로 들어온 사용자가 같은지 검사
+	 * @param orderId
+	 * @param email
+	 * @return
+	 */
+	@Transactional(readOnly = true)
+	public boolean validateOrder(Long orderId, String email) {
+		Member curMember = memberRepository.findByEmail(email);
+		Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
+		Member savedMember = order.getMember();
+
+		if (!StringUtils.equals(curMember.getEmail(), savedMember.getEmail())) {
+			return false;
+		}
+
+		return true;
+	}
+
+	public void cancelOrder(Long orderId) {
+		Order order = orderRepository.findById(orderId).orElseThrow(EntityNotFoundException::new);
+		order.cancelOrder();	// 주문 취소상태로 변경시, 영속 상태이므로 변경감지기능에 의해서 트랜잭션이 끝날 때 UPDATE 쿼리가 실행됨
 	}
 }

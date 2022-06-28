@@ -19,7 +19,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Cart extends BaseEntity{
+public class Cart extends BaseEntity {
 
 	@Id
 	@Column(name = "cart_id")
@@ -29,6 +29,11 @@ public class Cart extends BaseEntity{
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_id")
 	private Member member;
-	
+
+	public static Cart createCart(Member member) {
+		Cart cart = new Cart();
+		cart.setMember(member);
+		return cart;
+	}
 
 }

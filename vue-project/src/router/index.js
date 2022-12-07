@@ -3,6 +3,9 @@ import HomeView from "../views/HomeView.vue";
 import AboutView from "../views/AboutView.vue";
 import DataBinding from "../views/DataBinding.vue";
 import ParentComponent from "../views/ParentComponent.vue";
+import SlotComponent from "../views/SlotComponent.vue";
+import ProvideInject from "../views/ProvideInject.vue";
+
 const routes = [
   {
     path: "/",
@@ -27,6 +30,17 @@ const routes = [
     name: "ParentComponent",
     component: ParentComponent,
   },
+  {
+    path: "/slot",
+    name: "SlotComponent",
+    component: SlotComponent,
+  },
+  {
+    path: "/proinj",
+    name: "ProvideInject",
+    component: ProvideInject,
+  },
+  
 ];
 
 const router = createRouter({

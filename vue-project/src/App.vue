@@ -2,7 +2,9 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/databinding">Data Binding</router-link> | 
-    <router-link to="/nested">Nested</router-link>
+    <router-link to="/nested">Nested</router-link> | 
+    <router-link to="/slot">Slot</router-link> | 
+    <router-link to="/proinj">Provide/Inject</router-link>
   </nav>
   <router-view/>
 </template>

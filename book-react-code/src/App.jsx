@@ -1,14 +1,14 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import { ColoredMessage } from "./components/ColoredMessage";
+import { CssModules } from "./components/CssModules";
+
 export const App = () => {
-  const onClickButton = () => {
-    alert();
-  };
+  const [num, setNum] = useState(0);
 
   return (
     <>
-      {console.log("TEST")}
-      <h1>aaaaaaa</h1>
-      <h1>aaaaaaa</h1>
-      <button onClick={onClickButton}>버튼</button>
+      <CssModules />
     </>
   );
 };

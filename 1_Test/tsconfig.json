@@ -10,6 +10,6 @@
     "target": "es5",
     "jsx": "react"
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["./src/**/*"], /* 트랜스파일 대상 파일 및 경로 */
+  "exclude": ["node_modules", "**/*.spec.ts"] /* 트랜스 파일 제외 파일 및 경로 */
 }

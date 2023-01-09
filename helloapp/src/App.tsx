@@ -1,5 +1,9 @@
 import { useState } from "react";
+import styles from "./styles";
+import AppCssModule from "./App.module.css";
 import CountryList from "./CountryList";
+import Footer from "./Footer";
+import {BasicButton, ItalicButton, UnderLineButton, WhiteUnderlineButton} from "./Buttons";
 
 export type CountryType = {
   no: number;
@@ -8,6 +12,7 @@ export type CountryType = {
 };
 
 const App = () => {
+  const [theme, setTheme] = useState<string>("basic");
   const [msg, setMsg] = useState<string>("World");
   const [list, setList] = useState<Array<CountryType>>([
     { no: 1, country: "이집트", visited: false },
@@ -26,10 +31,15 @@ const App = () => {
 
   return (
     <div className="container">
-      <h2>Hello {msg}!</h2>
-      <hr className="dash-style" />
+      <h2 className={AppCssModule.test}>Hello {msg}!</h2>
+      <hr style={styles.dashStyle} />
       {addResult(4, 3)}
       <CountryList countries={list} />
+      <BasicButton>기본</BasicButton>
+      <ItalicButton>이탤릭</ItalicButton>
+      <UnderLineButton>언더라인</UnderLineButton>
+      <WhiteUnderlineButton>화이트 언더라인</WhiteUnderlineButton>
+      <Footer theme={theme}></Footer>
     </div>
   );
 };

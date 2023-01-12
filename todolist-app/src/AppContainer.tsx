@@ -24,10 +24,14 @@ const AppContainer = () => {
   };
 
   const deleteTodo = (noNum: number) => {
-    let index = todoList.findIndex((todo) => todo.no === noNum);
+    /*let index = todoList.findIndex((todo) => todo.no === noNum);
     let newTodoList = produce(todoList, (draft) => {
       draft.splice(index, 1);
     });
+    setTodoList(newTodoList);*/
+
+    let newTodoList = todoList.filter((todo) => todo.no !== noNum);
+    
     setTodoList(newTodoList);
   };
   const toggleDone = (noNum: number) => {

@@ -1,2 +1,12 @@
-const test1 = (a: number, b: number) => a + b;
-console.log(test1(3, 4));
+type Person = {
+    name: string;
+    age: number;
+    email: string;
+  };
+
+const personList:Person[] = [{name: "test1", age: 20, email: "test@test.com"}];
+
+const obj = {personObj:personList};
+
+const objStr:Person[] = obj.personObj;
+let {personObj} : {personObj:Person[]} = obj;

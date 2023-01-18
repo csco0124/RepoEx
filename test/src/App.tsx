@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="container">
-      <Table personList={personList}></Table>
+      <Table personList={personList} />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TableList from "./TableList";
 import { Person } from "./App";
 
 export type PersonList = {
@@ -7,8 +8,6 @@ export type PersonList = {
 
 //const Table = ({personList}:{personList:Person[]} ) => {
 const Table = (props: PersonList) => {
-    
-    console.log(ppp);
   return (
     <table className="table">
       <thead>
@@ -20,13 +19,8 @@ const Table = (props: PersonList) => {
         </tr>
       </thead>
       <tbody>
-        {props.personList.map(({ name, age, email }) => (
-          <tr>
-            <th scope="row">1</th>
-            <td>{name}</td>
-            <td>{age}</td>
-            <td>{email}</td>
-          </tr>
+        {props.personList.map((person, index) => (
+            <TableList person={person} index={index} />
         ))}
       </tbody>
     </table>

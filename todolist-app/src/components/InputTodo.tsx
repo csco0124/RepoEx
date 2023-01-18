@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import TodoContext from "../TodoContext";
 
-type InputTodoProps = {
-  addTodo: (todo: string) => void;
-};
-
-const InputTodo = (props: InputTodoProps) => {
+const InputTodo = () => {
   const [todo, setTodo] = useState<string>("");
+  const value = useContext(TodoContext);
 
   const addHandler = () => {
-    props.addTodo(todo);
+    value?.actions.addTodo(todo);
     setTodo("");
   };
 
-  const enterInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const enterInput = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
       addHandler();
     }

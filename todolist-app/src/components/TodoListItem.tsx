@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoListItemType } from "../AppContainer";
+import { TodoListItemType } from "../TodoContext";
 
 type TodoListItemProps = {
   todoItem: TodoListItemType;
@@ -13,7 +13,10 @@ const TodoListItem = (props: TodoListItemProps) => {
 
   return (
     <li className={itemClassName}>
-      <span className={props.todoItem.done ? "todo-done pointer" : "pointer"} onClick={() => props.toggleDone(props.todoItem.no)}>
+      <span
+        className={props.todoItem.done ? "todo-done pointer" : "pointer"}
+        onClick={() => props.toggleDone(props.todoItem.no)}
+      >
         {props.todoItem.todo}
         {props.todoItem.done ? " (완료)" : ""}
       </span>

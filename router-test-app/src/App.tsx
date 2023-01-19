@@ -6,7 +6,8 @@ import About from "./pages/About";
 import SongList from "./pages/SongList";
 import Members from "./pages/Members";
 import { useState } from "react";
-import SongDetail from "./pages/SongDetail";
+import Player from "./pages/songs/Player";
+import SongIndex from "./pages/songs/Index";
 
 export type SongType = { id: number; title: string; musician: string; youtube_link: string };
 
@@ -41,8 +42,10 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About title={"여우와 늙다리들"} />} />
           <Route path="/members" element={<Members members={members} />} />
-          <Route path="/songs" element={<SongList songs={songs} />} />
-          <Route path="/songs/:id" element={<SongDetail songs={songs} />} />
+          <Route path="/songs" element={<SongList songs={songs} />} >
+            <Route index element={<SongIndex />} />
+            <Route path=":id" element={<Player songs={songs} />} />
+          </Route>
         </Routes>
       </div>
     </Router>

@@ -10,6 +10,8 @@ import Player from "./pages/songs/Player";
 import SongIndex from "./pages/songs/Index";
 import NotFound from "./components/NotFound";
 
+
+
 export type SongType = { id: number; title: string; musician: string; youtube_link: string };
 
 export type MemberType = { name: string; photo: string };

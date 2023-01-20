@@ -23,7 +23,7 @@ const SongList = (props: Props) => {
     <div>
       <h2 className="m-5">Song List</h2>
       <ul className="list-group">{list}</ul>
-      <Outlet />
+      <Outlet context = {{songs:props.songs}}/>
     </div>
   );
 };

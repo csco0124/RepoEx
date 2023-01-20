@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -8,6 +8,7 @@ import Members from "./pages/Members";
 import { useState } from "react";
 import Player from "./pages/songs/Player";
 import SongIndex from "./pages/songs/Index";
+import NotFound from "./components/NotFound";
 
 export type SongType = { id: number; title: string; musician: string; youtube_link: string };
 
@@ -39,13 +40,15 @@ const App = () => {
       <div className="container">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About title={"여우와 늙다리들"} />} />
           <Route path="/members" element={<Members members={members} />} />
           <Route path="/songs" element={<SongList songs={songs} />} >
             <Route index element={<SongIndex />} />
-            <Route path=":id" element={<Player songs={songs} />} />
+            <Route path=":id" element={<Player />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>

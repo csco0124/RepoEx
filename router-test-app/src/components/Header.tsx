@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,18 +10,26 @@ const Header = () => {
         </p>
         <div className="row">
           <div className="col-12">
-            <Link className="btn btn-success menu" to="/">
+            <NavLink to="/home" className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}>
               Home
-            </Link>
-            <Link className="btn btn-success menu" to="/about">
+            </NavLink>
+            <NavLink to="/about" className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}>
               About
-            </Link>
-            <Link className="btn btn-success menu" to="/members">
+            </NavLink>
+            <NavLink to="/members" className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}>
               Members
-            </Link>
-            <Link className="btn btn-success menu" to="/songs">
+            </NavLink>
+            <NavLink to="/songs" className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}>
               Songs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>

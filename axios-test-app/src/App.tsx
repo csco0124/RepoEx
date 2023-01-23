@@ -1,12 +1,34 @@
 import axios from "axios";
 
+type TodoType = { id: number; todo: string; done: boolean; desc: string };
+
+const listUrl = "/api/todolist_long/gdhong";
+const todoUrlPrefix = "/api/todolist_long/gdhong/";
+
+//4건의 목록을 조회한 후 첫번째 할일만 한번 더 조회합니다.
 const requestAPI = () => {
-  //const url = "http://localhost:8000/todolist/gdhong";
-  const url = "/api/todolist/gdhong";
-  axios.get(url).then((response) => {
-    console.log("# 응답객체 : ", response);
-  });
+  let todoList: Array<TodoType> = [];
+  axios
+    .get(listUrl)
+    .then((response) => {
+      todoList = response.data;
+      console.log("# TodoList : ", todoList);
+      return todoList[0].id;
+    })
+    .then((id) => {
+      return axios.get(todoUrlPrefix + id);
+    })
+    .then((response) => {
+      console.log("## 첫번째 Todo : ", response.data);
+      return todoList[1].id;
+    })
+    .then((id) => {
+      axios.get(todoUrlPrefix + id).then((response) => {
+        console.log("## 두번째 Todo : ", response.data);
+      });
+    });
 };
+
 requestAPI();
 
 type Props = {};

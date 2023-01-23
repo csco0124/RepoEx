@@ -15,8 +15,9 @@ const AddTodo = ({ callbacks }: PropsType) => {
       alert("반드시 할일, 설명을 입력해야 합니다.");
       return;
     }
-    callbacks.addTodo(todo, desc);
-    navigate("/todos");
+    callbacks.addTodo(todo, desc, () => {
+      navigate("/todos");
+    });
   };
 
   return (

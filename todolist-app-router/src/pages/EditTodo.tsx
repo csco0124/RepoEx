@@ -13,7 +13,7 @@ const EditTodo = ({ callbacks, states }: PropsType) => {
     navigate("/todos");
     return <></>;
   }
-  const [todoOne, setTodoOne] = useState<TodoItemType>(todoItem);
+  const [todoOne, setTodoOne] = useState<TodoItemType>({ ...todoItem });
 
   const updateTodoHandler = () => {
     if (todoOne.todo.trim() === "" || todoOne.desc.trim() === "") {
@@ -21,8 +21,9 @@ const EditTodo = ({ callbacks, states }: PropsType) => {
       return;
     }
     let { id, todo, desc, done } = todoOne;
-    callbacks.updateTodo(id, todo, desc, done);
-    navigate("/todos");
+    callbacks.updateTodo(id, todo, desc, done, () => {
+      navigate("/todos");
+    });
   };
 
   return (

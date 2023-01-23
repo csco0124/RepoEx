@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
-
+import Loading from "./components/Loading";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import TodoList from "./pages/TodoList";
@@ -27,6 +27,7 @@ const App = ({ states, callbacks }: PropsType) => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      {states.isLoading ? <Loading /> : ""}
     </Router>
   );
 };

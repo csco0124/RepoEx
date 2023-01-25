@@ -1,9 +1,9 @@
 import { useState } from "react";
 import TableList from "./TableList";
-import { Person } from "./App";
+import { Person } from './redux/PersonList';
 
 export type PersonList = {
-  personList: Person[];
+  personList: Array<Person>;
 };
 
 //const Table = ({personList}:{personList:Person[]} ) => {
@@ -20,7 +20,7 @@ const Table = (props: PersonList) => {
       </thead>
       <tbody>
         {props.personList.map((person, index) => (
-            <TableList person={person} index={index} />
+            <TableList person={person} key={index} />
         ))}
       </tbody>
     </table>

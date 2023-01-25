@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import PersonList from './PersonList';
+import PersonList from "./PersonList";
 
 const rootReducer = combineReducers({
-    PersonList
+  PersonList,
 });
 
 // 루트 리듀서를 내보내주세요.

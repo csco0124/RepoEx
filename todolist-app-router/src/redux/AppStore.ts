@@ -1,5 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import TodoReducer from "./TodoReducer";
+import { combineReducers } from "redux";
+import TimeReducer, { HomeStatesType } from "./TimeReducer";
+import TodoReducer, { TodoStatesType } from "./TodoReducer";
 
-const AppStore = configureStore({ reducer: TodoReducer });
+export type RootStatesType = {
+  home: HomeStatesType;
+  todos: TodoStatesType;
+};
+
+const RootReducer = combineReducers({ home: TimeReducer, todos: TodoReducer });
+
+const AppStore = configureStore({ reducer: RootReducer });
 export default AppStore;

@@ -4,6 +4,7 @@ import TodoActionCreator from "../redux/TodoActionCreator";
 import { AnyAction, Dispatch } from "redux";
 import { connect } from "react-redux";
 import { TodoStatesType, TodoItemType } from "../redux/TodoReducer";
+import { RootStatesType } from "../redux/AppStore";
 
 type PropsType = {
   todoList: Array<TodoItemType>;
@@ -34,8 +35,8 @@ const TodoList = (props: PropsType) => {
   );
 };
 
-const mapStateToProps = (states: TodoStatesType) => ({
-  todoList: states.todoList,
+const mapStateToProps = (states: RootStatesType) => ({
+  todoList: states.todos.todoList,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({

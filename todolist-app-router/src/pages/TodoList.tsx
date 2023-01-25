@@ -11,9 +11,9 @@ type PropsType = {
   toggleDone: (id: number) => void;
 };
 
-const TodoList = ({ todoList, deleteTodo, toggleDone }: PropsType) => {
-  let todoItems = todoList.map((item) => {
-    return <TodoItem key={item.id} todoItem={item} deleteTodo={deleteTodo} toggleDone={toggleDone} />;
+const TodoList = (props: PropsType) => {
+  let todoItems = props.todoList.map((item) => {
+    return <TodoItem key={item.id} todoItem={item} deleteTodo={props.deleteTodo} toggleDone={props.toggleDone} />;
   });
 
   return (

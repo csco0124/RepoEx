@@ -14,13 +14,6 @@ function App() {
   const dispatch = useDispatch(); // 디스패치 함수를 가져옵니다
 
   const add = () => {
-    /*const personObj: Person = {name: "test2",age: 22,email: "test2@test.com",};
-    //const newPersonList = [...personList, personObj];   // 전개연산자 활용
-    const newPersonList = produce(personList, draft => {  // immer 활용
-      draft.push(personObj);
-    });
-    
-    setPersonList(newPersonList);*/
     const personObj: Person = {name: "test2",age: 22,email: "test2@test.com",}
     dispatch(addPerson(personObj));
   };

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
+import { combineReducers, Middleware } from "redux";
 import TimeReducer, { HomeStatesType } from "./TimeReducer";
 import TodoReducer, { TodoStatesType } from "./TodoReducer";
 
@@ -10,5 +10,30 @@ export type RootStatesType = {
 
 const RootReducer = combineReducers({ home: TimeReducer, todos: TodoReducer });
 
-const AppStore = configureStore({ reducer: RootReducer });
+/* const mw1: Middleware = (store) => (next) => (action) => {
+  console.log("### mw1 전");
+  next(action);
+  console.log("### mw1 후");
+}
+
+const mw2: Middleware = (store) => (next) => (action) => {
+  console.log("### mw2 전");
+  next(action);
+  console.log("### mw2 후");
+  console.log(store.getState());
+} */
+
+const loggerMw: Middleware = store => next => action => {
+  console.log("### action 실행 : ", action);
+  console.log("### action 변경 전 상태 : ", store.getState());
+  next(action);
+  console.log("### action 변경 후 상태 : ", store.getState());
+}
+
+const AppStore = configureStore({
+   reducer: RootReducer,
+   middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({serializableCheck:false}).concat(loggerMw);
+   }
+});
 export default AppStore;

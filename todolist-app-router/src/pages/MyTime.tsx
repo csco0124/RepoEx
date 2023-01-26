@@ -7,7 +7,7 @@ const MyTime = ({ currentTime, changeTime }: PropsType) => {
   return (
     <div className="row">
       <div className="col">
-        <button className="btn btn-primary" onClick={() => changeTime()}>
+        <button className="btn btn-primary" onClick={changeTime}>
           현재 시간 확인
         </button>
         <h4>

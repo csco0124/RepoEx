@@ -7,6 +7,7 @@ import TodoList from "./pages/TodoList";
 import AddTodo from "./pages/AddTodo";
 import EditTodo from "./pages/EditTodo";
 import NotFound from "./pages/NotFound";
+import Logout from "./pages/Logout";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="todos/edit/:id" element={<EditTodo />} />
           <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );

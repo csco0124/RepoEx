@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import TodoItem from "./TodoItem";
 import TodoActionCreator from "../redux/TodoActionCreator";
-import { AnyAction, Dispatch } from "redux";
-import { connect } from "react-redux";
-import { TodoStatesType, TodoItemType } from "../redux/TodoReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { TodoItemType } from "../redux/TodoReducer";
 import { RootStatesType } from "../redux/AppStore";
 
 type PropsType = {
@@ -12,9 +11,9 @@ type PropsType = {
   toggleDone: (id: number) => void;
 };
 
-const TodoList = (props: PropsType) => {
-  let todoItems = props.todoList.map((item) => {
-    return <TodoItem key={item.id} todoItem={item} deleteTodo={props.deleteTodo} toggleDone={props.toggleDone} />;
+const TodoList = ({ todoList, deleteTodo, toggleDone }: PropsType) => {
+  let todoItems = todoList.map((item) => {
+    return <TodoItem key={item.id} todoItem={item} deleteTodo={deleteTodo} toggleDone={toggleDone} />;
   });
 
   return (
@@ -35,13 +34,14 @@ const TodoList = (props: PropsType) => {
   );
 };
 
-const mapStateToProps = (states: RootStatesType) => ({
-  todoList: states.todos.todoList,
-});
+const TodoListContainer = () => {
+  const dispatch = useDispatch();
 
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
-  deleteTodo: (id: number) => dispatch(TodoActionCreator.deleteTodo({ id })),
-  toggleDone: (id: number) => dispatch(TodoActionCreator.toggleDone({ id })),
-});
+  const todoList = useSelector((state: RootStatesType) => state.todos.todoList);
+  const deleteTodo = (id: number) => dispatch(TodoActionCreator.deleteTodo({ id }));
+  const toggleDone = (id: number) => dispatch(TodoActionCreator.toggleDone({ id }));
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+  return <TodoList todoList={todoList} deleteTodo={deleteTodo} toggleDone={toggleDone} />;
+};
+
+export default TodoListContainer;

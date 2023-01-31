@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Count2 = ({ list }) => {
+const List2 = ({ list }) => {
   const tableStyle = {
     border: "solid 1px black",
   };
@@ -20,7 +20,7 @@ const Count2 = ({ list }) => {
       </table>
   );
 };
-export default Count2;
+export default List2;
 
 
 export const getStaticProps = async () => {

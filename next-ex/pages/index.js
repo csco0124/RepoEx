@@ -17,15 +17,18 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div>
-        <Link href="/count/count1">
-          COUNT1 (useEffect)
+        <Link href="/list/list1">
+          LIST1 (useEffect)
         </Link>
-        <Link href="/count/count2">
-          COUNT2 (useEffect)
+        <br/>
+        <Link href="/list/list2">
+          LIST2 (getStaticProps)
         </Link>
-        <Link href="/count/count3">
-          COUNT3 (useEffect)
+        <br/>
+        <Link href="/list/list3">
+          LIST3 (getServerSideProps)
         </Link>
+        <br/>
         </div>
       </main>
     </>

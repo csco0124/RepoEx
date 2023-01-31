@@ -7,21 +7,12 @@ import Home from "./Home.js";
 import { useState } from "react";
 
 function App() {
-  const [number, setNumber] = useState(0);
-  const onIncrease = () => {
-    setNumber(number+1);
-  }
-  const onDecrease = () => {
-    setNumber(number-1);
-  }
-  const changeNum = (num) => {
-    setNumber(num);
-  }
+  
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/count" element={<Count1 number={number} onIncrease={onIncrease} onDecrease={onDecrease} changeNum={changeNum}/>} />
+        <Route path="/count" element={<Count1 />}/>
         <Route path="/list" element={<List1 />} />
       </Routes>
     </BrowserRouter>

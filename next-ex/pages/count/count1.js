@@ -2,29 +2,24 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Count1 = (props) => {
-  const [list, setList] = useState([]);
-  const tableStyle = {
-    border: "solid 1px black",
-  };
-
-  useEffect(() => {
-    axios.get("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
-      .then((res) => {
-        console.log(res.data);
-
-        const newList = res.data.map((resList) => (
-          <tr key={resList.id}>
-            <td>{resList.name}</td>
-            <td><img src={resList.image_link}/></td>
-          </tr>
-        ));
-        setList(newList);
-      });
-  }, []);
-
+  const [number, setNumber] = useState(0);
+  const onIncrease = () => {
+    setNumber(number+1);
+  }
+  const onDecrease = () => {
+    setNumber(number-1);
+  }
+  const changeNum = (num) => {
+    setNumber(num);
+  }
   return (
     <div>
-      <table style={tableStyle}>{list}</table>
+      <h1>{number}</h1>
+      <div>
+        <input type="number" value={number} onChange={(e) => changeNum(e.target.value)} />
+        <button onClick={onIncrease}>+</button>
+        <button onClick={onDecrease}>-</button>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import Link from 'next/link'
 
 const List2 = ({ list }) => {
   const tableStyle = {
@@ -13,6 +13,11 @@ const List2 = ({ list }) => {
             <td>{resList.name}</td>
             <td>
               <img src={resList.image_link} />
+            </td>
+            <td>
+            <Link href={`/list/${resList.id}`}>
+              {resList.id}
+            </Link>
             </td>
           </tr>
         ))}

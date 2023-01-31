@@ -2,8 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Spinner from "../spinners/spinners";
 
-const Count1 = ({ number, diff, onIncrease, onDecrease, changeNum }) => {
-  
+const Count1 = (props) => {
+  const [number, setNumber] = useState(0);
+  const onIncrease = () => {
+    setNumber(number+1);
+  }
+  const onDecrease = () => {
+    setNumber(number-1);
+  }
+  const changeNum = (num) => {
+    setNumber(num);
+  }
   return (
     <div>
       <h1>{number}</h1>

@@ -7,11 +7,11 @@ export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
       useEffect(() => {
         const start = () => {
-          console.log("start");
+          //console.log("start");
           setLoading(true);
         };
         const end = () => {
-          console.log("finished");
+          //console.log("finished");
           setLoading(false);
         };
         Router.events.on("routeChangeStart", start);

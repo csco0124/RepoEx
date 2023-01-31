@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import Count1 from "./count/count1.js";
+import List1 from "./list/list1.js";
+import Home from "./Home.js";
+import { useState } from "react";
 
 function App() {
+  const [number, setNumber] = useState(0);
+  const onIncrease = () => {
+    setNumber(number+1);
+  }
+  const onDecrease = () => {
+    setNumber(number-1);
+  }
+  const changeNum = (num) => {
+    setNumber(num);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/count" element={<Count1 number={number} onIncrease={onIncrease} onDecrease={onDecrease} changeNum={changeNum}/>} />
+        <Route path="/list" element={<List1 />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

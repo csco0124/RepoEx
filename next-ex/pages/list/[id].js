@@ -21,8 +21,18 @@ const listItem = ({ item }) => {
 
 export default listItem;
 
+export const getStaticPaths = async () => {
+  return {
+    paths: [
+      { params: { id: "495" } },
+      { params: { id: "488" } }
+    ],
+    fallback: true
+  }
+}
+
 // getServerSideProps로 서버에서 데이터를 가져옴
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const id = context.params.id;
   const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`;
   const res = await Axios.get(apiUrl);

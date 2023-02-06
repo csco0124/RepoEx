@@ -1,19 +1,29 @@
 <template>
   <div>
-   <button type="button" @click="increaseCounter">Add 1</button>
-   <p>The counter is : {{counter}} </p>
+    <h1>Full Name : {{fullName}}</h1>
+    <button type="button" @click="changeName">변경</button>
   </div>
   </template>
   <script>
   export default {
    data() {
      return {
-       counter: 0
+       firstName: 'Seungwon',
+       lastName: 'Go',
+       fullName: ''
      };
    },
+   watch: {
+     firstName() {
+       this.fullName = this.firstName + ' ' + this.lastName;
+     },
+     lastName() {
+       this.fullName = this.firstName + ' ' + this.lastName;
+     }
+   },
    methods: {
-     increaseCounter(){
-       this.counter = this.counter + 1;
+     changeName(){
+       this.firstName = 'Eunsol';
      }
    }
   }

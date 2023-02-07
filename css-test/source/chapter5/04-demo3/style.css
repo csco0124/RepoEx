@@ -1,0 +1,22 @@
+p {
+    font-family: sans-serif;
+    text-align: center;
+    margin: 1rem;
+    border: 3px solid pink;
+}
+
+.box1 {
+    /* 잘못된 예 */
+    --main-padding: 2;
+    padding: var(--main-padding)rem;
+}
+.box2 {
+    /* 올바른 예 */
+    --main-padding: 2rem;
+    padding: var(--main-padding);
+}
+.box3 {
+    /* calc 함수 사용 */
+    --main-padding: 2;
+    padding: calc(var(--main-padding) * 1rem);
+}

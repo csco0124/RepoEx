@@ -1,0 +1,18 @@
+p {
+    font-family: sans-serif;
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+    border: 3px solid #f88;
+}
+
+.box1 {
+    /* 잘못된 예 */
+    --bg: background-color;
+    var(--bg): pink;
+}
+.box2 {
+    /* 올바른 예 */
+    --bg: pink;
+    background-color: var(--bg);
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>커스텀 속성 : 커스텀 속성에 속성명을 넣을 수 없음 데모</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+	<body>
+        <p class="box1">
+            --bg: background-color;<br>
+            var(--bg): pink;
+        </p>
+        <p class="box2">
+            --bg: pink;<br>
+            background-color: var(--bg);
+        </p>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/* 공통부분 */
+html {
+    font-size: 100%;
+}
+body {
+    font-family: sans-serif;
+}
+h1 {
+    font-size: 5rem;
+    font-family: 'Texturina', serif;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+/* 퍼스트 뷰 */
+.hero {
+    height: 100vh;
+    text-align: center;
+    padding: 10rem;
+
+    /* 상단 배경색은 #9e549c, 하단은 #392152 로 그라데이션을 적용 */
+    background: linear-gradient(#9e549c, #392152);
+    
+    /* 우측하단을 20% 들여서 사선을 만들기 */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+/* 버튼 */
+.btn {
+    font-size: 1.5rem;
+    background: #fc2;
+    padding: 1rem;
+    display: inline-block;
+
+    /* 커서를 갖다 대면 0.5초동안 변하도록 설정 */
+    transition: .5s;
+}
+/* 커서를 갖다 대면 배경색이 #ff0으로 변하도록 설정 */
+.btn:hover {
+    background: #ff0;
+}

@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/* 공통부분 */
+html {
+    font-size: 100%;
+}
+body {
+	color: #555;
+    font-family: sans-serif;
+    text-align: center;
+}
+h1 {
+    font-size: 2rem;
+    margin: 1rem 0 3rem;
+}
+.gallery-img {
+    max-width: 300px;
+    transition: .3s;
+
+    /* 평상시에는 이미지에 세피아 필터 적용*/
+    
+}
+
+/* 이미지에 커서를 갖다 대면 컬러로 바뀜 */
+.gallery-img:hover {
+    
+
+    /* 이미지를 오른쪽으로 10도 기울임 */
+    
+}

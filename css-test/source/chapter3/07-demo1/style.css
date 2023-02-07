@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+}
+
+/* 메인 메뉴 */
+.main-menu {
+    display: flex;
+    justify-content: center;
+}
+.main-menu a {
+    background: #0bd;
+    padding: 1rem;
+    color: #fff;
+    display: inline-block;
+    margin: 1rem;
+}
+.main-menu a:hover {
+    background: #0090aa;
+}
+
+/* 서브 메뉴 */
+.sub-menu {
+    position: absolute;
+    top: 4.5rem;
+    left: 1rem;
+}
+.sub-menu a {
+    margin: 1px;
+    width: 180px;
+    background: #666;
+}
+
+/* 서브 메뉴가 있음을 표시하는 메뉴 */
+.has-menu {
+    position: relative;
+}
+.has-menu > a::after {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    content: "\f078";
+    margin-left: .5rem;
+}
+
+/* 보통 때에는 서브 메뉴를 숨김 */
+.has-menu .sub-menu {
+    display: none;
+}
+/* 커서를 갖다 대면 서브 메뉴가 보이도록 설정 */
+.has-menu:hover .sub-menu {
+    display: block;
+}

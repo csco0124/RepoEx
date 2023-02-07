@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>커스텀 속성 : カスタムプロパティ：커스텀 속성을 호출한 뒤 단위를 덧붙이면 무효가 됨 데모</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+	<body>
+        <p class="box1">
+            --main-padding: 2;<br>
+            padding: var(--main-padding)rem;
+        </p>
+        <p class="box2">
+            --main-padding: 2rem;<br>
+            padding: var(--main-padding);
+        </p>
+        <p class="box3">
+            --main-padding: 2;<br>
+            padding: calc(var(--main-padding) * 1rem);
+        </p>
+	</body>
+</html>

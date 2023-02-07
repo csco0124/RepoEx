@@ -1,0 +1,17 @@
+.wrapper {
+  /* 글꼴 설정 */
+  font-family: 'Noto Serif KR', serif;
+  font-size: 4rem;
+  text-align: center;
+  color: #fff;
+
+  /* 중앙 정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 배경이미지 */
+  background-image: url(bg-blur.jpg);
+  background-size: cover;
+  height: 100vh;
+}

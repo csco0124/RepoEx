@@ -1,12 +1,14 @@
 <template>
-  <ChildComponent @send-message="sendMessage" ref="child_component" />
+  <child-component v-on:send-message="sendMessage" />
  </template>
  <script>
- import ChildComponent from './ChildComponent.vue';
+ import ChildComponent from './ChildComponent';
  export default {
   components: {ChildComponent},
-  mounted() {
-    this.$refs.child_component.$refs.btn.click();
+  methods: {
+    sendMessage(data) {
+      console.log(data);
+    }
   }
  }
  </script>

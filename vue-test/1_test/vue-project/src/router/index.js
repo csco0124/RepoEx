@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import DataBinding from "../views/DataBinding.vue";
 import NestedComponent from "../views/NestedComponent.vue";
 import ParentComponent from "../views/ParentComponent.vue";
+import Calculator from "../views/Calculator.vue";
 
 const routes = [
   {
@@ -33,6 +34,11 @@ const routes = [
     path: "/parent",
     name: "ParentComponent",
     component: ParentComponent,
+  },
+  {
+    path: "/calc",
+    name: "Calculator",
+    component: Calculator,
   },
   
 ];

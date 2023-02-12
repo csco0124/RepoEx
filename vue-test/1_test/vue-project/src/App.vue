@@ -4,7 +4,8 @@
     <!-- <router-link to="/about">About</router-link> | -->
     <router-link to="/databinding">DataBinding</router-link> |
     <router-link to="/nested">Nested</router-link> |
-    <router-link to="/parent">Parent</router-link>
+    <router-link to="/parent">Parent</router-link> |
+    <router-link to="/calc">Calculator</router-link>
   </nav>
   <router-view />
 </template>

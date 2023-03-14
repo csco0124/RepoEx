@@ -1,7 +1,7 @@
 SET ECHO ON
 SET TAB OFF
 SET SERVEROUTPUT ON
-
+ 
 REM ********************* 주의 **************************************
 REM 다음 코멘트 된 스크립트를 DBA 계정에서 실행하십시요.
 REM SQL*Plus를 DBA 계정으로 실행한 후

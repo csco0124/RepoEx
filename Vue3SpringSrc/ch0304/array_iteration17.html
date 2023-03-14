@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		var numbers = [1, 4, 9, 16, 25];
+		var first = numbers.findIndex(myFunction);
+
+		function myFunction(value, index, array) {
+			return value > 8;
+		}
+
+		console.log(numbers);
+		console.log(first);
+	</script>
+</body>
+</html>

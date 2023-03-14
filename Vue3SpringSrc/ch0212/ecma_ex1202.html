@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		let Coffee = class {
+			constructor() {
+				this.name = "Americano";
+			}
+		
+			getName() {
+				return this.name;
+			}
+			
+			setName(name) {
+				this.name = name;
+			}
+			
+			display() {
+				console.log(this.name);
+			}
+		};
+	
+		let coffee = new Coffee();
+		
+		console.log(coffee.name);
+		
+		console.log(coffee.getName());
+		
+		coffee.display();
+	</script>
+</body>
+</html>

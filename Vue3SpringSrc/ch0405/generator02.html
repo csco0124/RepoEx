@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function * getCoffees(){
+			console.log("Step 1");
+			const name = yield "Which coffee do you like?";
+			console.log("Step 2");
+			const price = yield "What is the price of coffee?";
+			console.log("Step 3");
+			return `${name} ${price}`;
+		}
+		let coffeeIter = getCoffees();
+		
+		console.log(coffeeIter.next());
+		console.log(coffeeIter.next("Americano"));
+		console.log(coffeeIter.next(2000));
+		
+	</script>
+</body>
+</html>

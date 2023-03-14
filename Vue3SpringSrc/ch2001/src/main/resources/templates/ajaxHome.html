@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<script src="/js/jQuery-2.1.4.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$("#readBtn").on("click", function() {
+		$.ajax({
+			type : "GET",
+			url : "/greetings/welcome",
+			contentType : "application/json; charset=UTF-8",
+			success : function(data) {
+				console.log("data: " + data);
+				
+				alert(JSON.stringify(data));
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n"
+					+ "message:" + request.responseText + "\n"
+					+ "error:" + error);
+			}
+		});
+	});
+});
+</script>
+
+<body>
+	<h1>ajax Home.</h1>
+	
+	<div>	
+		<button id="readBtn">READ</button>
+	</div>
+</body>
+</html>

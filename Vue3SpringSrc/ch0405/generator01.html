@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function * getCoffees(){
+			console.log("Step 1")
+			yield "Americano"
+			console.log("Step 2")
+			yield "Cappuccino"
+			console.log("Step 3")
+			yield "Espresso"
+			console.log("End")
+		}
+
+		let coffeeIter = getCoffees();
+
+		console.log(coffeeIter.next());
+		console.log(coffeeIter.next());
+		console.log(coffeeIter.next());
+		console.log(coffeeIter.next());
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		var numbers = [1, 2, 3, 4, 5];
+		var sum = numbers.reduce(myFunction);
+
+		function myFunction(total, value, index, array) {
+			return total + value;
+		}
+
+		console.log(numbers);
+		console.log(sum);
+	</script>
+</body>
+</html>

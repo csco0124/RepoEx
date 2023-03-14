@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function myArrayMin(arr) {
+			return Math.min.apply(null, arr);
+		}
+
+		var numbers = [36, 16, 1, 9, 25, 49];
+
+		console.log(numbers);
+		console.log(myArrayMin(numbers));
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function myArrayMin(arr) {
+			var len = arr.length;
+			var min = Infinity;
+			while (len--) {
+				if (arr[len] < min) {
+					min = arr[len];
+				}
+			}
+			return min;
+		}
+
+		var numbers = [36, 16, 1, 9, 25, 49];
+
+		console.log(numbers);
+		console.log(myArrayMin(numbers));
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		const promise = new Promise(function(resolve, reject) {
+			setTimeout(function() {
+				console.log("Hello");
+				resolve("World");
+			}, 1000);
+		});
+		
+		promise
+		.then(function(response) {
+			console.log(response);
+			
+			throw new Error("my error");
+		})
+		.then(null, function(error) {
+			console.log(error);
+		});
+		
+		console.log("Executed!!!");
+		
+	</script>
+</body>
+</html>

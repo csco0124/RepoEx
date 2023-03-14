@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function myArrayMax(arr) {
+			var len = arr.length;
+			var max = -Infinity;
+			while (len--) {
+				if (arr[len] > max) {
+					max = arr[len];
+				}
+			}
+			return max;
+		}
+
+		var numbers = [36, 16, 1, 9, 25, 49];
+
+		console.log(numbers);
+		console.log(myArrayMax(numbers));
+	</script>
+</body>
+</html>

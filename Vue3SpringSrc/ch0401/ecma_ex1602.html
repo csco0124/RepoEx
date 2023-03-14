@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function helloWorld() {
+			setTimeout(function() {
+				console.log("Hello");
+				
+				setTimeout(function() {
+					console.log("World");
+				}, 1000);
+			}, 2000);
+		}
+		
+		helloWorld();
+		
+		console.log("Executed!!!");
+		
+	</script>
+</body>
+</html>

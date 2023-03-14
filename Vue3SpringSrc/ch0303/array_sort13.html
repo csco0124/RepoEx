@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		var persons = [
+			{name:"Julian", age:45},
+			{name:"Alex", age:28},
+			{name:"Jade", age:21},
+			{name:"Tyler", age:33}
+		];
+
+		persons.sort(function(a, b){
+			var x = a.name.toLowerCase();
+			var y = b.name.toLowerCase();
+			if (x < y) {return -1;}
+			if (x > y) {return 1;}
+			return 0;
+		});
+
+		console.log(persons);
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Vue Sample</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  </head>
+  
+  <body>
+    <div id="app">
+      {{ message }}
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!'
+        },
+        beforeCreate: function() {
+          console.log("beforeCreate");
+        },
+        created: function() {
+          console.log("created");
+        },
+        beforeMount: function() {
+          console.log("beforeMount");
+        },
+        mounted: function() {
+          console.log("mounted");
+        },
+        beforeUpdate: function() {
+          console.log("beforeUpdate");
+        },
+        updated: function() {
+          console.log("updated");
+        },
+        beforeDestroy: function() {
+          console.log("beforeDestroy");
+        },
+        destroyed: function() {
+          console.log("destroyed");
+        }
+      });
+    </script>
+  </body>
+</html>

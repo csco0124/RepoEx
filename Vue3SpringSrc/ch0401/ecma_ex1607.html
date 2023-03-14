@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function welcome() {
+			setTimeout(function() {
+				console.log("Welcome");
+			}, 3000);
+		}
+		
+		function to() {
+			setTimeout(function() {
+				console.log("to");
+			}, 2000);
+		}
+		
+		function world() {
+			setTimeout(function() {
+				console.log("World");
+				end("!");
+			}, 1000);
+		}
+		
+		function end(response) {
+			console.log(response);
+		}
+	
+		welcome();
+		to();
+		world();
+		
+		console.log("Executed!!!");
+		
+	</script>
+</body>
+</html>

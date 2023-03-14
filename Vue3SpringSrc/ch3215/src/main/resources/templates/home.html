@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<h1>Hello world!</h1>
+	<p sec:authorize="isAnonymous()">
+		<a href="./loginForm.html" th:href="@{/login}">[로그인]</a>
+	</p>
+	<p sec:authorize="isAuthenticated()">
+		<a href="./logoutForm.html" th:href="@{/logout}">[로그아웃]</a>
+	</p>	
+    <p>
+    	<a href="./board/list.html" th:href="@{/board/list}">[게시글 목록]</a>
+    	<a href="./board/register.html" th:href="@{/board/register}">[게시글 등록]</a>
+    	<a href="./board/read.html" th:href="@{/board/read}">[게시글 상세보기]</a>
+    	<a href="./board/modify.html" th:href="@{/board/modify}">[게시글 수정]</a>    	
+    </p>
+     <p>
+    	<a href="./notice/list.html" th:href="@{/notice/list}">[공지사항 목록]</a>
+    	<a href="./notice/register.html" th:href="@{/notice/register}">[공지사항 등록]</a>
+    </p>   	
+</body>
+</html>

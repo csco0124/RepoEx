@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function isArray(x) {
+			return x.constructor.toString().indexOf("Array") > -1;
+		}
+
+		var planets = ["Venus", "Earth", "Mars", "Jupiter"];
+		
+		console.log(isArray(planets));
+	</script>
+</body>
+</html>

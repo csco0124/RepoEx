@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		function myPrint(a, b, c) {
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+		
+		const array = [1, 2, 3];
+		
+		console.log(array);
+		
+		myPrint( ... array);
+		
+		const stringArray = [ ... "xyz"];
+		
+		console.log(stringArray);
+		
+		myPrint( ... stringArray);
+	</script>
+</body>
+</html>

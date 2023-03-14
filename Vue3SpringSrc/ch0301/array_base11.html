@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ECMAScript6</title>
+</head>
+<body>
+	<script>
+		var planets, text, len, i;
+		planets = ["Venus", "Earth", "Mars", "Jupiter"];
+		len = planets.length;
+
+		text = "<ul>";
+		for (i = 0; i < len; i++) {
+			text += "<li>" + planets[i] + "</li>";
+		}
+		text += "</ul>";
+
+		console.log(text);
+	</script>
+</body>
+</html>

@@ -5,7 +5,7 @@ import { WebView } from 'react-native-webview';
 export default function App() {
   return (
     <WebView
-      source={{ uri: 'https://youtubejocoding.netlify.app' }}
+      source={{ uri: '프로젝트 URL' }}
     />
   );
 }

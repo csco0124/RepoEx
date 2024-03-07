@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- <settings>
+		<setting name="mapUnderscoreToCamelCase" value="true" /> 
+	</settings> -->
+	
+	<!-- DTO클래스 alias 등록 -->
+	<typeAliases>
+		<!--<typeAlias type="com.payslip.dto.PayslipDto" alias="payslipDto"/>-->
+		
+		<typeAlias type="java.util.Map" alias="map"/>
+		<typeAlias type="java.util.List" alias="list"/>
+		<typeAlias type="java.util.HashMap" alias="hashMap"/>
+		<typeAlias type="java.util.ArrayList" alias="arrayList"/>
+	</typeAliases>
+</configuration>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pilot.member.dao.MemberDao">
+
+	<select id="getCurdate" resultType="map">
+		/* DB 접속 테스트 */
+		SELECT CURDATE() AS cur_date
+	</select>
+	
+	<insert id="insertMember" parameterType="map">
+		INSERT INTO MEMBER VALUES (#{id}, #{password}, #{name})
+	</insert>
+	
+	<select id="getMemberList" resultType="map">
+		SELECT ID, PASSWORD, NAME FROM MEMBER
+	</select>
+	
+	<select id="getMember" parameterType="string" resultType="map">
+		SELECT ID, PASSWORD, NAME  FROM MEMBER WHERE ID = #{id}
+	</select>
+	
+</mapper>

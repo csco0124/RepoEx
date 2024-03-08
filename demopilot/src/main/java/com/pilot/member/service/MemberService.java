@@ -3,7 +3,6 @@ package com.pilot.member.service;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -37,9 +36,9 @@ public class MemberService implements UserDetailsService{
 		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		
 		LoginMemberDto loginMemberDto = new LoginMemberDto(
-					""+member.get("id"),
-					""+member.get("name"),
-					""+member.get("password"),
+					""+member.get("ID"),
+					""+member.get("NAME"),
+					""+member.get("PASSWORD"),
 					authorities
 				);
 		

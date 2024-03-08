@@ -2,9 +2,9 @@ package com.pilot.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,8 @@ public class CsrfController {
 	 * @param request
 	 */
 	@GetMapping("/csrf")
-    public CsrfToken getCsrfToken(HttpServletRequest request) {
-        return (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+    public CsrfToken getCsrfToken(HttpServletRequest request, Authentication authentication) {
+		return (CsrfToken) request.getAttribute(CsrfToken.class.getName());
+        
     }
 }

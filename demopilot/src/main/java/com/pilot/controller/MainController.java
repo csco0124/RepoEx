@@ -4,12 +4,13 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pilot.member.dto.LoginMemberDto;
 import com.pilot.member.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,12 @@ public class MainController {
 	@GetMapping("/")
     public String getMain(HttpServletRequest request) {
         return "main...";
+    }
+	
+	@GetMapping("/isLogin")
+	public String isLogin(HttpServletRequest request, Authentication authentication) {
+		LoginMemberDto loginMemberDto = (LoginMemberDto)authentication.getPrincipal();
+		return loginMemberDto.getName();
     }
 	
 	@GetMapping("/dbTest")

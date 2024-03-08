@@ -2,7 +2,6 @@ package com.pilot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,6 +22,10 @@ public class SecurityConfig {
 	
 	private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 	private final CustomAccessDeniedHandler customAccessDeniedHandler;
+	private final LoginSuccessHandler loginSuccessHandler;
+	private final LoginFailureHandler loginFailureHandler;
+	private final UserLogoutSuccessHandler userLogoutSuccessHandler;
+	
 	private final MemberService memberService;
 	
 	@Bean
@@ -40,6 +43,7 @@ public class SecurityConfig {
             				new AntPathRequestMatcher("/"),
             				new AntPathRequestMatcher("/dbTest"),
             				new AntPathRequestMatcher("/login"),
+            				new AntPathRequestMatcher("/logout"),
             				new AntPathRequestMatcher("/csrf"),
             				new AntPathRequestMatcher("/join")
             			).permitAll()
@@ -47,8 +51,10 @@ public class SecurityConfig {
             )
             .formLogin() // 폼 기반 로그인 설정
             .loginPage("/login")
-            .defaultSuccessUrl("/home").usernameParameter("id").and()
-            .logout(logout -> logout.permitAll())
+            .successHandler(loginSuccessHandler)
+            .failureHandler(loginFailureHandler)
+            .usernameParameter("id").and()
+            .logout().logoutUrl("/logout").logoutSuccessHandler(userLogoutSuccessHandler).and()
             .exceptionHandling()
             .authenticationEntryPoint(customAuthenticationEntryPoint)
             .accessDeniedHandler(customAccessDeniedHandler);

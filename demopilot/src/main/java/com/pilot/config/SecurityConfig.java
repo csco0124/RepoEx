@@ -47,18 +47,49 @@ public class SecurityConfig {
             				new AntPathRequestMatcher("/csrf"),
             				new AntPathRequestMatcher("/join")
             			).permitAll()
-                    .anyRequest().authenticated()
+            		.anyRequest().authenticated()
             )
-            .formLogin() // 폼 기반 로그인 설정
-            .loginPage("/login")
-            .successHandler(loginSuccessHandler)
-            .failureHandler(loginFailureHandler)
-            .usernameParameter("id").and()
-            .logout().logoutUrl("/logout").logoutSuccessHandler(userLogoutSuccessHandler).and()
-            .exceptionHandling()
-            .authenticationEntryPoint(customAuthenticationEntryPoint)
-            .accessDeniedHandler(customAccessDeniedHandler);
-        		
+            .formLogin(login -> login
+            		.loginPage("/login")
+            		.successHandler(loginSuccessHandler)
+            		.failureHandler(loginFailureHandler)
+            		.usernameParameter("id")
+            )
+            .logout(logout -> logout
+            		.logoutUrl("/logout")
+            		.logoutSuccessHandler(userLogoutSuccessHandler)
+            )
+            .exceptionHandling(handling -> handling
+            		.authenticationEntryPoint(customAuthenticationEntryPoint)
+            		.accessDeniedHandler(customAccessDeniedHandler)
+            );
+            
+        	
+        /*
+        http
+        .csrf(AbstractHttpConfigurer::disable)
+        .authorizeHttpRequests(requests -> requests
+        		.requestMatchers(
+        				new AntPathRequestMatcher("/"),
+        				new AntPathRequestMatcher("/dbTest"),
+        				new AntPathRequestMatcher("/login"),
+        				new AntPathRequestMatcher("/logout"),
+        				new AntPathRequestMatcher("/csrf"),
+        				new AntPathRequestMatcher("/join")
+        			).permitAll()
+                .anyRequest().authenticated()
+        )
+        .formLogin() // 폼 기반 로그인 설정
+        .loginPage("/login")
+        .successHandler(loginSuccessHandler)
+        .failureHandler(loginFailureHandler)
+        .usernameParameter("id").and()
+        .logout().logoutUrl("/logout").logoutSuccessHandler(userLogoutSuccessHandler).and()
+        .exceptionHandling()
+        .authenticationEntryPoint(customAuthenticationEntryPoint)
+        .accessDeniedHandler(customAccessDeniedHandler);
+        */
+       
         return http.build();
     }
 	

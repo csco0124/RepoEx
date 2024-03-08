@@ -11,11 +11,11 @@
 		INSERT INTO MEMBER VALUES (#{id}, #{password}, #{name})
 	</insert>
 	
-	<select id="getMemberList" resultType="map">
+	<select id="getMemberList" resultType="resultMap">
 		SELECT ID, PASSWORD, NAME FROM MEMBER
 	</select>
 	
-	<select id="getMember" parameterType="string" resultType="map">
+	<select id="getMember" parameterType="string" resultType="resultMap">
 		SELECT ID, PASSWORD, NAME  FROM MEMBER WHERE ID = #{id}
 	</select>
 	

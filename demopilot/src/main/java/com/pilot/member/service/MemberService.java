@@ -36,9 +36,9 @@ public class MemberService implements UserDetailsService{
 		authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		
 		LoginMemberDto loginMemberDto = new LoginMemberDto(
-					""+member.get("ID"),
-					""+member.get("NAME"),
-					""+member.get("PASSWORD"),
+					""+member.get("id"),
+					""+member.get("name"),
+					""+member.get("password"),
 					authorities
 				);
 		

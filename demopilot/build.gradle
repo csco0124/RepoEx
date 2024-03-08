@@ -35,6 +35,8 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.3.0'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+	
+	implementation 'com.google.guava:guava:33.0.0-jre'	
 }
 
 tasks.named('test') {

@@ -5,7 +5,9 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -15,10 +17,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 	
+	@Value("${server.servlet.session.timeout}")
+    private int sessionTime;
+	
 	private ObjectMapper mapper = new ObjectMapper();
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+		
+		HttpSession session = request.getSession();	//세션을 가져옴
+		session.setMaxInactiveInterval(sessionTime);
 		
 		ErrorResponse error = ErrorResponse.builder().code(HttpServletResponse.SC_OK).message("로그인 성공").build();
 

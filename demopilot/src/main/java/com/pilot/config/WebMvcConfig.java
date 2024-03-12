@@ -22,8 +22,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new HttpInterceptor())
+		.order(1)
         .addPathPatterns("/**")
-        .excludePathPatterns("/css/**", "/images/**", "/js/**"); // 해당 경로들은 인터셉터가 가로채지 않는다.
+        .excludePathPatterns("/css/**", "/images/**", "/js/**", "/*.ico"); // 해당 경로들은 인터셉터가 가로채지 않는다.
 	}
 	
 	/**

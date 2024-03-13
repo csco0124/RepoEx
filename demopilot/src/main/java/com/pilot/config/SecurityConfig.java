@@ -40,7 +40,7 @@ public class SecurityConfig {
             //.csrf(AbstractHttpConfigurer::disable)
         	.csrf(csrf -> csrf
         			.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-        			.ignoringRequestMatchers(new AntPathRequestMatcher("/csrf"))
+        			//.ignoringRequestMatchers(new AntPathRequestMatcher("/csrf"))
         	)
             .authorizeHttpRequests(requests -> requests
             		.requestMatchers(

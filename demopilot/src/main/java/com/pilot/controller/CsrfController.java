@@ -25,9 +25,4 @@ public class CsrfController {
 		return (CsrfToken) request.getAttribute(CsrfToken.class.getName());
         
     }
-	@PostMapping("/csrf")
-    public CsrfToken getCsrfTokenPost(HttpServletRequest request, Authentication authentication) {
-		return (CsrfToken) request.getAttribute(CsrfToken.class.getName());
-        
-    }
 }

@@ -2,7 +2,7 @@
   <header>
     <div>
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Home</RouterLink> | 
 				<RouterLink to="/test1">Test1</RouterLink>
       </nav>
     </div>

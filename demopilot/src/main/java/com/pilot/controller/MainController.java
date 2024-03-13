@@ -39,8 +39,9 @@ public class MainController {
         return memberService.getCurdate();
     }
 	@PostMapping("/dbTest")
-	public Map<String, Object> dbTestPost(HttpServletRequest request) throws Exception {
-        return memberService.getCurdate();
+	public Map<String, Object> dbTestPost(HttpServletRequest request, @RequestBody Map<String, Object> paramMap) throws Exception {
+		paramMap.put("curDate", memberService.getCurdate());
+		return paramMap;
     }
 	
 	@PostMapping("/join")

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-		"build:prod": "vite build --mode production",
+    "build:prod": "vite build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "moment": "^2.29.4",
     "pinia": "^2.1.7",
     "vue": "^3.3.10",
+    "vue-cookies": "^1.8.3",
     "vue-router": "^4.2.5",
     "vuetify": "^3.4.6"
   },

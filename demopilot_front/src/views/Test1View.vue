@@ -34,6 +34,9 @@ export default {
 			this.postResultData = res.data;
 		}
 	},
+	async mounted(){
+		
+	}
 }
 
 </script>

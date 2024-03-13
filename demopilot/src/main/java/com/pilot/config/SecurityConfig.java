@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.pilot.member.service.MemberService;
@@ -35,9 +35,13 @@ public class SecurityConfig {
 	
 	@Bean
 	protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
+		  
         http
-            .csrf(AbstractHttpConfigurer::disable)
+            //.csrf(AbstractHttpConfigurer::disable)
+        	.csrf(csrf -> csrf
+        			.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        			.ignoringRequestMatchers(new AntPathRequestMatcher("/csrf"))
+        	)
             .authorizeHttpRequests(requests -> requests
             		.requestMatchers(
             				new AntPathRequestMatcher("/"),
@@ -63,8 +67,8 @@ public class SecurityConfig {
             		.authenticationEntryPoint(customAuthenticationEntryPoint)
             		.accessDeniedHandler(customAccessDeniedHandler)
             );
-            
-        	
+        
+        return http.build();
         /*
         http
         .csrf(AbstractHttpConfigurer::disable)
@@ -90,7 +94,6 @@ public class SecurityConfig {
         .accessDeniedHandler(customAccessDeniedHandler);
         */
        
-        return http.build();
     }
 	
 }

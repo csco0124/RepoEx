@@ -6,9 +6,15 @@ const $api = axios.create({
   },
   timeout: import.meta.env.VITE_APP_BACKEND_CALL_TIMEOUT,
   baseURL: import.meta.env.VITE_APP_BACKEND_CALL_URL,
-  xsrfCookieName: "XSRF-TOKEN",
-  xsrfHeaderName: "X-XSRF-TOKEN",
-  withCredentials: true,
+  xsrfCookieName : "XSRF-TOKEN",
+  xsrfHeaderName : "X-XSRF-TOKEN",
+  withCredentials: true
+});
+
+$api.interceptors.request.use(async (config) => {
+	const token = $cookies.get('XSRF-TOKEN');
+	config.headers['X-XSRF-TOKEN'] = token;
+  return config;
 });
 
 $api.interceptors.response.use(

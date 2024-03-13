@@ -46,7 +46,6 @@ public class MainController {
 	
 	@PostMapping("/join")
 	public String joinMember(HttpServletRequest request, @RequestBody Map<String, Object> param) throws Exception {
-		log.info("param : " + param);
 		memberService.joinMember(param);
         return "Y";
     }

@@ -8,6 +8,8 @@
 		<v-btn @click="ajaxPostTest">
 			Ajax Post Test
 		</v-btn> : {{ postResultData }}
+		<br /><br />
+		접근 세션 리스트
 	</main>
 </template>
 

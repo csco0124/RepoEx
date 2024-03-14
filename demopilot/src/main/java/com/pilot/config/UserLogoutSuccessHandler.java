@@ -21,7 +21,7 @@ public class UserLogoutSuccessHandler implements LogoutSuccessHandler{
 	@Override
 	public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 		ErrorResponse error = ErrorResponse.builder().code(HttpServletResponse.SC_OK).message("로그아웃 성공").build();
-
+		System.out.println("로그아웃.......");
 		String result = mapper.writeValueAsString(error);
 		
 		response.setCharacterEncoding("UTF-8");

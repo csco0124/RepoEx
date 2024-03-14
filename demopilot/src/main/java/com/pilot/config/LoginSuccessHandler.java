@@ -27,7 +27,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		
 		HttpSession session = request.getSession();	//세션을 가져옴
 		session.setMaxInactiveInterval(sessionTime);
-		
+		System.out.println("onAuthenticationSuccess sessionID : " + session.getId());
 		ErrorResponse error = ErrorResponse.builder().code(HttpServletResponse.SC_OK).message("로그인 성공").build();
 
 		String result = mapper.writeValueAsString(error);

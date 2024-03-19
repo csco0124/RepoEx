@@ -1,0 +1,46 @@
+<style type="text/css">
+    th.asc::after{
+        content: "↓";
+        padding-left: 10px;
+        color: teal;
+    }
+    th.desc::after {
+        content: "↑";
+        padding-left: 10px;
+        color: teal;
+    }
+</style>
+
+<div class="input-group mb-3">
+    <label for="searchText" className="form-label">이름</label>
+    <input type="text" name="searchText" class="form-control" />
+    <button type="button" class="btn btn-secondary" id="search">검색</button>
+</div>
+
+<table id="sortTable" class="table table-striped sortable-table">
+    <thead>
+        <tr>
+            <th class="asc" id="toggleSort">ID</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+            <th>전화번호</th>
+        </tr>
+    </thead>
+    <tbody id="allMemberList">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="5">
+            <button type="button" class="btn btn-secondary" id="fetch">조회</button>
+            </th>
+        </tr>
+    </tfoot>
+</table>

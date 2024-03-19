@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Refresh" content="0; url='http://localhost:3000/'" />
+<script type="text/javascript" th:src="@{js/common.js}"></script>
+<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+<title>NARUI</title>
+</head>
+<th:block layout:fragment="css"> </th:block>
+<th:block layout:fragment="script"> </th:block>
+<!-- <div class="container">
+	<header th:replace="~{fragment/header :: headerFragment}"></header>
+	<div>
+		<p>코딩테스트 안내입니다.</p>
+		<p>테스트는 총 2가지 문제에 대한 해결능력을 판단하며 테스트별로 정해둔 방법을 준수하시면 됩니다.</p>
+		<p>이외 특별한 프로그래밍 제약규칙은 없습니다. 본인의 스타일대로 자유롭게 코딩하세요.</p>
+		<p>코딩테스트는 주어진 시간이 종료되면 최종 코딩상태로 저장을 해주세요.</p>
+		<br>
+		<p>코딩테스트 프로젝트는 H2 DB를 사용합니다.</p>
+		<p>기본적인 테이블 생성 query는 schema.sql에, 데이터 insert문은 data.sql에 있습니다.</p>
+		<p>아래 버튼은 테스트에서 사용 될 기본 member table의 구조를 popup으로 보여줍니다.</p>
+		<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Member 테이블</button>
+		<br>
+		<br>
+		<br>
+	</div>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+                    <th>TEST 1</th>
+                    <th>TEST 2</th>
+                </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><button type="button" class="btn btn-secondary" onclick="fn_testOne();">Front 화면 데이터 mapping</button></td>
+					<td><button type="button" class="btn btn-secondary" onclick="fn_testTwo();">Backend method 만들기</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div>
+		<br>
+		<p>* 모든 화면에서 상단의 나루아이 아이콘 클릭 시 현재 page로 이동합니다.</p>
+	</div>
+</div> -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	    <div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Member 테이블구조</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+		                    <th colspan="3">Member</th>
+		                </tr>
+					</thead>			
+					<tbody>
+						<tr>
+							<td>id</td>
+							<td>int(4)</td>
+							<td>PK</td>
+						</tr>
+						<tr>
+							<td>name</td>
+							<td>varchar(100)</td>
+							<td>not null</td>
+						</tr>
+						<tr>
+							<td>age</td>
+							<td>int(3)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>addr</td>
+							<td>varchar(255)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>phone_number</td>
+							<td>varchar(13)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>use_yn</td>
+							<td>varchar(1)</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+			</div>
+	    </div>
+	</div>
+</div>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" th:src="@{js/sample.js}"></script>
+<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+<title>NARUI</title>
+</head>
+<th:block layout:fragment="css"> </th:block>
+<th:block layout:fragment="script"> </th:block>
+<div class="container">
+	<header th:replace="~{fragment/header :: headerFragment}"></header>
+	<div>
+		<p>Backend method 만들기 test 입니다.</p>
+		<p>TEST 2 코딩 시작 버튼을 눌러 코딩을 시작하게 되면 testTwoCoding.html 페이지가 열리게 되며</p>
+		<p>해당 페이지에 있는 sample data를 input 박스에 직접 입력(또는 복사/붙여넣기) 하여</p>
+		<p>member 정보 저장 버튼을 누를 경우 member table에 화면에서 입력한 data insert를 진행하면 됩니다.</p>
+		<p>member 정보 저장 버튼은 TestTwoController.java의 saveMember method를 호출하게 되어있으며</p>
+		<p>MemberRepository.java에 필요한 CRUD method를 만드시면 됩니다.</p>
+		<p>src/main/java/com/narui/test/controller/<span style="color:red">TestTwoController.java</span> 파일과</p>
+		<p>src/main/java/com/narui/test/repository/<span style="color:red">MemberRepository.java</span> 파일을 변경하면 됩니다.</p>
+		<p>필요한 파일이나 경로를 생성하거나 class나 bean객체를 직접 선언해도 되며 특별히 코딩 방식에는 제한을 두지 않습니다.</p>
+		<p></p>
+		<br>
+		<br>
+		<br>
+	</div>
+	<div>
+		<button onclick="fn_codingTwo();">TEST 2 코딩 시작</button>
+	</div>
+</div>
+</html>

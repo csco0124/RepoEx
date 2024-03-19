@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" th:src="@{js/common.js}"></script>
+<title>NARUI</title>
+<style>
+	.flex_box { height: auto; min-height: 100px; overflow: hidden; display: flex; justify-content: space-between; align-items: flex-start;}
+	.flex_box > div { position: relative; }
+	.flex_box p > img { max-width: 100%; height: auto;}
+	.table { max-width: 100%; height: 100%;}
+</style>
+</head>
+<th:block layout:fragment="css"> </th:block>
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		
+		// 코딩영역 시작입니다
+
+		
+		
+		// 코딩영역 끝입니다
+		
+	/*]]>*/
+	</script>
+</th:block>
+<div class="container">
+	<header th:replace="~{fragment/header :: headerFragment}"></header>
+		<div class="flex_box">
+			<div style="width: 40%">
+				<p class="title"> table 구조</p>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+		                    <th colspan="4">Member</th>
+		                </tr>
+					</thead>			
+					<tbody>
+						<tr>
+							<td>id</td>
+							<td>아이디</td>
+							<td>int(4)</td>
+							<td>PK</td>
+						</tr>
+						<tr>
+							<td>name</td>
+							<td>이름</td>
+							<td>varchar(100)</td>
+							<td>not null</td>
+						</tr>
+						<tr>
+							<td>age</td>
+							<td>나이</td>
+							<td>int(3)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>addr</td>
+							<td>주소</td>
+							<td>varchar(255)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>phone_number</td>
+							<td>전화번호</td>
+							<td>varchar(13)</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>use_yn</td>
+							<td>사용여부</td>
+							<td>varchar(1)</td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="width: 57%">
+				<p class="title"> Member table 전체 데이터</p>
+				<p><img src="images/memberData.png" alt="memberData"></p>
+			</div>
+		</div>
+	<div>
+		<p>API 호출 주소는 http://localhost:8080/codingOne.do 입니다. (API 호출 시 입력 값은 따로 존재하지 않습니다)</p>
+		<p>필요한 데이터는 TestOneController의 codingOne method에서 전달되고 method 호출 이후 전달 된 데이터를 화면에서 컨트롤 합니다.</p>
+		<p>/resources/templates/coding/<span style="color:red">testOneCoding.html</span> 파일만을 변경하여 다음과 같은 결과가 나오도록 코딩을 시작하시면 됩니다.</p>
+		<p>아래 조회버튼을 click하면 다음과 같은 조회 내역이 나오게 하면 됩니다.<a href="#" data-bs-toggle="modal" data-bs-target="#resultModal"> --> TEST 1 결과 link</a></p>
+	</div>
+	<br><br>
+	<div>
+		<button type="button" class="btn btn-secondary">조회</button>
+		<br>
+	</div>
+	<div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>이름</th>
+					<th>나이</th>
+					<th>주소</th>
+					<th>전화번호</th>
+				</tr>
+			</thead>
+			<tbody id="allMemberList">
+
+	        </tbody>
+	    </table>
+    </div>
+</div>
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="resultModalLabel">TEST 1 결과</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p><img src="images/testOneResult.png" alt="testOneResult" style="max-width: 100%; height: auto;"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+			</div>
+	    </div>
+	</div>
+</div>
+</html>

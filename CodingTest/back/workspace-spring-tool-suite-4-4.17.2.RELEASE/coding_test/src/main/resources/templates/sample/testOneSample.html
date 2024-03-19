@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" th:src="@{js/sample.js}"></script>
+<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
+<script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+<link href="webjars/bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+<title>NARUI</title>
+</head>
+<th:block layout:fragment="css"> </th:block>
+<th:block layout:fragment="script"> </th:block>
+<div class="container">
+	<header th:replace="~{fragment/header :: headerFragment}"></header>
+	<div>
+		<p>Front 화면 데이터 mapping test 입니다.</p>
+		<p>아래 이미지는 member table의 전체 데이터 입니다.</p>
+		<br>
+		<p><img src="images/memberData.png" alt="memberData" style="max-width: 100%; height: auto;"></p>
+		<br>
+		<p>TEST 1의 자세한 설명은 coding page에 설명되어있습니다.</p>
+		<p>위 전체 데이터와 결과로 도출 될 데이터를 확인 하시고 테스트를 진행하시면 됩니다.</p>
+		<br>
+		<p><a href="#" data-bs-toggle="modal" data-bs-target="#resultModal">--> TEST 1 결과 link</a></p>
+		<br>
+		<br>
+	</div>
+	<div>
+		<button onclick="fn_codingOne();">TEST 1 코딩 시작</button>
+	</div>
+</div>
+<div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="resultModalLabel">TEST 1 결과</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p><img src="images/testOneResult.png" alt="testOneResult" style="max-width: 100%; height: auto;"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+			</div>
+	    </div>
+	</div>
+</div>
+</html>

@@ -37,6 +37,11 @@
 		      contentType : 'application/json; charset=utf-8',
 		      //data: JSON.stringify(data),
 		      success: (res) => {
+				  let cookieInfo = "";
+				  for(let i=0; i<res.length; i++){
+					  cookieInfo += "<br/><b>" + res[i].name + "</b> : " + res[i].value;
+				  }
+				  $("#cookieInfo").html(cookieInfo);
 				  console.log(res);
 		      },
 		      error: (e) => {
@@ -60,7 +65,10 @@
 	AccessToken : <input type="text" id="accessToken" size="50"/><br/>
 	RefreshToken : <input type="text" id="refreshToken" size="50"/>
 	<hr />
-	<p>쿠키 가져오기</p>
-	<input type="button" onclick="getCookie();" value="쿠키정보 가져오기">
+	<p>토큰 쿠키정보 가져오기</p>
+	<input type="button" onclick="getCookie();" value="쿠키정보 가져오기"><br/>
+	<span id="cookieInfo"></span>
+	<hr />
+	<p>권한이 필요한 URL 호출</p>
 </body>
 </html>

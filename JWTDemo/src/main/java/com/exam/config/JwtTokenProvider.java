@@ -46,13 +46,14 @@ public class JwtTokenProvider {
 		// Access Token 생성
 		// 숫자 86400000은 토큰의 유효기간으로 1일을 나타냅니다. 보통 토큰은 30분 정도로 생성하는데 테스트를 위해 1일로 설정했습니다.
 		// 1일: 24*60*60*1000 = 86400000
-		Date accessTokenExpiresIn = new Date(now + 86400000);
+		//Date accessTokenExpiresIn = new Date(now + 86400000);
+		// 1 * 60 * 1000L : 1분 / 10000 : 10초
+		Date accessTokenExpiresIn = new Date(now + 20000);
 		String accessToken = Jwts.builder().setSubject(authentication.getName()).claim("auth", authorities)
 				.setExpiration(accessTokenExpiresIn).signWith(key, SignatureAlgorithm.HS256).compact();
 
 		// Refresh Token 생성
-		String refreshToken = Jwts.builder().setExpiration(new Date(now + 86400000))
-				.signWith(key, SignatureAlgorithm.HS256).compact();
+		String refreshToken = Jwts.builder().setExpiration(new Date(now + 86400000)).signWith(key, SignatureAlgorithm.HS256).compact();
 		
 		TokenDto dto = new TokenDto("Bearer", accessToken, refreshToken);
 		
@@ -77,7 +78,7 @@ public class JwtTokenProvider {
 		return new UsernamePasswordAuthenticationToken(principal, "", authorities);
 	}
 
-	// 토큰 정보를 검증하는 메서드
+	// Access/Refresh 토큰 정보를 검증하는 메서드
 	public boolean validateToken(String token) {
 		try {
 			Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
@@ -93,7 +94,12 @@ public class JwtTokenProvider {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * JWT 토큰을 복호화하여 토큰에 들어있는 정보를 꺼내는 메서드
+	 * @param accessToken
+	 * @return
+	 */
 	private Claims parseClaims(String accessToken) {
 		try {
 			return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(accessToken).getBody();

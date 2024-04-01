@@ -4,12 +4,6 @@
 		<v-btn @click="ajaxGetTest">
 			Ajax Get Test
 		</v-btn> : {{ getResultData }}
-		<br /><br />
-		<v-btn @click="ajaxPostTest">
-			Ajax Post Test
-		</v-btn> : {{ postResultData }}
-		<br /><br />
-		접근 세션 리스트
 	</main>
 </template>
 
@@ -26,14 +20,6 @@ export default {
 		async ajaxGetTest() {
 			const res = await $api.get("/dbTest");
 			this.getResultData = res.data.curDate;
-		},
-		async ajaxPostTest() {
-			let params = {
-				param1: 'value1',
-				param2: 'value2',
-			}
-			const res = await $api.post("/dbTest", params);
-			this.postResultData = res.data;
 		}
 	},
 	async mounted(){

@@ -25,10 +25,11 @@ public class CustomUserDetailsService implements UserDetailsService{
 	@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		MemberDto dto = new MemberDto();
-		dto.setMemberId("test");
+		dto.setMemberId(username);
+		dto.setPassword(passwordEncoder.encode("1234"));
 		List<String> roles = new ArrayList<String>();
-		roles.add("ADMIN");
-		roles.add("USER");
+		roles.add("ROLE_ADMIN");
+		roles.add("ROLE_USER");
 		dto.setRoles(roles);
 		return dto;
 //        return memberRepository.findByMemberId(username)

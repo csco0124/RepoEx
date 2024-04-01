@@ -19,6 +19,7 @@ import com.exam.dto.TokenDto;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -85,14 +86,17 @@ public class JwtTokenProvider {
 			return true;
 		} catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
 			log.info("Invalid JWT Token", e);
+			throw new JwtException("손상된 토큰");
 		} catch (ExpiredJwtException e) {
 			log.info("Expired JWT Token", e);
+			throw new JwtException("만료된 토큰");
 		} catch (UnsupportedJwtException e) {
 			log.info("Unsupported JWT Token", e);
+			throw new JwtException("지원하지 않는 토큰");
 		} catch (IllegalArgumentException e) {
 			log.info("JWT claims string is empty.", e);
+			throw new JwtException("유효하지 않은 토큰");
 		}
-		return false;
 	}
 	
 	/**

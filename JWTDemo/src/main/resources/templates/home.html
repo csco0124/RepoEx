@@ -22,7 +22,6 @@
 				  $("#grantType").val(res.grantType);
 				  $("#accessToken").val(res.accessToken);
 				  $("#refreshToken").val(res.refreshToken);
-		    	  
 		      },
 		      error: (e) => {
 		    	  alert("error : " + e);
@@ -49,6 +48,26 @@
 		      }
 		    });
 	}
+	
+	function testAuth(){
+		$.ajax({
+		      url: "/testAuth",
+		      type: "POST",
+		      contentType : 'application/json; charset=utf-8',
+		      headers : {
+			     Authorization : "Bearer " + $("#testAccessToken").val()
+			    },
+		      success: (res) => {
+				  console.log(res);
+		      },
+		      error: (e) => {
+		    	  console.log(e);
+		    	  if(e.status === 403){
+					  alert(e.responseJSON.message);
+				  }
+		      }
+		    });
+	}
 </script>
 
 </head>
@@ -70,5 +89,7 @@
 	<span id="cookieInfo"></span>
 	<hr />
 	<p>권한이 필요한 URL 호출</p>
+	AccessToken : <input type="text" id="testAccessToken" size="50"/><br/>
+	<input type="button" onclick="testAuth();" value="호출">
 </body>
 </html>

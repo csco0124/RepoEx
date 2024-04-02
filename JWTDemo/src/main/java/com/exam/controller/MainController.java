@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.config.CookieUtil;
 import com.exam.config.JwtTokenProvider;
+import com.exam.config.TokenRefresh;
 import com.exam.dto.TokenDto;
 import com.exam.service.MemberService;
 
@@ -27,6 +28,7 @@ public class MainController {
 	private final MemberService memberService;
 	private final JwtTokenProvider jwtTokenProvider;
 	private final CookieUtil cookieUtil;
+	private final TokenRefresh tokenRefresh;
 	
 	@PostMapping("/login")
     public TokenDto login(@RequestBody Map<String, String> paramMap, HttpServletResponse response) {
@@ -57,6 +59,11 @@ public class MainController {
     @PostMapping("/testAuth")
     public String testAuth() {
     	return "testAuth success";
+    }
+    @PostMapping("/tokenRefresh")
+    public TokenDto tokenRefresh(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    	TokenDto tokenDto = tokenRefresh.execute(request, response);
+    	return tokenDto;
     }
     
 }

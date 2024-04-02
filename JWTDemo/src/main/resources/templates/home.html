@@ -50,6 +50,7 @@
 	}
 	
 	function testAuth(){
+		$("#testAuthInfo").text("");
 		$.ajax({
 		      url: "/testAuth",
 		      type: "POST",
@@ -59,12 +60,58 @@
 			    },
 		      success: (res) => {
 				  console.log(res);
+				  $("#testAuthInfo").text(res);
 		      },
 		      error: (e) => {
 		    	  console.log(e);
 		    	  if(e.status === 403){
-					  alert(e.responseJSON.message);
+					  alert(e.status + ":" + e.responseJSON.message);
 				  }
+		      }
+		    });
+	}
+	
+	function testAuthRef(){
+		$("#testAuthInfo").text("");
+		$.ajax({
+		      url: "/testAuth",
+		      type: "POST",
+		      contentType : 'application/json; charset=utf-8',
+		      headers : {
+			     Authorization : "Bearer " + $("#testAccessTokenRef").val()
+			    },
+		      success: (res) => {
+				  console.log(res);
+				  $("#testAuthRefInfo").text(res);
+		      },
+		      error: (e) => {
+		    	  console.log(e);
+		    	  if(e.status === 403){
+					  $("#testAccessTokenRef").val("");
+					  $("#testAuthRefInfo").text(e.responseJSON.message);
+					  alert(e.status + ":" + e.responseJSON.message + ": 토큰 Refresh 후 재호출 실행...");
+					  this.tokenRefresh();
+				  }
+		      }
+		    });
+	}
+	function tokenRefresh(){
+		$.ajax({
+		      url: "/tokenRefresh",
+		      type: "POST",
+		      contentType : 'application/json; charset=utf-8',
+		      headers : {},
+		      success: (res) => {
+				  console.log(res);
+				  $("#grantType").val(res.grantType);
+				  $("#accessToken").val(res.accessToken);
+				  $("#testAccessTokenRef").val(res.accessToken)
+				  $("#refreshToken").val(res.refreshToken);
+				  testAuthRef();
+		      },
+		      error: (e) => {
+		    	  console.log(e);
+		    	  alert(e.status + ":" + e.responseJSON.message);
 		      }
 		    });
 	}
@@ -81,7 +128,7 @@
 	<br /><br />
 	<small>로그인 후 발행된 토큰</small><br />
 	GrantType : <input type="text" id="grantType" size="20" /><br/>
-	AccessToken : <input type="text" id="accessToken" size="50"/><br/>
+	AccessToken (현재 20초로 설정됨) : <input type="text" id="accessToken" size="50"/><br/>
 	RefreshToken : <input type="text" id="refreshToken" size="50"/>
 	<hr />
 	<p>토큰 쿠키정보 가져오기</p>
@@ -91,5 +138,13 @@
 	<p>권한이 필요한 URL 호출</p>
 	AccessToken : <input type="text" id="testAccessToken" size="50"/><br/>
 	<input type="button" onclick="testAuth();" value="호출">
+	<span id="testAuthInfo"></span>
+	<hr />
+	<p>권한이 필요한 URL 호출(리프레쉬 토큰으로 엑세스토큰 갱신)</p>
+	AccessToken : <input type="text" id="testAccessTokenRef" size="50"/><br/>
+	<input type="button" onclick="testAuthRef();" value="호출">
+	<input type="button" onclick="tokenRefresh();" value="tokenRefresh 호출">
+	
+	<span id="testAuthRefInfo"></span>
 </body>
 </html>

@@ -1,15 +1,15 @@
 export default function Cart() {
+  let 장바구니 = ["Tomatoes", "Pasta"];
   return (
     <div>
       <h4 className="title">Cart</h4>
-      <CartItem />
-      <CartItem />
+      <CartItem item={장바구니[0]}/>
       <CartItem />
     </div>
   );
 }
 
-function CartItem() {
+function CartItem(props) {
   return (
     <div className="cart-item">
       <p>상품명</p>

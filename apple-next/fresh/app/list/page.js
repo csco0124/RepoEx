@@ -16,12 +16,10 @@ export default function List() {
             <span> {수량[i]} </span>
             <button
               onClick={() => {
-                수량[i] = 수량[i]+1;
+                수량[i]++;
                 수량변경([...수량]);
               }}
-            >
-              +
-            </button>
+            > + </button>
           </div>
         );
       })}

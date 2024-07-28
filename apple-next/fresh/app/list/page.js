@@ -16,8 +16,9 @@ export default function List() {
             <span> {수량[i]} </span>
             <button
               onClick={() => {
-                수량[i]++;
-                수량변경([...수량]);
+                let copy = [...수량];
+                copy[i]++;
+                수량변경(copy);
               }}
             > + </button>
           </div>

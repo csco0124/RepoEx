@@ -1,4 +1,5 @@
 import { connectDB } from "@/util/database";
+import Link from "next/link";
 
 export default async function List() {
   const db = (await connectDB).db("forum");
@@ -9,6 +10,7 @@ export default async function List() {
         return (
           <div className="list-item" key={i}>
             <h4>{a.title}</h4>
+            <Link href={`/detail/${a._id}`}>링크</Link>
             <p>{a.content}</p>
           </div>
         );

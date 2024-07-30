@@ -13,7 +13,6 @@ export default async function handler(요청, 응답) {
       let result = await db
         .collection("post")
         .updateOne({ _id: new ObjectId("" + 요청.body._id) }, { $set: changeObj });
-        console.log('result', result);
       return 응답.status(200).redirect("/list");
     } catch (error) {
       // DB저장시 에러

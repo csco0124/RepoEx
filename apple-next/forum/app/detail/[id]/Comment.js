@@ -9,7 +9,6 @@ export default function Comment({ _id }) {
   useEffect(() => {
     fetch("/api/comment/list?id=" + _id).then(r => r.json())
       .then((result) => {
-        console.log("result2", result);
         setData(result);
       });
   }, []);

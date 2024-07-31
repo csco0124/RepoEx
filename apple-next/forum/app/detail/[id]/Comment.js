@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Comment(props) {
+export default function Comment({_id}) {
   let [comment, setComment] = useState("");
   return (
     <div>
@@ -10,7 +10,7 @@ export default function Comment(props) {
       <input onChange={(e) => {setComment(e.target.value);}}/>
       <button
         onClick={() => {
-          fetch("/api/comment/new", { methos: "POST", body: comment });
+          fetch("/api/comment/new", { method: "POST", body: JSON.stringify({_id, comment}) });
         }}
       >
         댓글전송

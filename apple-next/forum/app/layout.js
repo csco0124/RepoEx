@@ -13,7 +13,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  await getServerSession(authOptions);
+  let authObj = await getServerSession(authOptions);
+  console.log(authObj);
   return (
     <html lang="en">
       <body>
@@ -22,7 +23,7 @@ export default async function RootLayout({ children }) {
             Appleforum
           </Link>
           <Link href="/list">List</Link>
-          <LoginBtn />
+          <LoginBtn user = {authObj?.user} />
         </div>
         {children}
       </body>

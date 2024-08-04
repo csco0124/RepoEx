@@ -1,9 +1,10 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
 import { useState } from "react";
 import data from "./data";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
+import axios from "axios";
 
 function App() {
   let navigate = useNavigate();
@@ -34,7 +35,17 @@ function App() {
       </Navbar>
 
       <div className="main-bg"></div>
-
+      <Button
+        onClick={() => {
+          axios
+            .get("https://codingapple1.github.io/shop/data2.json")
+            .then((res) => {
+              console.log("data", res.data);
+            });
+        }}
+      >
+        Axios 버튼
+      </Button>
       <Routes>
         <Route
           path="/"
@@ -78,7 +89,7 @@ function Card(props) {
             <img
               src={process.env.PUBLIC_URL + `/shoes${i + 1}.jpg`}
               width="80%"
-              style={{cursor:"pointer"}}
+              style={{ cursor: "pointer" }}
               alt={`shoes${i + 1}`}
               onClick={() => {
                 navigate(`/detail/${a.id}`);

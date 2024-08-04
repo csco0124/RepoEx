@@ -35,24 +35,28 @@ function App() {
       </Navbar>
 
       <div className="main-bg"></div>
-      <Button
-        onClick={() => {
-          axios
-            .get("https://codingapple1.github.io/shop/data2.json")
-            .then((res) => {
-              console.log("data", res.data);
-            });
-        }}
-      >
-        Axios 버튼
-      </Button>
       <Routes>
         <Route
           path="/"
           element={
             <div className="container">
               <div className="row">
-                <Card data={data} />
+                <Card data={shoes} />
+                <Button
+                  onClick={() => {
+                    axios
+                      .get("https://codingapple1.github.io/shop/data2.json")
+                      .then((res) => {
+                        console.log("data", res.data);
+                        setShoes([...shoes, ...res.data])
+                      })
+                      .catch((e) => {
+                        console.log("실패", e);
+                      });
+                  }}
+                >
+                  더보기
+                </Button>
               </div>
             </div>
           }
@@ -87,10 +91,10 @@ function Card(props) {
         return (
           <div className="col-md-4" key={i}>
             <img
-              src={process.env.PUBLIC_URL + `/shoes${i + 1}.jpg`}
+              src={process.env.PUBLIC_URL + `/shoes${a.id + 1}.jpg`}
               width="80%"
               style={{ cursor: "pointer" }}
-              alt={`shoes${i + 1}`}
+              alt={`shoes${a.id + 1}`}
               onClick={() => {
                 navigate(`/detail/${a.id}`);
               }}

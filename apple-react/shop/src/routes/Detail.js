@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "./../data";
@@ -13,7 +14,13 @@ const NewBtn = styled(YellowBtn)`
 `;
 
 function Detail() {
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert(false);
+    }, 2000);
+  }, []);
   let { id } = useParams();
+  let [alert, setAlert] = useState(true);
   let shoes = data.find(function (x) {
     return x.id === Number(id);
   });
@@ -24,6 +31,10 @@ function Detail() {
       <YellowBtn bg="blue">버튼</YellowBtn>
       <YellowBtn bg="yellow">버튼</YellowBtn>
       <NewBtn bg="yellow">상속버튼</NewBtn> */}
+
+      {alert === true ? (
+        <div className="alert alert-warning">2초이내 구매시 할인</div>
+      ) : null}
 
       {!shoes ? (
         <div>상품없음</div>

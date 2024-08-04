@@ -75,7 +75,6 @@ function Card(props) {
       {props.data.map((a, i) => {
         return (
           <div className="col-md-4" key={i}>
-            
             <img
               src={process.env.PUBLIC_URL + `/shoes${i + 1}.jpg`}
               width="80%"

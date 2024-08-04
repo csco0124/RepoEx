@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import styled from 'styled-components'
 import data from "./../data";
 
 function Detail() {

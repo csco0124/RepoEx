@@ -15,9 +15,14 @@ const NewBtn = styled(YellowBtn)`
 
 function Detail() {
   useEffect(() => {
-    setTimeout(() => {
+    let timer = setTimeout(() => {
       setAlert(false);
     }, 2000);
+    console.log('4545');
+    return () => {  // useEffect 실행되기 전에 실행됨 (mount시에는 실행안되며, unmount시애는 실행됨)
+      console.log('1313');
+      clearTimeout(timer);  // 기존에 실행되는 타이머는 제거
+    }
   }, []);
   let { id } = useParams();
   let [alert, setAlert] = useState(true);

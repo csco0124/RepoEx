@@ -79,6 +79,7 @@ function Card(props) {
             <img
               src={process.env.PUBLIC_URL + `/shoes${i + 1}.jpg`}
               width="80%"
+              style={{cursor:"pointer"}}
               alt={`shoes${i + 1}`}
               onClick={() => {
                 navigate(`/detail/${a.id}`);

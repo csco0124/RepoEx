@@ -1,6 +1,16 @@
 import { useParams } from "react-router-dom";
-import styled from 'styled-components'
+import styled from "styled-components";
 import data from "./../data";
+
+const YellowBtn = styled.button`
+  background: ${(props) => props.bg};
+  color: ${(props) => (props.bg === "blue" ? "white" : "black")};
+  padding: 10px;
+`;
+
+const NewBtn = styled(YellowBtn)`
+  padding: 10px;
+`;
 
 function Detail() {
   let { id } = useParams();
@@ -9,6 +19,12 @@ function Detail() {
   });
   return (
     <div className="container">
+      {/* 
+      styled-components 예제
+      <YellowBtn bg="blue">버튼</YellowBtn>
+      <YellowBtn bg="yellow">버튼</YellowBtn>
+      <NewBtn bg="yellow">상속버튼</NewBtn> */}
+
       {!shoes ? (
         <div>상품없음</div>
       ) : (

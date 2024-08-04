@@ -76,15 +76,20 @@ function About() {
 }
 
 function Card(props) {
+  let navigate = useNavigate();
   return (
     <>
       {props.data.map((a, i) => {
         return (
           <div className="col-md-4" key={i}>
+            
             <img
               src={process.env.PUBLIC_URL + `/shoes${i + 1}.jpg`}
               width="80%"
               alt={`shoes${i + 1}`}
+              onClick={() => {
+                navigate(`/detail/${a.id}`);
+              }}
             />
             <h4>{a.title}</h4>
             <p>{a.price}</p>

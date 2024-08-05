@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import user from "./store/userSlice";
 import cart from "./store/cartSlice";
 

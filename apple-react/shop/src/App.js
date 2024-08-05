@@ -62,6 +62,7 @@ function App() {
           }
         />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/cart" element={ <Cart/> } /> 
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>멤버임</div>} />
           <Route path="location" element={<div>위치임</div>} />

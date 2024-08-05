@@ -9,11 +9,15 @@ const cart = createSlice({
   reducers: {
     addCount(state, action) {
       const id = action.payload;
-      state.forEach((a, i) => {
-        if(a.id === id){
-          a.count++;
-        }
-      })
+      // state.forEach((a, i) => {
+      //   if(a.id === id){
+      //     a.count++;
+      //   }
+      // })
+      let idx = state.findIndex((a) => {
+        return a.id === id;
+      }); // 사용시 주의 : 배열 안에 족너에 만족하는 객체가 두개 이상 있는경우에도 첫번째 값의 인덱스만 가져옴, 그러나 ID는 고유값이므로 큰 문제는 없음
+      state[idx].count++;
     },
   },
 });

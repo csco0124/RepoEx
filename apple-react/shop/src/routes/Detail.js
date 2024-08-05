@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "./../data";
+import { Nav } from "react-bootstrap";
 
 const YellowBtn = styled.button`
   background: ${(props) => props.bg};
@@ -18,12 +19,15 @@ function Detail() {
     let timer = setTimeout(() => {
       setAlert(false);
     }, 2000);
-    return () => {  // useEffect 실행되기 전에 실행됨 (mount시에는 실행안되며, unmount시애는 실행됨)
-      clearTimeout(timer);  // 기존에 실행되는 타이머는 제거
-    }
+    return () => {
+      // useEffect 실행되기 전에 실행됨 (mount시에는 실행안되며, unmount시애는 실행됨)
+      clearTimeout(timer); // 기존에 실행되는 타이머는 제거
+    };
   }, []);
   let { id } = useParams();
   let [alert, setAlert] = useState(true);
+  let [tab, setTab] = useState(0);
+
   let shoes = data.find(function (x) {
     return x.id === Number(id);
   });
@@ -58,8 +62,31 @@ function Detail() {
           </div>
         </div>
       )}
+
+      <Nav variant="tabs" defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link eventKey="link0" onClick={() => {setTab(0)}}>버튼0</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link1" onClick={() => {setTab(1)}}>버튼1</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="link2" onClick={() => {setTab(2)}}>버튼2</Nav.Link>
+        </Nav.Item>
+      </Nav>
+      <TabContent tab={tab} />
     </div>
   );
+}
+
+function TabContent({ tab }) {
+  if (tab === 0) {
+    return <div>내용0</div>;
+  } else if (tab === 1) {
+    return <div>내용1</div>;
+  } else if (tab === 2) {
+    return <div>내용2</div>;
+  }
 }
 
 export default Detail;

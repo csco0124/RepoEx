@@ -12,7 +12,10 @@ function App() {
   let [shoes, setShoes] = useState(data);
 
   useEffect(() => {
-    localStorage.setItem("watched", JSON.stringify([]));
+    let watchedItem = localStorage.getItem("watched");
+    if(!watchedItem){
+      localStorage.setItem("watched", JSON.stringify([]));
+    }
   }, []);
 
   return (

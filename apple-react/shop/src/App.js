@@ -26,6 +26,13 @@ function App() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              Cart
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
                 navigate("/about");
               }}
             >

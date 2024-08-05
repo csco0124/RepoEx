@@ -9,7 +9,7 @@ const cart = createSlice({
   reducers: {
     addCount(state, action) {
       const id = action.payload;
-      state.map((a, i) => {
+      state.forEach((a, i) => {
         if(a.id === id){
           a.count++;
         }

@@ -1,6 +1,6 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "./data";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
@@ -10,6 +10,10 @@ import axios from "axios";
 function App() {
   let navigate = useNavigate();
   let [shoes, setShoes] = useState(data);
+
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify([]));
+  }, []);
 
   return (
     <div className="App">
@@ -56,7 +60,7 @@ function App() {
                       .get("https://codingapple1.github.io/shop/data2.json")
                       .then((res) => {
                         console.log("data", res.data);
-                        setShoes([...shoes, ...res.data])
+                        setShoes([...shoes, ...res.data]);
                       })
                       .catch((e) => {
                         console.log("실패", e);
@@ -70,7 +74,7 @@ function App() {
           }
         />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/cart" element={ <Cart /> } /> 
+        <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>멤버임</div>} />
           <Route path="location" element={<div>위치임</div>} />

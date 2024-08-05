@@ -16,6 +16,13 @@ const NewBtn = styled(YellowBtn)`
 
 function Detail() {
   useEffect(() => {
+    let watchedItem = localStorage.getItem("watched");
+    watchedItem = JSON.parse(watchedItem);
+    watchedItem.push(shoes.id);
+    watchedItem = new Set(watchedItem); // 중복값 저장 허용 방지를 위해 set 자료형으로 변환 후 다시 array로 변환 후 저장
+    watchedItem = Array.from(watchedItem);
+    localStorage.setItem("watched", JSON.stringify(watchedItem));
+
     let timer = setTimeout(() => {
       setAlert(false);
     }, 2000);
@@ -65,13 +72,34 @@ function Detail() {
 
       <Nav variant="tabs" defaultActiveKey="link0">
         <Nav.Item>
-          <Nav.Link eventKey="link0" onClick={() => {setTab(0)}}>버튼0</Nav.Link>
+          <Nav.Link
+            eventKey="link0"
+            onClick={() => {
+              setTab(0);
+            }}
+          >
+            버튼0
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link1" onClick={() => {setTab(1)}}>버튼1</Nav.Link>
+          <Nav.Link
+            eventKey="link1"
+            onClick={() => {
+              setTab(1);
+            }}
+          >
+            버튼1
+          </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link2" onClick={() => {setTab(2)}}>버튼2</Nav.Link>
+          <Nav.Link
+            eventKey="link2"
+            onClick={() => {
+              setTab(2);
+            }}
+          >
+            버튼2
+          </Nav.Link>
         </Nav.Item>
       </Nav>
       <TabContent tab={tab} />
@@ -80,22 +108,21 @@ function Detail() {
 }
 
 function TabContent({ tab }) {
-
-  let [fade, setFade] = useState('');
+  let [fade, setFade] = useState("");
 
   useEffect(() => {
-    let fadeTimeout = setTimeout(()=>{setFade("end");}, 10);
+    let fadeTimeout = setTimeout(() => {
+      setFade("end");
+    }, 10);
     return () => {
       clearTimeout(fadeTimeout);
       setFade("");
-    }
+    };
   }, [tab]);
 
   return (
     <div className={`start ${fade}`}>
-      {
-        [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]
-      }
+      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][tab]}
     </div>
   );
 }

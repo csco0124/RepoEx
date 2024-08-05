@@ -4,8 +4,8 @@ import { useState } from "react";
 import data from "./data";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
-import axios from "axios";
 import Cart from "./routes/Cart";
+import axios from "axios";
 
 function App() {
   let navigate = useNavigate();

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "./../data";
 import { Nav } from "react-bootstrap";
+import { useLike } from "../hooks/like";
 
 const YellowBtn = styled.button`
   background: ${(props) => props.bg};
@@ -31,6 +32,9 @@ function Detail() {
       clearTimeout(timer); // 기존에 실행되는 타이머는 제거
     };
   }, []);
+
+  let [like, addLike] = useLike();
+
   let { id } = useParams();
   let [alert, setAlert] = useState(true);
   let [tab, setTab] = useState(0);
@@ -45,6 +49,8 @@ function Detail() {
       <YellowBtn bg="blue">버튼</YellowBtn>
       <YellowBtn bg="yellow">버튼</YellowBtn>
       <NewBtn bg="yellow">상속버튼</NewBtn> */}
+
+      {like} <button onClick={()=>{addLike()}}>좋아요추가</button>
 
       {alert === true ? (
         <div className="alert alert-warning">2초이내 구매시 할인</div>

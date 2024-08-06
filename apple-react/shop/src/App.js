@@ -6,6 +6,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
 import Cart from "./routes/Cart";
 import axios from "axios";
+import { useQuery } from "react-query";
 
 function App() {
   let navigate = useNavigate();
@@ -13,10 +14,19 @@ function App() {
 
   useEffect(() => {
     let watchedItem = localStorage.getItem("watched");
-    if(!watchedItem){
+    if (!watchedItem) {
       localStorage.setItem("watched", JSON.stringify([]));
     }
   }, []);
+
+  let userdataResult = useQuery("userdata", () =>
+    axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
+      // console.log("useQuery 요청.....");
+      return a.data;
+    }),
+    {staleTime : 2000}  // 2초마다 refetch(호출)
+  );
+  console.log(userdataResult);
 
   return (
     <div className="App">
@@ -45,6 +55,11 @@ function App() {
             >
               About
             </Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
+            {userdataResult.isLoading && "로딩중"}
+            {userdataResult.error && "에러남"}
+            {userdataResult.data && `반가워요 ${userdataResult.data.name}`}
           </Nav>
         </Container>
       </Navbar>

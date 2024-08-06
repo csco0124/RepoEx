@@ -7,7 +7,7 @@ import { memo, useMemo, useState } from "react";
 // memo : 해당 컴포넌트에 전송되는 props가 변할 때만 재렌더링해줌
 // props가 많은 경우 모두 비교하기 때문에, props가 많으면 오히려 성능이 떨어질 수 있음
 const Child = memo(function () {    
-  console.log("Child..............");
+  // console.log("Child..............");
   return <div>Cart의 자식...</div>;
 });
 

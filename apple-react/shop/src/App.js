@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import data from "./data";
 import axios from "axios";
 import Cart from "./routes/Cart.js";
+import Transition from "./routes/Transition.js";
 const Detail = lazy(() => import("./routes/Detail"));
 
 function App() {
@@ -50,6 +51,14 @@ function App() {
             >
               Cart
             </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/transition");
+              }}
+            >
+              Transition
+            </Nav.Link>
+            
             <Nav.Link
               onClick={() => {
                 navigate("/about");
@@ -97,6 +106,7 @@ function App() {
           />
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/transition" element={<Transition />} />
           <Route path="/about" element={<About />}>
             <Route path="member" element={<div>멤버임</div>} />
             <Route path="location" element={<div>위치임</div>} />

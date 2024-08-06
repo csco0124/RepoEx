@@ -1,12 +1,12 @@
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import "./App.css";
-import { useEffect, useState } from "react";
-import data from "./data";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
-import Detail from "./routes/Detail";
-import Cart from "./routes/Cart";
-import axios from "axios";
 import { useQuery } from "react-query";
+import data from "./data";
+import axios from "axios";
+import Cart from "./routes/Cart.js";
+const Detail = lazy(() => import("./routes/Detail"));
 
 function App() {
   let navigate = useNavigate();
@@ -19,14 +19,16 @@ function App() {
     }
   }, []);
 
-  let userdataResult = useQuery("userdata", () =>
-    axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
-      // console.log("useQuery 요청.....");
-      return a.data;
-    }),
-    {staleTime : 2000}  // 2초마다 refetch(호출)
+  let userdataResult = useQuery(
+    "userdata",
+    () =>
+      axios.get("https://codingapple1.github.io/userdata.json").then((a) => {
+        // console.log("useQuery 요청.....");
+        return a.data;
+      }),
+    { staleTime: 2000 } // 2초마다 refetch(호출)
   );
-  console.log(userdataResult);
+  //console.log(userdataResult);
 
   return (
     <div className="App">
@@ -65,40 +67,43 @@ function App() {
       </Navbar>
 
       <div className="main-bg"></div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="container">
-              <div className="row">
-                <Card data={shoes} />
-                <Button
-                  onClick={() => {
-                    axios
-                      .get("https://codingapple1.github.io/shop/data2.json")
-                      .then((res) => {
-                        console.log("data", res.data);
-                        setShoes([...shoes, ...res.data]);
-                      })
-                      .catch((e) => {
-                        console.log("실패", e);
-                      });
-                  }}
-                >
-                  더보기
-                </Button>
+      <Suspense fallback={<div>로딩중...</div>}>
+        {/* Suspense : lazy loading 되는 컴포넌트을 위해 감싸줌 */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="container">
+                <div className="row">
+                  <Card data={shoes} />
+                  <Button
+                    onClick={() => {
+                      axios
+                        .get("https://codingapple1.github.io/shop/data2.json")
+                        .then((res) => {
+                          console.log("data", res.data);
+                          setShoes([...shoes, ...res.data]);
+                        })
+                        .catch((e) => {
+                          console.log("실패", e);
+                        });
+                    }}
+                  >
+                    더보기
+                  </Button>
+                </div>
               </div>
-            </div>
-          }
-        />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/about" element={<About />}>
-          <Route path="member" element={<div>멤버임</div>} />
-          <Route path="location" element={<div>위치임</div>} />
-        </Route>
-        <Route path="*" element={<div>없는페이지에요</div>} />
-      </Routes>
+            }
+          />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/about" element={<About />}>
+            <Route path="member" element={<div>멤버임</div>} />
+            <Route path="location" element={<div>위치임</div>} />
+          </Route>
+          <Route path="*" element={<div>없는페이지에요</div>} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" style="-vh: 9.12px;">
+	<th:block th:replace="layout/head :: headFragment('회원 페이지-어드민')"></th:block>
+
+<body style="overflow-y: auto;">
+	<div class="warp">
+		<header class="header">
+			<div class="title">
+				<h1 class="h1-tit-admin">회원 페이지-어드민</h1>
+			</div>
+			<div class="menu">
+				<button type="button" class="btn-menu">메뉴</button>
+			</div>
+			<nav class="nav">
+				<th:block th:replace="layout/userHeader :: HeaderFragment"></th:block>
+			</nav>
+			<div class="gnb-box">
+                <div class="login-txt">
+                    <div><span>나루</span>님 환영합니다!</div>
+                    <div><button class="btn-logout">로그아웃</button></div>
+                </div>
+            </div>
+		</header>
+		<section class="container">
+			<h1>회원페이지-어드민입니다.</h1>
+			<span>ROLE_ADMIN</span>
+		</section>
+	</div>
+</body>
+</html>

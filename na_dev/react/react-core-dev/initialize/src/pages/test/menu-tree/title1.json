@@ -1,0 +1,272 @@
+[
+  {
+    "id": "adminSystemMgt",
+    "parent": 0,
+    "droppable": true,
+    "ord": 4,
+    "text": "시스템 관리"
+  },
+  {
+    "id": "adminOpMgmt",
+    "parent": 0,
+    "droppable": true,
+    "ord": 5,
+    "text": "운영관리"
+  },
+  {
+    "id": "adminLoginMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 11,
+    "text": "로그인 관리"
+  },
+  {
+    "id": "adminAdminMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 12,
+    "text": "관리자 관리"
+  },
+  {
+    "id": "adminBizMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 13,
+    "text": "BIZ 관리"
+  },
+  {
+    "id": "adminAuthorizationMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 14,
+    "text": "권한 관리"
+  },
+  {
+    "id": "adminCodeMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 15,
+    "text": "코드 관리"
+  },
+  {
+    "id": "adminItfMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 16,
+    "text": "인터페이스 관리"
+  },
+  {
+    "id": "adminQualityMgt",
+    "parent": "adminSystemMgt",
+    "droppable": true,
+    "ord": 17,
+    "text": "품질 관리"
+  },
+  {
+    "id": "adminCommMgt",
+    "parent": "adminOpMgmt",
+    "droppable": true,
+    "ord": 18,
+    "text": "공통 관리"
+  },
+  {
+    "id": "adminCustomMgt",
+    "parent": "adminOpMgmt",
+    "droppable": true,
+    "ord": 19,
+    "text": "커스텀 관리"
+  },
+  {
+    "id": "adminIpMgt",
+    "parent": "adminLoginMgt",
+    "droppable": true,
+    "ord": 25,
+    "text": "로그인 허용 IP 관리",
+    "url": "adminSystemMgt/adminLoginMgt/adminIpMgt"
+  },
+  {
+    "id": "adminInfoMgt",
+    "parent": "adminAdminMgt",
+    "droppable": true,
+    "ord": 26,
+    "text": "관리자 정보 관리",
+    "url": "adminSystemMgt/adminAdminMgt/adminInfoMgt"
+  },
+  {
+    "id": "adminAccessHistoryMgt",
+    "parent": "adminAdminMgt",
+    "droppable": true,
+    "ord": 27,
+    "text": "관리자 접속 이력 관리",
+    "url": "adminSystemMgt/adminAdminMgt/adminAccessHistoryMgt"
+  },
+  {
+    "id": "adminMgt",
+    "parent": "adminAdminMgt",
+    "droppable": true,
+    "ord": 28,
+    "text": "대시보드 관리자 관리",
+    "url": "adminSystemMgt/adminAdminMgt/adminMgt"
+  },
+  {
+    "id": "adminMenuMgt",
+    "parent": "adminBizMgt",
+    "droppable": true,
+    "ord": 29,
+    "text": "BIZ 메뉴 관리",
+    "url": "adminSystemMgt/adminBizMgt/adminMenuMgt"
+  },
+  {
+    "id": "adminPageMgt",
+    "parent": "adminBizMgt",
+    "droppable": true,
+    "ord": 30,
+    "text": "BIZ 화면 관리",
+    "url": "adminSystemMgt/adminBizMgt/adminPageMgt"
+  },
+  {
+    "id": "adminAppAccessAuthMgt",
+    "parent": "adminAuthorizationMgt",
+    "droppable": true,
+    "ord": 31,
+    "text": "앱 메뉴 및 화면 접근 권한 관리",
+    "url": "adminSystemMgt/adminAuthorizationMgt/adminAppAccessAuthMgt"
+  },
+  {
+    "id": "adminAccessAuthMgt",
+    "parent": "adminAuthorizationMgt",
+    "droppable": true,
+    "ord": 32,
+    "text": "관리자 메뉴 및 화면 접근 권한 관리",
+    "url": "adminSystemMgt/adminAuthorizationMgt/adminAccessAuthMgt"
+  },
+  {
+    "id": "adminBizAccessAuthMgt",
+    "parent": "adminAuthorizationMgt",
+    "droppable": true,
+    "ord": 33,
+    "text": "BIZ 메뉴 및 화면 접근 권한 관리",
+    "url": "adminSystemMgt/adminAuthorizationMgt/adminBizAccessAuthMgt"
+  },
+  {
+    "id": "adminRoleMgt",
+    "parent": "adminAuthorizationMgt",
+    "droppable": true,
+    "ord": 34,
+    "text": "역할 관리",
+    "url": "adminSystemMgt/adminAuthorizationMgt/adminRoleMgt"
+  },
+  {
+    "id": "adminMetaCpt",
+    "parent": "adminCodeMgt",
+    "droppable": true,
+    "ord": 35,
+    "text": "META 코드 연계",
+    "url": "adminSystemMgt/adminCodeMgt/adminMetaCpt"
+  },
+  {
+    "id": "adminCommCodeMgt",
+    "parent": "adminCodeMgt",
+    "droppable": true,
+    "ord": 36,
+    "text": "업무별 공통 코드관리",
+    "url": "adminSystemMgt/adminCodeMgt/adminCommCodeMgt"
+  },
+  {
+    "id": "adminItfInfoMgt",
+    "parent": "adminItfMgt",
+    "droppable": true,
+    "ord": 37,
+    "text": "인터페이스 정보관리",
+    "url": "adminSystemMgt/adminItfMgt/adminItfInfoMgt"
+  },
+  {
+    "id": "adminDivMgt",
+    "parent": "adminItfMgt",
+    "droppable": true,
+    "ord": 38,
+    "text": "인터페이스 구분관리",
+    "url": "adminSystemMgt/adminItfMgt/adminDivMgt"
+  },
+  {
+    "id": "adminServiceMgt",
+    "parent": "adminItfMgt",
+    "droppable": true,
+    "ord": 39,
+    "text": "인터페이스 서비스관리",
+    "url": "adminSystemMgt/adminItfMgt/adminServiceMgt"
+  },
+  {
+    "id": "adminMappingMgt",
+    "parent": "adminItfMgt",
+    "droppable": true,
+    "ord": 40,
+    "text": "인터페이스 매핑관리",
+    "url": "adminSystemMgt/adminItfMgt/adminMappingMgt"
+  },
+  {
+    "id": "adminEimsTest",
+    "parent": "adminItfMgt",
+    "droppable": true,
+    "ord": 41,
+    "text": "EIMS연동 테스트",
+    "url": "adminSystemMgt/adminItfMgt/adminEimsTest"
+  },
+  {
+    "id": "adminAppVerMgt",
+    "parent": "adminQualityMgt",
+    "droppable": true,
+    "ord": 42,
+    "text": "앱 버전 관리",
+    "url": "adminSystemMgt/adminQualityMgt/adminAppVerMgt"
+  },
+  {
+    "id": "adminBatchMgt",
+    "parent": "adminQualityMgt",
+    "droppable": true,
+    "ord": 43,
+    "text": "배치 관리",
+    "url": "adminSystemMgt/adminQualityMgt/adminBatchMgt"
+  },
+  {
+    "id": "adminSysInfoMgt",
+    "parent": "adminQualityMgt",
+    "droppable": true,
+    "ord": 44,
+    "text": "시스템 공지 관리",
+    "url": "adminSystemMgt/adminQualityMgt/adminSysInfoMgt"
+  },
+  {
+    "id": "adminCommNoticeMgt",
+    "parent": "adminCommMgt",
+    "droppable": true,
+    "ord": 45,
+    "text": "통합 공지 관리",
+    "url": "adminOpMgmt/adminCommMgt/adminCommNoticeMgt"
+  },
+  {
+    "id": "adminEventMgt",
+    "parent": "adminCommMgt",
+    "droppable": true,
+    "ord": 46,
+    "text": "이벤트 관리",
+    "url": "adminOpMgmt/adminCommMgt/adminEventMgt"
+  },
+  {
+    "id": "adminAppPushMgt",
+    "parent": "adminCommMgt",
+    "droppable": true,
+    "ord": 47,
+    "text": "앱 푸시 관리",
+    "url": "adminOpMgmt/adminCommMgt/adminAppPushMgt"
+  },
+  {
+    "id": "adminPointMgt",
+    "parent": "adminCustomMgt",
+    "droppable": true,
+    "ord": 48,
+    "text": "포인트 관리",
+    "url": "adminOpMgmt/adminCustomMgt/adminPointMgt"
+  }
+]
+

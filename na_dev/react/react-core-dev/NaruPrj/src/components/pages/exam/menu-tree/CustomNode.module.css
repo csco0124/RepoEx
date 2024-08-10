@@ -1,0 +1,139 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    padding: 4px;
+    padding-inline-end: 8px;
+    color: #232527;
+    border-bottom: 1px solid #E2E2E2;
+}
+.root:hover {
+    background-color: #FDEDE2;
+}
+
+.root.isSelected {
+    color: #F37321;
+}
+.root > div {
+    display: flex;
+    align-items: center;
+}
+.root > div:first-child {
+    width: calc(100% - 230px);
+}
+
+.expandIconWrapper {
+    align-items: center;
+    font-size: inherit;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    width: 24px;
+    transition: transform linear .1s;
+    transform: rotate(0deg);
+}
+
+.expandIconWrapper.isOpen {
+    transform: rotate(90deg);
+}
+
+.labelGridItem {
+    padding-inline-start: 8px;
+}
+
+.arrow {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    width: 24px;
+    transition: transform linear 0.1s;
+    transform: rotate(0deg);
+}
+
+.arrow>div {
+    align-items: center;
+    display: flex;
+}
+
+.arrow.is-open {
+    transform: rotate(90deg);
+}
+
+.filetype {
+    display: flex;
+}
+
+.label {
+    padding-inline-start: 8px;
+}
+
+.selected {
+    background-color: #FDEDE2;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.textField input {
+    font-size: 0.75rem;
+    padding: 6px 0;
+}
+
+.editButton  {
+    position: absolute; 
+    top: 0;
+    right: 5px;
+    display: flex;
+}
+.editButton button {
+    display: block;
+    width: 25px;
+    height: 38px;
+}
+
+.editIcon {
+    font-size: 20px;
+}
+
+.nodeInput {
+    width: 200px;
+}
+
+.nodeLabel {
+    padding-right: 15px;
+}
+.btnEdit {
+    padding: 0 8px;
+    gap: 16px;
+}
+
+.treeInput {
+    height: 32px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.treeLabel {
+    display: inline-block;
+    color: #232527;
+    line-height: 1.7;
+}
+
+.treeArrow {
+    color: inherit;
+    cursor: default;
+}
+
+.treeIcon {
+    cursor: pointer;
+}

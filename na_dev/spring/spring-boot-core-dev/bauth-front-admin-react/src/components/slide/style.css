@@ -1,0 +1,55 @@
+/* 슬라이드쇼 컨테이너 스타일 */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* 슬라이드 스타일 */
+.slide {
+  display: none;
+}
+
+/* 이미지 스타일 */
+img {
+  width: 100%;
+}
+
+/* Navigation arrows style */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+/* 이미지 전환 페이드 인/아웃 애니메이션 */
+.fade {
+  animation: fade 1.5s ease-in-out infinite;
+}
+
+@keyframes fade {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

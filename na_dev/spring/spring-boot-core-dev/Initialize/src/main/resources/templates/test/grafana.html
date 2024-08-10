@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>TEST</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<style>
+.wrap-box {
+	width: 300px;
+	height: 300px;
+	padding: 20px;
+	background: #9f9b9b;
+}
+
+.resize-box {
+	width: 300px;
+	height: 300px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+<script th:inline="javascript">
+	$(document).ready(function() {
+		$(".resize-box").resizable({
+			alsoResize : ".wrap-box",	//함께 커질영역 
+ 			animate : true,	//커질때 애니메이션 발생
+			animateDuration : 300,
+			animateEasing : "swing",	
+			aspectRatio : false,	//비율유지
+			autoHide : true,	//마우스 hover 아닐때 핸들러 숨기기
+			//minHeight, maxHeight, minWidth, maxWidth 최소,최대 크기지정 
+			
+		});
+	});
+</script>
+
+</head>
+<body>
+	<p>Grafana Test</p>
+	<br />
+	<div class="wrap-box">
+		<div class="resize-box">
+			<iframe src="http://localhost:3000/d-solo/fQFxlTYVk/test-mysql-dashboard?refresh=5s&orgId=1&panelId=2" 
+				width="100%" height="100%" frameborder="0">
+			</iframe>
+		</div>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,473 @@
+{
+  "root": {
+    "index": "root",
+    "canMove": false,
+    "isFolder": true,
+    "children": [
+      "A-1-2",
+      "A-1-3"
+    ],
+    "data": {
+      "title": "root"
+    },
+    "canRename": false
+  },
+  "A-1-2": {
+    "index": "A-1-2",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "시스템 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-1",
+      "A-1-2-2",
+      "A-1-2-3",
+      "A-1-2-4",
+      "A-1-2-5",
+      "A-1-2-6",
+      "A-1-2-7"
+    ]
+  },
+  "A-1-2-1": {
+    "index": "A-1-2-1",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "로그인 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-1-1"
+    ]
+  },
+  "A-1-2-1-1": {
+    "index": "A-1-2-1-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "descriptions": [
+        "허용 IP 조회 및 등록",
+        "허용 IP 사용 여부 및 최종 변경 이력 관리"
+      ],
+      "title": "로그인 허용 IP관리"
+    }
+  },
+  "A-1-2-2": {
+    "index": "A-1-2-2",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "관리자 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-2-1",
+      "A-1-2-2-2",
+      "A-1-2-2-3"
+    ]
+  },
+  "A-1-2-2-1": {
+    "index": "A-1-2-2-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "descriptions": [
+        "관리자 정보 등록/수정/삭제",
+        "관리자 역할 및 상태 관리",
+        "관리자 정보 목록 조회"
+      ],
+      "title": "관리자 정보 관리"
+    }
+  },
+  "A-1-2-2-2": {
+    "index": "A-1-2-2-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "관리자 접속 이력 관리",
+      "descriptions": [
+        "관리자 접속 이력 조회 및 다운로드"
+      ]
+    }
+  },
+  "A-1-2-2-3": {
+    "index": "A-1-2-2-3",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "대시보드 관리자 관리",
+      "descriptions": [
+        "대시보드 접근 권한 정보 등록/수정/삭제",
+        "대시보드 관리자 역할 및 상태관리",
+        "대시보드 관리자 정보 목록 조회",
+        "대시보드 관리자 접속 이력 조회 및 다운로드"
+      ]
+    }
+  },
+  "A-1-2-3": {
+    "index": "A-1-2-3",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "BIZ 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-3-1",
+      "A-1-2-3-2"
+    ]
+  },
+  "A-1-2-3-1": {
+    "index": "A-1-2-3-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "BIZ 메뉴관리",
+      "descriptions": [
+        "BIZ별 관리자 메뉴 정보 등록/수정/삭제"
+      ]
+    }
+  },
+  "A-1-2-3-2": {
+    "index": "A-1-2-3-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "BIZ 메뉴 접근 이력 관리",
+      "descriptions": [
+        "BIZ별 관리자 화면 정보 등록/수정/삭제"
+      ]
+    }
+  },
+  "A-1-2-4": {
+    "index": "A-1-2-4",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "권한 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-4-1",
+      "A-1-2-4-2",
+      "A-1-2-4-3",
+      "A-1-2-4-4"
+    ]
+  },
+  "A-1-2-4-1": {
+    "index": "A-1-2-4-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "앱 메뉴 및 화면 접근 권한 관리",
+      "descriptions": [
+        "접근 권한 정보 조회 및 등록/수정/삭제",
+        "접근 권한 변경 이력 관리",
+        "메뉴 및 화면 상태 관리"
+      ]
+    }
+  },
+  "A-1-2-4-2": {
+    "index": "A-1-2-4-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "관리자 메뉴 및 화면 접근 권한 관리",
+      "descriptions": [
+        "접근 권한 정보 조회 및 등록/수정/삭제",
+        "접근 권한 변경 이력 관리",
+        "메뉴 및 화면 상태 관리"
+      ]
+    }
+  },
+  "A-1-2-4-3": {
+    "index": "A-1-2-4-3",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "BIZ 메뉴 및 화면 접근 권한 관리",
+      "descriptions": [
+        "접근 권한 정보 조회 및 등록/수정/삭제",
+        "접근 권한 변경 이력 관리",
+        "메뉴 및 화면 상태 관리"
+      ]
+    }
+  },
+  "A-1-2-4-4": {
+    "index": "A-1-2-4-4",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "역할 관리",
+      "descriptions": [
+        "사용자 역할 구분 조회 및 등록",
+        "사용자 역할 상태 관리",
+        "사용자 역할 변경 이력 관리"
+      ]
+    }
+  },
+  "A-1-2-5": {
+    "index": "A-1-2-5",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "코드 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-5-1",
+      "A-1-2-5-2"
+    ]
+  },
+  "A-1-2-5-1": {
+    "index": "A-1-2-5-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "META 코드 연계",
+      "descriptions": [
+        "한화생명 META 코드 연계"
+      ]
+    }
+  },
+  "A-1-2-5-2": {
+    "index": "A-1-2-5-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "업무별 공통 코드 관리",
+      "descriptions": [
+        "비즈 업무별 공통 코드 관리"
+      ]
+    }
+  },
+  "A-1-2-6": {
+    "index": "A-1-2-6",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "인터페이스 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-6-1",
+      "A-1-2-6-2",
+      "A-1-2-6-3",
+      "A-1-2-6-4",
+      "A-1-2-6-5"
+    ]
+  },
+  "A-1-2-6-1": {
+    "index": "A-1-2-6-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "인터페이스 정보관리",
+      "descriptions": [
+        "인터페이스 ID, 정보 조회 및 등록"
+      ]
+    }
+  },
+  "A-1-2-6-2": {
+    "index": "A-1-2-6-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "인터페이스 구분관리",
+      "descriptions": [
+        "인터페이스 상세 정보 조회 및 등록"
+      ]
+    }
+  },
+  "A-1-2-6-3": {
+    "index": "A-1-2-6-3",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "인터페이스 서비스관리",
+      "descriptions": [
+        "인터페이스 서비스 ID, 정보 조회 및 등록"
+      ]
+    }
+  },
+  "A-1-2-6-4": {
+    "index": "A-1-2-6-4",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "인터페이스 매핑관리",
+      "descriptions": [
+        "시스템간 입출력 파라미터 매핑 정보 조회 및 등록"
+      ]
+    }
+  },
+  "A-1-2-6-5": {
+    "index": "A-1-2-6-5",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "EIMS연동 테스트",
+      "descriptions": [
+        "EIMS 인터페이스 호출 테스트"
+      ]
+    }
+  },
+  "A-1-2-7": {
+    "index": "A-1-2-7",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "품질 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-2-7-1",
+      "A-1-2-7-2",
+      "A-1-2-7-3"
+    ]
+  },
+  "A-1-2-7-1": {
+    "index": "A-1-2-7-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "앱 버전 관리",
+      "descriptions": [
+        "앱 버전 목록 조회 및 등록/수정"
+      ]
+    }
+  },
+  "A-1-2-7-2": {
+    "index": "A-1-2-7-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "배치 관리",
+      "descriptions": [
+        "배치 실행 이력 조회 및 실행"
+      ]
+    }
+  },
+  "A-1-2-7-3": {
+    "index": "A-1-2-7-3",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "시스템 공지 관리",
+      "descriptions": [
+        "시스템 점검 알림 내용 목록 조회 및 등록"
+      ]
+    }
+  },
+  "A-1-3": {
+    "index": "A-1-3",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "운영 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-3-1",
+      "A-1-3-2"
+    ]
+  },
+  "A-1-3-1": {
+    "index": "A-1-3-1",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "공통 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-3-1-1",
+      "A-1-3-1-2",
+      "A-1-3-1-3"
+    ]
+  },
+  "A-1-3-1-1": {
+    "index": "A-1-3-1-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "통합 공지 관리",
+      "descriptions": [
+        "공지사항 내용 조회 및 등록/수정"
+      ]
+    }
+  },
+  "A-1-3-1-2": {
+    "index": "A-1-3-1-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "이벤트 관리",
+      "descriptions": [
+        "이벤트 내용 조회 및 등록/수정"
+      ]
+    }
+  },
+  "A-1-3-1-3": {
+    "index": "A-1-3-1-3",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "앱 푸시 관리",
+      "descriptions": [
+        "앱 푸시 발송",
+        "앱 푸시 발송 결과 확인"
+      ]
+    }
+  },
+  "A-1-3-2": {
+    "index": "A-1-3-2",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "커스텀 관리"
+    },
+    "canRename": true,
+    "children": [
+      "A-1-3-2-1"
+    ]
+  },
+  "A-1-3-2-1": {
+    "index": "A-1-3-2-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "포인트 관리",
+      "descriptions": [
+        "적립 포인트 설정 목록 조회 및 등록/수정/삭제",
+        "포인트 개별 지급 및 내역 조회"
+      ]
+    }
+  }
+}

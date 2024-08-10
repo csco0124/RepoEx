@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="HeaderFragment">
+	<div class="logo">
+		<img src="../../../../images/logo.png" alt="나루아이">
+	</div>
+	<ul>
+		<li>
+			<dl>
+				<a href="javascript:uiUtil.privatePageEvent('/private/view/defaultAuth/user/defaultUser', 'ROLE_USER')">
+					<dt>
+						<span>일반회원 페이지(ROLE_USER)</span>
+					</dt>
+				</tha>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="javascript:uiUtil.privatePageEvent('/private/view/defaultAuth/admin/defaultAdmin', 'ROLE_ADMIN')">
+					<dt>
+						<span>일반 어드민 페이지(ROLE_ADMIN)</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="javascript:uiUtil.privatePageEvent('/private/view/exam1', 'client')">
+					<dt>
+						<span>클라이언트 회원 페이지(ROLE_A_USER)</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="javascript:uiUtil.privatePageEvent('/oauth2/socialList', 'ROLE_USER')">
+					<dt>
+						<span>소셜/간편 로그인 등록(ROLE_USER)</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="/public/view/home">
+					<dt>
+						<span>게스트 페이지</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="/logout">
+					<dt>
+						<span>로그아웃</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+	</ul>
+	<br>
+	<div>
+		<span style="color: #fff;" id="userAuthorityInfo"></span>
+	</div>
+	<script>
+		$(document).ready(function() {
+			const userAuthorityInfo = $('#userAuthorityInfo');
+			const userInfo = commutil.getLoginUser();
+			let appendContent = userInfo.username + '님의 권한 정보'
+			
+			userInfo.authorities.map((authority) => {
+				appendContent += `<p style="margin-left: 10px;">- ${authority.authority}</p>`;
+			});
+			
+			userAuthorityInfo.append(appendContent);
+		});
+	</script>
+</html>

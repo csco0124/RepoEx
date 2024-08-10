@@ -1,0 +1,121 @@
+logging:
+  file:
+    path: /logs
+  level:
+    jdbc:
+      audit: off
+      resultset: off
+      resultsettable: info
+      sqlonly: off
+      sqltiming : info
+      connection: off
+
+server:
+  port: 8050
+  type: local
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          nauth:
+            client-name: demo-client-b
+            client-id: 8167e787-4d0b-4e1c-9731-881e9f381a66.naruint.com
+            client-secret: d7f24797-411e-4605-ad81-d18d0b3cf3cf
+            authorization-grant-type: authorization_code
+            redirect-uri: http://127.0.0.1:8050/login/oauth2/code/nauth
+            provider: naru-oidc-provider
+            scope: openid, profile, roles, phone
+        provider:
+          naru-oidc-provider:
+            issuer-uri: http://127.0.0.1:9001
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: classpath:/templates/
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  freemarker:
+    cache: false
+  config:
+    import: vault://
+  cloud:
+    vault:
+      config.lifecycle:
+        enabled: true
+        min-renewal: 10s
+        expiry-threshold: 5m
+        lease-endpoints: SysLeases
+      uri: https://vlt.bluetype.win
+      host: vlt.bluetype.win
+      port: 443
+      scheme: https                  
+      connection-timeout: 5000
+      read-timeout: 15000
+      authentication: TOKEN
+      token: 
+      kv:
+        enabled: true
+        backend: kv
+        profile-separator: '/'
+        default-context: apps05
+        application-name: apps05
+        profiles: local
+      database:
+        enabled: true
+        role: dev-33005
+        #role: dev-24206
+        backend: database
+        username-property: spring.datasource.username
+        password-property: spring.datasource.password
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://pf201.bluetype.net:33005/app_database?characterEncoding=UTF-8&allowMultiQueries=true
+    #url: jdbc:log4jdbc:mariadb://pf201.bluetype.net:24206/app_database?serverTimezone=UTC&useLegacyDatetimeCode=false&allowMultiQueries=true
+    username: 
+    password:
+    hikari:
+      pool-name: hikari-primary
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 5000
+      validation-timeout: 2000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+    
+springdoc:
+  swagger-ui:
+    path: api.html
+frontend:
+  cors:
+    url: http://localhost:5173,http://localhost:5174,http://127.0.0.1:5173,http://127.0.0.1:5174,http://localhost:3000,http://127.0.0.1:3000,http://localhost:8050,http://localhost:8080
+  custom:
+    add:
+      static:
+        location: /api/imagePath/**
+        file:
+          path: C://imagePath/
+tiny:
+  image:
+    upload:
+      path: C://upload/
+mybatis:
+  mapper-locations:
+  - classpath:mapper/**/**.xml
+  config-location: classpath:mybatis-config.xml
+jwt:
+  key: inittest
+
+internal-server-url: https://office.workday.bluetype.win
+authorization-server-url: http://127.0.0.1:9001
+server-url: http://127.0.0.1:8050
+
+#해당 권한이 없으면 클라이언트 접속 불가
+client-authority: B_USER
+default-success-url: http://127.0.0.1:5173

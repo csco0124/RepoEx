@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../../schema-define/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.narui.democlientb.test.dao.TestDao">
+
+	<select id="getCurdate" resultType="com.narui.democlientb.test.dto.TestDto">
+		/* 컬럼명 CamelCase 적용 테스트 */
+		SELECT CURDATE() AS cur_date
+	</select>
+	
+	<insert id="insertTest" parameterType="com.narui.democlientb.test.dto.TestDto">
+		INSERT INTO TEST(ID, USER_NAME)
+		VALUES (#{id}, #{userName})
+	</insert>
+	
+	<update id="updateTestUserName" parameterType="com.narui.democlientb.test.dto.TestDto">
+		UPDATE TEST SET USER_NAME = #{userName} 
+		WHERE ID = #{id}
+	</update>
+	
+	<delete id="deleteTestId" parameterType="com.narui.democlientb.test.dto.TestDto">
+		DELETE FROM TEST WHERE ID = #{id} 
+	</delete>
+	
+	<select id="getDbTestData" parameterType="com.narui.democlientb.test.dto.TestDto" resultType="java.util.Map">
+		SELECT ID, USER_NAME FROM TEST
+		<if test=' id != null and id != "" '>
+			WHERE ID = #{id}
+		</if>
+	</select>
+	
+</mapper>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/swiper-bundle.css}">
+</head>
+<body>
+<div class="warp type03">
+	<header class="header">
+		<button class="head-prev">이전페이지</button>
+		<h1 class="h1-tit"></h1>
+	</header>
+	<section class="container">
+		<div class="login">
+			<div class="cont-area01">
+				<h1>
+					<img th:src="@{/images/logo.png}" alt="나루아이">
+				</h1>
+				<div class="btn-box">
+					<div>
+						<button id="moveWorkDay" class="btnL type-orange" type="button">WorkDay 로 이동하기</button>
+					</div>
+					<div>
+						<button id="moveNaruWeek" class="btnL" type="button">NaruWeek 로 이동하기</button>
+					</div>
+					<div id="debug"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div>
+		<a href="/auth/identifier">/auth/identifier</a> (로그인)
+		<br/>
+		<a href="/auth/webcreateaccount">/auth/webcreateaccount</a> (회원가입)
+		<br/>
+		<a href="/profile">/profile</a> (프로필 수정 (webauthn))
+		<br/>		
+		<a href="/private/view/registered-client">/registered-client</a>
+		<br/>
+		<br/>
+		<a href="/public/view/500">500</a>
+		<button id="j500" >500ajax</button>
+
+		<a href="/public/view/404">404</a>
+		<button id="j404" >404ajax</button>		
+
+		<a href="/private/view/403">403</a>
+		<button id="j403" >403ajax</button>		
+
+		<a href="/private/view/401">401</a>
+		<button id="j401" >401ajax</button>
+
+		<a href="/swagger-ui/index.html#/">swagger</a>
+		<br/>
+		<hr/>
+		<a href="/public/view/auth/registration">registration</a>
+		<br/>
+		<a href="/private/api/qrcode1">qrcode</a>
+		<br/>
+		<br/>
+		<a href="/public/view/auth/login">/auth/login</a>
+		<br/>
+		<br/>
+
+		<a href="http://127.0.0.1:8080/">8080 home</a>		
+	</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+	$(document).ready(function() {
+		$('#moveWorkDay').click(function() {
+			if (location.hostname.includes('narui.co.kr')) {
+				location.href = "https://workday.narui.co.kr/";
+			} else if (location.hostname.includes('bluetype.win')) {
+				location.href = "https://workday.bluetype.win/";
+			} else {
+				location.href = "http://127.0.0.1:8080/";
+			}
+		});
+
+		$('#moveNaruWeek').click(function() {
+			if (location.hostname.includes('narui.co.kr')) {
+				location.href = "https://week.narui.co.kr/";
+			} else if (location.hostname.includes('bluetype.win')) {
+				location.href = "https://naruweek.bluetype.win/";
+			} else {
+				location.href = "http://127.0.0.1:8080/";
+			}
+		});
+
+		function ajaxCmm(type, url, param, callback) {
+			$.ajax({
+				type: type, url: url, dataType: 'json', data: param,
+				statusCode:{
+					401: function() {
+						console.log('401인증필요');
+						location.href="/auth/identifier";
+					},
+					403: function() {
+						console.log('403권한부족');
+					},
+					500: function(e) {
+						console.log(e.responseJSON.message);
+					}
+				},
+				success: function(data, status, xhr) {
+					return callback(data);
+				},
+				error: function(xhr, status, error) {
+					return callback(xhr.responseJSON);
+				}
+			});
+		}
+		function debugMessage(data) {        
+			if (data!=undefined) {
+				console.log(data);
+				$("#debug").html(JSON.stringify(data));
+			}
+		}    
+
+		$( "#j500" ).click(function() {
+			ajaxCmm("GET", "/public/api/500","",debugMessage);
+		});
+
+		$( "#j404" ).click(function() {
+			ajaxCmm("GET", "/public/api/404","",debugMessage);
+		});
+
+		$( "#j403" ).click(function() {
+			ajaxCmm("GET", "/private/api/403","",debugMessage);
+		});
+
+		$( "#j401" ).click(function() {
+			ajaxCmm("GET", "/private/api/401","",debugMessage);
+		});
+	
+	})
+
+</script>		
+</body>
+</html>

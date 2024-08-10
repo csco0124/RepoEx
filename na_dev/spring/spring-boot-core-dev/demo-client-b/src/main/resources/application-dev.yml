@@ -1,0 +1,117 @@
+logging:
+  file:
+    path: /logs
+  level:
+    jdbc:
+      audit: off
+      resultset: off
+      resultsettable: info
+      sqlonly: off
+      sqltiming : info
+      connection: off
+
+server:
+  port: 8080
+  type: dev
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          nauth:
+            client-name: demo-client-b-dev
+            client-id: 71626a92-52fc-44ad-99f0-0599d2e3e33f.naruint.com
+            client-secret: 6c320276-3132-4224-a98a-3c59f6170dbc
+            authorization-grant-type: authorization_code
+            redirect-uri: https://bbb.bluetype.win/login/oauth2/code/nauth
+            provider: naru-oidc-provider
+            scope: openid, profile, roles, phone
+        provider:
+          naru-oidc-provider:
+            issuer-uri: https://bauth.bluetype.win
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: true
+    check-template-location: true
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  freemarker:
+    cache: false
+  config:
+    import: vault://
+  cloud:
+    vault:
+      config.lifecycle:
+        enabled: true
+        min-renewal: 10s
+        expiry-threshold: 5m
+#        lease-endpoints: SysLeases
+      uri: http://vault-active.vault.svc.cluster.local:8200
+      host: vault-active
+      port: 8200
+      scheme: http            
+      connection-timeout: 5000
+      read-timeout: 15000
+      
+      authentication: TOKEN
+      
+      token: ${VLT_TOKEN:}
+      kv:
+        enabled: true
+        backend: kv
+        profile-separator: '/'
+        default-context: apps05
+        application-name: apps05
+        profiles: dev
+      database:
+        enabled: true
+        role: apps05-33005
+        backend: database
+        username-property: spring.datasource.username
+        password-property: spring.datasource.password
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://mariadb.apps05.svc.cluster.local:3306/app_database?characterEncoding=UTF-8
+    username: 
+    password:
+    hikari:
+      pool-name: hikari-primary
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 5000
+      validation-timeout: 2000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+    
+frontend:
+  cors:
+    url: http://localhost:5173,http://localhost:5174,http://localhost:3000,http://localhost:8050,http://localhost:8080,https://rc.bluetype.win
+  custom:
+    add:
+      static:
+        location: /api/imagePath/**
+        file:
+          path: /data/images/
+tiny:
+  image:
+    upload:
+      path: /data/images/
+mybatis:
+  mapper-locations:
+  - classpath:mapper/**/**.xml
+  config-location: classpath:mybatis-config.xml
+jwt:
+  key: inittest
+
+internal-server-url: https://office.workday.bluetype.win
+authorization-server-url: https://bauth.bluetype.win
+server-url: https://bbb.bluetype.win
+
+#해당 권한이 없으면 클라이언트 접속 불가
+client-authority: B_USER
+default-success-url: https://rc.bluetype.win

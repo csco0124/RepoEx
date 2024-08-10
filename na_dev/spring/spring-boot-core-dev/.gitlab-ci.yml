@@ -1,0 +1,217 @@
+variables:
+  DOCKER_DRIVER: overlay
+  SPRING_PROFILES_ACTIVE: gitlab-ci  
+  DOCKER_HOST: tcp://localhost:2375
+
+  REPO_URI: dkpr.bluetype.net
+  
+  IMG_TAG: ${CI_COMMIT_SHORT_SHA}  #"2022092701"  ${CI_JOB_ID}
+  APP_NAME: boot-core
+
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+  #SPIN_URI: https://deck.bluetype.net/api/v1/webhooks/webhook
+  SPIN_URI: https://gate.bluetype.win/webhooks/webhook
+
+cache:
+  paths:
+    - .m2/repository
+
+stages: 
+  - npm-build
+  - maven-build
+  - package
+
+#front
+npm-build-frontend:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+      - "**/.gitlab-ci.yml"
+      - "**/bauth-front-admin-react/**/*"
+      - "**/bauth/**/*"
+      variables: 
+        BUILD_COMMAND: npm run build-dev
+
+  image: node:18.7.0-slim
+  stage: npm-build
+  script:
+    - cd bauth-front-admin-react
+    - npm i
+    - ${BUILD_COMMAND}
+  artifacts:
+    paths:
+      - bauth-front-admin-react/dist/*
+
+
+maven-build-client:   
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+      - "**/.gitlab-ci.yml"
+      - "**/demo-client-a/**/*"
+      - "**/demo-client-b/**/*"
+  image: 
+    name: dkpr.bluetype.net/tom/jdk-maven-vault:17.395.103
+  
+  variables:
+    VAULT_ADDR: https://vlt.bluetype.win
+  id_tokens:
+    VAULT_ID_TOKEN:
+      aud: https://gitlab.com
+
+  stage: maven-build
+  script:
+    - ls -l
+    - mvn -f ./demo-client-a package -B -DskipTests
+    - mvn -f ./demo-client-b package -B -DskipTests
+
+    #============ VAULT==================
+    - export VAULT_TOKEN="$(vault write -field=token auth/jwt_v2/login role=apps05-back jwt=$VAULT_ID_TOKEN)"
+    - echo "VLT_TOKEN="$VAULT_TOKEN >> vlt.env
+    - echo "VLT_TOKEN="$(vault kv get -field=VLT_TOKEN kv/apps05/key) >> vlt.env
+    - echo "X_GITLAB_TOKEN="$(vault kv get -field=X_GITLAB_TOKEN kv/apps05/key) >> vlt.env
+    - echo "DKPR_USR="$(vault kv get -field=DKPR_USR kv/cloud) >> vlt.env
+    - echo "DKPR_KEY="$(vault kv get -field=DKPR_KEY kv/cloud) >> vlt.env
+
+  artifacts:
+    paths:
+      - demo-client-a/target/*.jar
+      - demo-client-b/target/*.jar
+    reports:
+      dotenv: vlt.env
+
+docker-build-kaniko-client:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+      - "**/.gitlab-ci.yml"
+      - "**/demo-client-a/**/*"
+      - "**/demo-client-b/**/*"
+      variables:
+        IMG_REPO_URI: ${REPO_URI}/dev/${APP_NAME}
+        CURL_URI_A: ${SPIN_URI}/${APP_NAME}-dev-client-a
+        CURL_URI_B: ${SPIN_URI}/${APP_NAME}-dev-client-b
+
+  stage: package
+  image:
+    name: dkpr.bluetype.net/tom/kaniko-curl
+    entrypoint: [""]
+  script:
+    - echo "DKPR_USR="$DKPR_USR
+
+    #debug
+    - echo "VLT_TOKEN="$VLT_TOKEN
+    - echo "SPRING_PROFILES_ACTIVE="${SPRING_PROFILES_ACTIVE}
+
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$REPO_URI\":{\"username\":\"$DKPR_USR\",\"password\":\"$DKPR_KEY\"}}}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+      --cache=true \
+      --context $CI_PROJECT_DIR \
+      --dockerfile $CI_PROJECT_DIR/Dockerfile-client-a \
+      --destination ${IMG_REPO_URI}-client-a:${IMG_TAG} \
+      --destination ${IMG_REPO_URI}-client-a:latest \
+      --build-arg VLT_TOKEN=$VLT_TOKEN \
+      --build-arg SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+    - |
+      /kaniko/executor \
+      --cache=true \
+      --context $CI_PROJECT_DIR \
+      --dockerfile $CI_PROJECT_DIR/Dockerfile-client-b \
+      --destination ${IMG_REPO_URI}-client-b:${IMG_TAG} \
+      --destination ${IMG_REPO_URI}-client-b:latest \
+      --build-arg VLT_TOKEN=$VLT_TOKEN \
+      --build-arg SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+
+    # deploy
+    - curl -H "Content-Type:application/json" -X POST ${CURL_URI_A} -d "{\"X-Gitlab-Token\":\"$X_GITLAB_TOKEN\",\"parameters\":{\"imgtag\":\"$IMG_TAG\",\"cijobid\":\"$CI_JOB_ID\"}}"
+    - curl -H "Content-Type:application/json" -X POST ${CURL_URI_B} -d "{\"X-Gitlab-Token\":\"$X_GITLAB_TOKEN\",\"parameters\":{\"imgtag\":\"$IMG_TAG\",\"cijobid\":\"$CI_JOB_ID\"}}"
+
+  dependencies:
+    - maven-build-client
+        
+  cache: {}
+
+maven-build: 
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+      - "**/.gitlab-ci.yml"
+      - "**/bauth/**/*"
+      - "**/bauth-front-admin-react/**/*"
+  image: 
+    name: dkpr.bluetype.net/tom/jdk-maven-vault:17.395.103
+  
+  variables:
+    VAULT_ADDR: https://vlt.bluetype.win
+  id_tokens:
+    VAULT_ID_TOKEN:
+      aud: https://gitlab.com
+  stage: maven-build
+  script:
+    - ls -l
+    - cp -R bauth-front-admin-react/dist/* bauth/src/main/resources/static/admin/
+    - mvn -f ./bauth package -B -DskipTests
+
+    #============ VAULT==================    
+    - export VAULT_TOKEN="$(vault write -field=token auth/jwt_v2/login role=apps05-back jwt=$VAULT_ID_TOKEN)"
+    - echo "VLT_TOKEN="$VAULT_TOKEN >> vlt.env
+    - echo "VLT_TOKEN="$(vault kv get -field=VLT_TOKEN kv/apps05/key) >> vlt.env
+    - echo "X_GITLAB_TOKEN="$(vault kv get -field=X_GITLAB_TOKEN kv/apps05/key) >> vlt.env
+    - echo "DKPR_USR="$(vault kv get -field=DKPR_USR kv/cloud) >> vlt.env
+    - echo "DKPR_KEY="$(vault kv get -field=DKPR_KEY kv/cloud) >> vlt.env
+  artifacts:
+    paths:
+      - bauth/target/*.jar
+    reports:
+      dotenv: vlt.env
+  
+  dependencies:
+    - npm-build-frontend
+
+# 2.VAULT_TOKEN 을 kaniko -> Dockerfile -> application-x.yml 전달
+# 3.springboot -> vlt 접속후 cloud.conifg 세팅값을 kv/apps01* 에서 내려받음
+docker-build-kaniko:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+      - "**/.gitlab-ci.yml"
+      - "**/bauth/**/*"
+      - "**/bauth-front-admin-react/**/*"
+      variables:
+        IMG_REPO_URI: ${REPO_URI}/dev/${APP_NAME}
+        CURL_URI: ${SPIN_URI}/${APP_NAME}-dev
+
+  stage: package
+  image:
+    name: dkpr.bluetype.net/tom/kaniko-curl
+    entrypoint: [""]
+  script:
+    - echo "DKPR_USR="$DKPR_USR
+
+    #debug
+    - echo "VLT_TOKEN="$VLT_TOKEN
+    - echo "SPRING_PROFILES_ACTIVE="${SPRING_PROFILES_ACTIVE}
+
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$REPO_URI\":{\"username\":\"$DKPR_USR\",\"password\":\"$DKPR_KEY\"}}}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+      --cache=true \
+      --context $CI_PROJECT_DIR \
+      --dockerfile $CI_PROJECT_DIR/Dockerfile \
+      --destination ${IMG_REPO_URI}:${IMG_TAG} \
+      --destination ${IMG_REPO_URI}:latest \
+      --build-arg VLT_TOKEN=$VLT_TOKEN \
+      --build-arg SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
+
+    # deploy
+    - curl -H "Content-Type:application/json" -X POST ${CURL_URI} -d "{\"X-Gitlab-Token\":\"$X_GITLAB_TOKEN\",\"parameters\":{\"imgtag\":\"$IMG_TAG\",\"cijobid\":\"$CI_JOB_ID\"}}"
+
+  dependencies:
+    - maven-build
+        
+  cache: {}
+

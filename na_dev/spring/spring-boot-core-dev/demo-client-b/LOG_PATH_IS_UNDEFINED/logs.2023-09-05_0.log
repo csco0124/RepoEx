@@ -1,0 +1,189 @@
+[][2023-09-05 16:09:50.794][DEBUG][org.jboss.logging.logProvider:152] - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+[][2023-09-05 16:09:50.795][INFO ][org.hibernate.validator.internal.util.Version.<clinit>:21] - HV000001: Hibernate Validator 6.2.5.Final
+[][2023-09-05 16:09:50.808][DEBUG][org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream:120] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[][2023-09-05 16:09:50.809][INFO ][com.narui.democlientb.DemoClientBApplication.logStarting:55] - Starting DemoClientBApplication using Java 17.0.7 on DESKTOP-POGC25K with PID 11900 (C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes started by NARU in C:\Users\NARU\git\spring-boot-core\demo-client-b)
+[][2023-09-05 16:09:50.810][DEBUG][org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath:60] - Trying to load META-INF/validation.xml via TCCL
+[][2023-09-05 16:09:50.811][DEBUG][com.narui.democlientb.DemoClientBApplication.logStarting:56] - Running with Spring Boot v2.7.4, Spring v5.3.23
+[][2023-09-05 16:09:50.811][DEBUG][org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath:66] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[][2023-09-05 16:09:50.811][DEBUG][org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream:127] - No META-INF/validation.xml found. Using annotation based configuration only.
+[][2023-09-05 16:09:50.811][INFO ][com.narui.democlientb.DemoClientBApplication.logStartupProfileInfo:634] - No active profile set, falling back to 1 default profile: "default"
+[][2023-09-05 16:09:50.812][DEBUG][org.springframework.boot.SpringApplication.load:667] - Loading source class com.narui.democlientb.DemoClientBApplication
+[][2023-09-05 16:09:50.818][DEBUG][org.hibernate.validator.internal.engine.resolver.TraversableResolvers.getDefault:60] - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+[][2023-09-05 16:09:50.851][DEBUG][org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory:172] - Loaded expression factory via original TCCL
+[][2023-09-05 16:09:50.992][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.determinePropertyNodeNameProvider:345] - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+[][2023-09-05 16:09:51.001][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:420] - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+[][2023-09-05 16:09:51.001][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:421] - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+[][2023-09-05 16:09:51.001][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:422] - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+[][2023-09-05 16:09:51.002][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:423] - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+[][2023-09-05 16:09:51.002][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:424] - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+[][2023-09-05 16:09:51.149][INFO ][org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:255] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[][2023-09-05 16:09:51.151][INFO ][org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:255] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[][2023-09-05 16:09:51.152][DEBUG][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext.prepareRefresh:629] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@30045627
+[][2023-09-05 16:09:52.294][WARN ][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext.refresh:591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'sessionInterceptorHandler' defined in class path resource [com/narui/democlientb/WebConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=webConfig; factoryMethodName=sessionInterceptorHandler; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/narui/democlientb/WebConfig.class]] for bean 'sessionInterceptorHandler': There is already [Generic bean: class [com.narui.democlientb.common.handler.SessionInterceptorHandler]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class]] bound.
+[][2023-09-05 16:09:52.307][INFO ][org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logMessage:136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[][2023-09-05 16:09:52.340][DEBUG][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report:37] - Application failed to start due to an exception
+org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'sessionInterceptorHandler' defined in class path resource [com/narui/democlientb/WebConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=webConfig; factoryMethodName=sessionInterceptorHandler; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/narui/democlientb/WebConfig.class]] for bean 'sessionInterceptorHandler': There is already [Generic bean: class [com.narui.democlientb.common.handler.SessionInterceptorHandler]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class]] bound.
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:1006)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:295)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:153)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.narui.democlientb.DemoClientBApplication.main(DemoClientBApplication.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+[][2023-09-05 16:09:52.340][ERROR][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'sessionInterceptorHandler', defined in class path resource [com/narui/democlientb/WebConfig.class], could not be registered. A bean with that name has already been defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+[][2023-09-05 16:21:22.411][DEBUG][org.jboss.logging.logProvider:152] - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+[][2023-09-05 16:21:22.413][INFO ][org.hibernate.validator.internal.util.Version.<clinit>:21] - HV000001: Hibernate Validator 6.2.5.Final
+[][2023-09-05 16:21:22.419][INFO ][com.narui.democlientb.DemoClientBApplication.logStarting:55] - Starting DemoClientBApplication using Java 17.0.7 on DESKTOP-POGC25K with PID 22192 (C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes started by NARU in C:\Users\NARU\git\spring-boot-core\demo-client-b)
+[][2023-09-05 16:21:22.419][DEBUG][com.narui.democlientb.DemoClientBApplication.logStarting:56] - Running with Spring Boot v2.7.4, Spring v5.3.23
+[][2023-09-05 16:21:22.420][INFO ][com.narui.democlientb.DemoClientBApplication.logStartupProfileInfo:634] - No active profile set, falling back to 1 default profile: "default"
+[][2023-09-05 16:21:22.421][DEBUG][org.springframework.boot.SpringApplication.load:667] - Loading source class com.narui.democlientb.DemoClientBApplication
+[][2023-09-05 16:21:22.423][DEBUG][org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream:120] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[][2023-09-05 16:21:22.424][DEBUG][org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath:60] - Trying to load META-INF/validation.xml via TCCL
+[][2023-09-05 16:21:22.425][DEBUG][org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath:66] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[][2023-09-05 16:21:22.426][DEBUG][org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream:127] - No META-INF/validation.xml found. Using annotation based configuration only.
+[][2023-09-05 16:21:22.431][DEBUG][org.hibernate.validator.internal.engine.resolver.TraversableResolvers.getDefault:60] - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+[][2023-09-05 16:21:22.458][DEBUG][org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory:172] - Loaded expression factory via original TCCL
+[][2023-09-05 16:21:22.585][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.determinePropertyNodeNameProvider:345] - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+[][2023-09-05 16:21:22.593][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:420] - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+[][2023-09-05 16:21:22.593][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:421] - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+[][2023-09-05 16:21:22.594][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:422] - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+[][2023-09-05 16:21:22.595][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:423] - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+[][2023-09-05 16:21:22.595][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:424] - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+[][2023-09-05 16:21:22.711][INFO ][org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:255] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[][2023-09-05 16:21:22.711][INFO ][org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:255] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[][2023-09-05 16:21:22.713][DEBUG][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext.prepareRefresh:629] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3ca23bc1
+[][2023-09-05 16:21:23.562][WARN ][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext.refresh:591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'sessionInterceptorHandler' defined in class path resource [com/narui/democlientb/WebConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=webConfig; factoryMethodName=sessionInterceptorHandler; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/narui/democlientb/WebConfig.class]] for bean 'sessionInterceptorHandler': There is already [Generic bean: class [com.narui.democlientb.common.handler.SessionInterceptorHandler]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class]] bound.
+[][2023-09-05 16:21:23.575][INFO ][org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logMessage:136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[][2023-09-05 16:21:23.603][DEBUG][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report:37] - Application failed to start due to an exception
+org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'sessionInterceptorHandler' defined in class path resource [com/narui/democlientb/WebConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=webConfig; factoryMethodName=sessionInterceptorHandler; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/narui/democlientb/WebConfig.class]] for bean 'sessionInterceptorHandler': There is already [Generic bean: class [com.narui.democlientb.common.handler.SessionInterceptorHandler]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class]] bound.
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:1006)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:295)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:153)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.narui.democlientb.DemoClientBApplication.main(DemoClientBApplication.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+[][2023-09-05 16:21:23.604][ERROR][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'sessionInterceptorHandler', defined in class path resource [com/narui/democlientb/WebConfig.class], could not be registered. A bean with that name has already been defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+[][2023-09-05 16:22:17.530][DEBUG][org.jboss.logging.logProvider:152] - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+[][2023-09-05 16:22:17.531][INFO ][org.hibernate.validator.internal.util.Version.<clinit>:21] - HV000001: Hibernate Validator 6.2.5.Final
+[][2023-09-05 16:22:17.540][DEBUG][org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream:120] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+[][2023-09-05 16:22:17.542][DEBUG][org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath:60] - Trying to load META-INF/validation.xml via TCCL
+[][2023-09-05 16:22:17.543][DEBUG][org.hibernate.validator.internal.xml.config.ResourceLoaderHelper.getResettableInputStreamForPath:66] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+[][2023-09-05 16:22:17.544][DEBUG][org.hibernate.validator.internal.xml.config.ValidationXmlParser.getValidationXmlInputStream:127] - No META-INF/validation.xml found. Using annotation based configuration only.
+[][2023-09-05 16:22:17.546][INFO ][com.narui.democlientb.DemoClientBApplication.logStarting:55] - Starting DemoClientBApplication using Java 17.0.7 on DESKTOP-POGC25K with PID 20900 (C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes started by NARU in C:\Users\NARU\git\spring-boot-core\demo-client-b)
+[][2023-09-05 16:22:17.546][DEBUG][com.narui.democlientb.DemoClientBApplication.logStarting:56] - Running with Spring Boot v2.7.4, Spring v5.3.23
+[][2023-09-05 16:22:17.547][INFO ][com.narui.democlientb.DemoClientBApplication.logStartupProfileInfo:634] - No active profile set, falling back to 1 default profile: "default"
+[][2023-09-05 16:22:17.548][DEBUG][org.springframework.boot.SpringApplication.load:667] - Loading source class com.narui.democlientb.DemoClientBApplication
+[][2023-09-05 16:22:17.549][DEBUG][org.hibernate.validator.internal.engine.resolver.TraversableResolvers.getDefault:60] - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+[][2023-09-05 16:22:17.577][DEBUG][org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory:172] - Loaded expression factory via original TCCL
+[][2023-09-05 16:22:17.725][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.determinePropertyNodeNameProvider:345] - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+[][2023-09-05 16:22:17.736][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:420] - HV000234: Using org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator as ValidatorFactory-scoped message interpolator.
+[][2023-09-05 16:22:17.736][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:421] - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+[][2023-09-05 16:22:17.737][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:422] - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+[][2023-09-05 16:22:17.737][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:423] - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+[][2023-09-05 16:22:17.738][DEBUG][org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper.logValidatorFactoryScopedConfiguration:424] - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+[][2023-09-05 16:22:17.885][INFO ][org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:255] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[][2023-09-05 16:22:17.885][INFO ][org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor.logTo:255] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[][2023-09-05 16:22:17.886][DEBUG][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext.prepareRefresh:629] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1bb90d0
+[][2023-09-05 16:22:18.644][WARN ][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext.refresh:591] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'sessionInterceptorHandler' defined in class path resource [com/narui/democlientb/WebConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=webConfig; factoryMethodName=sessionInterceptorHandler; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/narui/democlientb/WebConfig.class]] for bean 'sessionInterceptorHandler': There is already [Generic bean: class [com.narui.democlientb.common.handler.SessionInterceptorHandler]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class]] bound.
+[][2023-09-05 16:22:18.656][INFO ][org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener.logMessage:136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[][2023-09-05 16:22:18.685][DEBUG][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report:37] - Application failed to start due to an exception
+org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'sessionInterceptorHandler' defined in class path resource [com/narui/democlientb/WebConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=webConfig; factoryMethodName=sessionInterceptorHandler; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/narui/democlientb/WebConfig.class]] for bean 'sessionInterceptorHandler': There is already [Generic bean: class [com.narui.democlientb.common.handler.SessionInterceptorHandler]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class]] bound.
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition(DefaultListableBeanFactory.java:1006)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:295)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:153)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:129)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:343)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.narui.democlientb.DemoClientBApplication.main(DemoClientBApplication.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+[][2023-09-05 16:22:18.686][ERROR][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'sessionInterceptorHandler', defined in class path resource [com/narui/democlientb/WebConfig.class], could not be registered. A bean with that name has already been defined in file [C:\Users\NARU\git\spring-boot-core\demo-client-b\target\classes\com\narui\democlientb\common\handler\SessionInterceptorHandler.class] and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+

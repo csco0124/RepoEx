@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>TEST</title>
+<style>
+
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script th:inline="javascript">
+$(document).ready(function(){
+
+});
+
+function genToken(){
+	let subject = $("#subject").val();
+	let time = $("#time").val();
+	$.ajax({
+	      url: "/test/jwt/gen_token",
+	      type: "GET",
+	      dataType: "json",
+	      data: {subject: subject, time: time},
+	      success: (res) => {
+	    	  $("#token").val(res.result);
+	    	  count(time*60);
+	      },
+	      error: (e) => {
+	    	  alert(e);
+	      }
+	    });
+}
+
+function count(cnt){
+	const intervalObj = setInterval(function() {
+    		if(cnt <= 0){
+    			clearInterval(intervalObj);
+    		}
+			$("#count").text(cnt);
+			cnt--;
+		}, 1000);
+}
+
+function getSubject(){
+	let token = $("#token").val();
+	
+	$.ajax({
+	      url: "/test/jwt/get_subject",
+	      type: "GET",
+	      dataType: "json",
+	      data: {token: token},
+	      success: (res) => {
+	    	  $("#getSubjectResult").text("Subject : " + res.subject + "  / 유효여부 : " + res.isExpirationDate);
+	      },
+	      error: (e) => {
+	    	  alert(e);
+	      }
+	    });
+}
+</script>
+
+</head>
+<body>
+	<p>JWT Test</p>
+	<br />
+	Subject : <input type="text" id="subject">
+	유효시간(분) : <input type="number" id="time" max="5">
+	<a onclick="genToken();"><button>토큰 생성</button></a><br>
+	토큰 : <input type="text" id="token"> 남은시간 : <p id="count"></p>
+	<br>
+	<a onclick="getSubject();"><button>토큰 검증</button></a><br>
+	<p id="getSubjectResult"></p>
+</body>
+</html>

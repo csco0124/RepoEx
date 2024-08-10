@@ -1,0 +1,64 @@
+<html lang="en" style="--vh:7.8px;">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type = "text/css" href="/css/style.css" />
+	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/axios.min.js"></script>
+	<script type="text/javascript" src="/js/comm.js"></script>
+	<title>근태관리APP 근태신청</title>
+</head>
+
+<body onload="">
+	<div class="container">
+		<div>
+			<img src="../../../images/logo.png" width="200px">
+		</div>
+		<button class="servedNone btnL round type-orange pop-btn btn-pop03" style="margin-bottom: 20px;" id="authUserBtn">
+			회원 페이지
+		</button>
+		<button class="servedNone btnL round type-orange pop-btn btn-pop03" style="margin-bottom: 20px;" id="guestUserBtn">
+			게스트 페이지
+		</button>
+		<button class="servedNone btnL round type-orange pop-btn btn-pop03" style="display: none;" id="logoutBtn">
+			로그아웃
+		</button>
+	</div>
+</body>
+<script>
+	$(document).ready(() => {
+		let url = '/login/autoLogin';
+		console.log('setloginuserserver');
+		jQuery.ajax({
+		    url: url,
+		    type: 'POST',
+		    dataType: 'JSON',
+		    success: function (result) {
+				commutil.setLoginUser(result.data);
+				const user = commutil.getLoginUser();
+				
+				if(commutil.isEmpty(user) || commutil.isEmpty(user.username) || user.username == '익명'){
+					return;
+				}
+				
+				$('#logoutBtn').css('display', 'block');
+			}
+		});
+	});
+	
+	$('#authUserBtn').click(function(){
+		//게스트 상태로 오면 로그인 상태로 넘어가게 되고 회원 상태로 오면 그냥 들어갈 수 있도록 변경되어 해당 함수는 사용하지 않음
+		//uiUtil.privatePageEvent('/private/view/home');
+		
+		location.href = "/private/view/home";
+	});
+	
+	$('#guestUserBtn').click(function(){
+		location.href = "/public/view/home";
+	});
+	$('#logoutBtn').click(function(){
+		location.href = "/logout";
+	});
+</script>

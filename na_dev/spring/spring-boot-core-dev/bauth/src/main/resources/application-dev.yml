@@ -1,0 +1,235 @@
+server:
+  port: 8080
+  type: dev
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        name: AUTHSESSIONID    
+  error:
+    whitelabel:
+      enabled: false
+    include-stacktrace: never
+  tomcat:
+    threads:
+      #default 200
+      max: 100
+  # 프록시 환경에서 사용
+  forward-headers-strategy: NATIVE 
+
+mybatis:
+  mapper-locations: classpath:mapper/**/**.xml
+  config-location: classpath:mybatis-config.xml
+
+frontend:
+  custom:
+    add:
+      static:
+        location: /api/imagePath/**
+        file:
+          path: /data/images/
+      
+spring:
+  session:
+    redis:
+      flush-mode: on-save
+      namespace: bauth-dev
+  thymeleaf:
+    cache: false
+  config:
+    import: vault://
+  cloud:
+    vault:
+      config.lifecycle:
+        enabled: true
+        min-renewal: 10s
+        expiry-threshold: 5m
+#        lease-endpoints: SysLeases
+      uri: http://vault-active.vault.svc.cluster.local:8200
+      host: vault-active
+      port: 8200
+      scheme: http
+      connection-timeout: 5000
+      read-timeout: 15000
+      
+      authentication: TOKEN
+      #apps01
+      token: ${VLT_TOKEN:}
+      kv:
+        enabled: true
+        backend: kv
+        profile-separator: '/'
+        default-context: apps05
+        application-name: apps05
+        profiles: dev
+      database:
+        enabled: true
+        role: apps05-33005
+        backend: database
+        username-property: spring.datasource.username
+        password-property: spring.datasource.password
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://mariadb.apps05.svc.cluster.local:3306/app_database?characterEncoding=UTF-8
+    username:
+    password:
+    hikari:
+      pool-name: hikari-primary
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 5000
+      validation-timeout: 2000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update 
+      #validate: 엔티티와 테이블이 정상 매핑되었는지만 확인 , 
+      #create: 기존테이블 삭제 후 다시 생성 (DROP + CREATE)
+      #update: 변경분만 반영
+    properties:
+      hibernate:
+        '[format_sql]': false
+        '[show_sql]': true
+  data:
+    redis:
+      host: redis-master.apps05.svc.cluster.local    
+      port: 6379
+      password:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com    
+    port: 587
+    username:
+    password:
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            trust: smtp.gmail.com
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: 
+            client-secret: 
+#            redirect-uri: https://naruauth.bluetype.win/login/oauth2/code/kakao
+            redirect-uri: https://bauth.bluetype.win/login/oauth2/code/kakao
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_post
+            client-name: Kakao
+            scope: account_email
+          naver:
+#            client-id: 
+#            client-secret: 
+            client-id: 
+            client-secret: 
+#            redirect-uri: https://naruauth.bluetype.win/login/oauth2/code/naver
+            redirect-uri: https://bauth.bluetype.win/login/oauth2/code/naver
+            authorization-grant-type: authorization_code
+            client-name: Naver
+            scope:
+          google:
+            client-id:
+            client-secret: 
+#            redirect-uri: https://naruauth.bluetype.win/login/oauth2/code/google
+            redirect-uri: https://bauth.bluetype.win/login/oauth2/code/google
+            scope: email
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+          naver:
+            authorization-uri: https://nid.naver.com/oauth2.0/authorize
+            token-uri: https://nid.naver.com/oauth2.0/token
+            user-info-uri: https://openapi.naver.com/v1/nid/me
+            user-name-attribute: response
+#gmail health check true로 할경우 denided 오류발생
+management:
+  health:
+    mail:
+      enabled: false        
+    db:
+      enabled: false
+
+#sms.gabia.com 문자전송 (건당 전송요금 발생)
+gabia:
+  smsId: 
+  smsKey:
+  callback: 0262381500
+
+#mybatis:  
+#  type-aliases-package: com.narui.bauth.**.dto
+#  mapper-locations: /mapper/**/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    jdbc-type-for-null: null
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /swagger-ui
+    display-request-duration: true
+    csrf:
+      enabled: true
+  cache:
+    disabled: true
+
+logging:
+  level:
+    jdbc:
+      audit: off
+      resultset: off
+      resultsettable: info
+      sqlonly: off
+      sqltiming: info
+      connection: off
+    root: debug
+    '[org.springframework]': info
+    '[org.springframework.beans]': info
+    '[org.springframework.data]': info
+    '[org.springframework.boot.autoconfigure]': info
+    '[org.springframework.session.web]': info
+    '[org.springframework.security.jackson2]': info
+    '[org.hibernate]': info       
+    '[org.apache]': info
+    '[io.lettuce]': info
+    '[io.netty]': info
+    '[sun.rmi]': info
+    '[javax.management]': info
+    '[javax.activation]': info    
+    '[com.zaxxer]': info
+    '[org.thymeleaf]': info
+    '[com.narui.bauth]': debug
+    '[com.sun.mail.smtp]': info
+    '[javax.mail]': info
+    '[org.mariadb.jdbc]': info
+    '[angus.activation]': info
+    '[jakarta.activation]': info
+    '[io.swagger]': info
+    '[jdk.internal.httpclient.debug]': info
+
+jwt:
+  key: inittest
+  #spring.security.oauth2.client.provider.naru-oidc-provider.issuer-uri 와
+  #spring.security.oauth2.resourceserver.jwt.issuer-uri 에서 호출하는 값
+  issuer-uri: https://bauth.bluetype.win
+
+#security config에서 rememberMe parameter 값 세팅이 안돼서 여기에 정의
+rememberme:
+  parameter: rememberMe
+
+# TODO react 개발 완료 후 /public/view/auth/identfier 로 변경
+signin-uri: /user/auth/identifier
+

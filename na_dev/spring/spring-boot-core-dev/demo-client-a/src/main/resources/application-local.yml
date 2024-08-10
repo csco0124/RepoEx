@@ -1,0 +1,48 @@
+logging:
+  file:
+    path: /logs
+
+server:
+  port: 8060
+  
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          nauth:
+            client-name: demo-client-a
+            client-id: 5647a357-c330-40a3-8104-5047153a185c.naruint.com
+            client-secret: dae5dde6-17aa-4f40-bbf2-2fdcd62fbc7e
+            authorization-grant-type: authorization_code
+            redirect-uri: http://127.0.0.1:8060/login/oauth2/code/nauth
+            provider: naru-oidc-provider
+            scope: openid, profile, roles, phone
+        provider:
+          naru-oidc-provider:
+            issuer-uri: http://127.0.0.1:9001
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: classpath:/templates/
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  freemarker:
+    cache: false
+springdoc:
+  swagger-ui:
+    path: api.html
+frontend:
+  cors:
+    url: http://localhost:5173,http://localhost:5174,http://localhost:3000,http://localhost:8060,http://127.0.0.1:5173,http://127.0.0.1:5174,http://127.0.0.1:3000,http://127.0.0.1:8060
+internal-server-url: https://office.workday.bluetype.win
+authorization-server-url: http://127.0.0.1:9001
+server-url: http://127.0.0.1:8060
+
+#해당 권한이 없으면 클라이언트 접속 불가
+client-authority: A_USER

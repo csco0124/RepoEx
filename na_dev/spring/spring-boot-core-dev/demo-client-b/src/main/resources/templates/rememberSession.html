@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymleaf.org">
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>근태관리APP 근태신청</title>
+    
+    
+    <link rel="stylesheet" href="/css/style.css"> <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+    <link rel="stylesheet" href="/css/swiper-bundle.css">
+	<script type="text/javascript" src="/js/axios.min.js"></script>
+	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/comm.js"></script>
+	<script>
+		$(document).ready(function(){
+			let url = '/login/autoLogin';
+			/*ajax.get(url)
+				.then(function(result){
+					sessionStorage.setItem('LOGIN_USER', JSON.stringify(result));
+				});*/
+			var urlParam = new URL(location.href).searchParams;
+		
+			jQuery.ajax({
+			    url: url,
+			    type: 'POST',
+			    contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+			    dataType: 'JSON',
+			    success: function (result) {
+					const data = result.data;
+					sessionStorage.setItem('firstLogin', 1);
+					commutil.setLoginUser(data);
+			        location.replace(urlParam.get('url'));
+			    }
+			});
+			
+		});
+	</script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+.react-grid-layout > div {
+  border-style: groove;
+}
+.react-grid-layout > div > div:first-child {
+  font-size: 12px;
+}

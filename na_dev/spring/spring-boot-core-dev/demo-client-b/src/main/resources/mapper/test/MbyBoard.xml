@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../../schema-define/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.narui.democlientb.test.dao.MbyBoardDao">
+
+	<!-- 게시글 불러오기 -->
+	<select id="getData" resultType="com.narui.democlientb.test.dto.MbyBoardDto">
+		SELECT
+		    UID, TITLE, CONTENT, IMAGE_NAME
+		FROM
+		    BOARD
+		WHERE
+		    DEL_YN = 'N'
+	</select>
+	
+	<!-- 게시글 글쓰기 -->
+	<insert id="insertData" parameterType="com.narui.democlientb.test.dto.MbyBoardDto">
+		INSERT INTO
+		    BOARD (TITLE, CONTENT, IMAGE_NAME)
+		VALUES
+		    (#{title}, #{content}, #{fileName})
+	</insert>
+	
+</mapper>

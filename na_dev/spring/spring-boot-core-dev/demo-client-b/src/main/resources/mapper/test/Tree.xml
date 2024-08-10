@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../../schema-define/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.narui.democlientb.test.dao.TreeDao">
+
+    <select id="getTree" parameterType="com.narui.democlientb.test.dto.TreeDto" resultType="com.narui.democlientb.test.dto.TreeDto">
+        SELECT *
+          FROM MENUTREE
+         WHERE TREE_TYPE = #{treeType}
+           AND DEL_YN = 'N'
+           AND UID = (SELECT MAX(UID) FROM MENUTREE WHERE TREE_TYPE = #{treeType})
+    </select>
+
+    <update id="updateTree" parameterType="com.narui.democlientb.test.dto.TreeDto">
+        UPDATE MENUTREE
+           SET TREE_JSON = #{treeJson}
+             , MDF_DT = NOW()
+             , MODIFIER = #{modifier}
+             , DEL_YN = #{delYn}
+        WHERE TREE_TYPE = #{treeType}
+        AND MDF_DT = (SELECT MAX(MDF_DT) FROM MENUTREE WHERE TREE_TYPE = #{treeType})
+    </update>
+</mapper>

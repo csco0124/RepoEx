@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../../schema-define/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.narui.democlientb.test.dao.DummyDataDao">
+
+	<select id="selectJsonData" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT
+			<choose>
+				<when test="dataPath != null">
+					JSON_DATA AS jsonData
+					, STATUS_CODE AS statusCode
+					, DELAY_TIME AS delayTime
+				</when>
+				<otherwise>
+					CONVERT(UID, CHAR) AS uid
+					, DATA_PATH AS dataPath
+					, JSON_DATA AS jsonData
+					, DATA_INFO AS dataInfo
+					, STATUS_CODE AS statusCode
+					, DELAY_TIME AS delayTime
+					, METHOD_TYPE AS methodType
+				</otherwise>
+			</choose>
+		FROM JSON_DATA
+		WHERE DEL_YN = 'N'
+			<choose>
+				<when test="dataPath != null">
+					AND DATA_PATH = #{dataPath}
+					AND METHOD_TYPE = #{methodType}
+				</when>
+				<otherwise>
+					<if test="searchType != null and searchType > 0 and searchStr != null">
+						<choose>
+							<when test="searchType == 1">
+								AND UPPER(DATA_PATH) LIKE CONCAT('%', UPPER(#{searchStr}), '%')
+							</when>
+							<when test="searchType == 2">
+								AND UPPER(DATA_INFO) LIKE CONCAT('%', UPPER(#{searchStr}), '%')
+							</when>
+							<when test="searchType == 3">
+								AND UPPER(METHOD_TYPE) = UPPER(#{searchStr})
+							</when>
+							<when test="searchType == 4">
+								AND STATUS_CODE = #{searchStr}
+							</when>
+						</choose>
+					</if>
+					
+					ORDER BY CAST(UID AS SIGNED) DESC 
+					LIMIT #{rowCnt} OFFSET #{startRow}
+				</otherwise>
+			</choose>
+	</select>
+	
+	<select id="chkTotalPage" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT 
+			CAST((CEILING(COUNT(UID)/#{rowCnt})) AS SIGNED) AS totalPage
+			, CAST((COUNT(UID)) AS SIGNED) AS totalCnt
+		FROM JSON_DATA 
+		WHERE DEL_YN = 'N'
+		<if test="searchType != null and searchType > 0 and searchStr != null">
+			<choose>
+				<when test="searchType == 1">
+					AND UPPER(DATA_PATH) LIKE CONCAT('%', UPPER(#{searchStr}), '%')
+				</when>
+				<when test="searchType == 2">
+					AND UPPER(DATA_INFO) LIKE CONCAT('%', UPPER(#{searchStr}), '%')
+				</when>
+				<when test="searchType == 3">
+					AND UPPER(METHOD_TYPE) = UPPER(#{searchStr})
+				</when>
+				<when test="searchType == 4">
+					AND STATUS_CODE = #{searchStr}
+				</when>
+			</choose>
+		</if>
+	</select>
+	
+	<select id="chkData" parameterType="com.narui.democlientb.test.dto.DummyDataDto" resultType="java.lang.Integer">
+		SELECT 
+			COUNT(UID)
+		FROM JSON_DATA
+		WHERE DEL_YN = 'N'
+			AND DATA_PATH = #{dataPath}
+			AND METHOD_TYPE = #{methodType}
+	</select>
+	
+	<insert id="insertJsonData" parameterType="com.narui.democlientb.test.dto.DummyDataDto">
+		INSERT INTO JSON_DATA (
+			DATA_PATH
+			, JSON_DATA
+			, DATA_INFO
+			, STATUS_CODE
+			, DELAY_TIME
+			, METHOD_TYPE
+		) VALUES (
+			#{dataPath}
+			, #{jsonData}
+			, #{dataInfo}
+			, #{statusCode}
+			, #{delayTime}
+			, #{methodType}
+		)
+	</insert>
+	
+	<update id="updateJsonData" parameterType="com.narui.democlientb.test.dto.DummyDataDto">
+		UPDATE JSON_DATA
+		SET
+			DATA_PATH = NVl(#{dataPath}, DATA_PATH)
+			, JSON_DATA = NVl(#{jsonData}, JSON_DATA)
+			, DATA_INFO = NVl(#{dataInfo}, DATA_INFO)
+			, STATUS_CODE = NVl(#{statusCode}, STATUS_CODE)
+			, DELAY_TIME = NVl(#{delayTime}, DELAY_TIME)
+			, METHOD_TYPE = NVl(#{methodType}, METHOD_TYPE)
+			, MODIFIER = NVl(#{modifier}, '') 
+			, MDF_DT = SYSDATE()
+		WHERE UID = #{uid}
+	</update>
+	
+	<update id="deleteJsonData" parameterType="com.narui.democlientb.test.dto.DummyDataDto">
+		<foreach collection="list" item="row" separator=";">
+			UPDATE JSON_DATA
+			SET
+				DEL_YN = 'Y'
+				, MODIFIER = NVl(#{row.modifier}, '')
+				, MDF_DT = SYSDATE()
+			WHERE UID = #{row.uid}
+		</foreach>
+	</update>
+</mapper>

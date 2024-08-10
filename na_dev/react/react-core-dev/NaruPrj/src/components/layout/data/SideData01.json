@@ -1,0 +1,199 @@
+[
+	{
+		"id": "adminSystemMgt",
+		"name" : "시스템 관리",
+		"children" : [
+			{
+				"id": "adminLoginMgt",
+				"name": "로그인 관리",
+				"children":
+				[
+					{
+						"id": "adminIpMgt",
+						"name": "로그인 허용 IP관리",
+						"url": "adminSystemMgt/adminLoginMgt/adminIpMgt"
+					}
+				]
+			},
+			{
+				"id": "adminAdminMgt",
+				"name": "관리자 관리",
+				"children":
+				[
+					{
+						"id": "adminInfoMgt",
+						"name": "관리자 정보 관리",
+						"url": "adminSystemMgt/adminAdminMgt/adminInfoMgt"
+
+					},
+					{
+						"id": "adminAccessHistoryMgt",
+						"name": "관리자 접속 이력 관리",
+						"url": "adminSystemMgt/adminAdminMgt/adminAccessHistoryMgt"
+					},
+					{
+						"id": "adminMgt",
+						"name": "대시보드 관리자 관리",
+						"url": "adminSystemMgt/adminAdminMgt/adminMgt"
+					}
+				]
+			}  
+			,{
+				"id": "adminBizMgt",
+				"name": "BIZ 관리",
+				"children":
+				[
+					{
+						"id": "adminMenuMgt",
+						"name": "BIZ 메뉴 관리",
+						"url": "adminSystemMgt/adminBizMgt/adminMenuMgt"
+					},
+					{
+						"id": "adminPageMgt",
+						"name": "BIZ 화면 관리",
+						"url": "adminSystemMgt/adminBizMgt/adminPageMgt"
+					}
+				]
+			},
+			{
+				"id": "adminAuthorizationMgt",
+				"name": "권한 관리",
+				"children":
+				[
+					{
+						"id": "adminAppAccessAuthMgt",
+						"name": "앱 메뉴 및 화면 접근 권한 관리",
+						"url": "adminSystemMgt/adminAuthorizationMgt/adminAppAccessAuthMgt"
+					},
+					{
+						"id": "adminAccessAuthMgt",
+						"name": "관리자 메뉴 및 화면 접근 권한 관리",
+						"url": "adminSystemMgt/adminAuthorizationMgt/adminAccessAuthMgt"
+					},
+					{
+						"id": "adminBizAccessAuthMgt",
+						"name": "BIZ 메뉴 및 화면 접근 권한 관리",
+						"url": "adminSystemMgt/adminAuthorizationMgt/adminBizAccessAuthMgt"
+					},
+					{
+						"id": "adminRoleMgt",
+						"name": "역할 관리",
+						"url": "adminSystemMgt/adminAuthorizationMgt/adminRoleMgt"
+					}
+				]
+			},
+			{
+				"id": "adminCodeMgt",
+				"name": "코드 관리",
+				"children":
+				[
+					{
+						"id": "adminMetaCpt",
+						"name": "META 코드 연계",
+						"url": "adminSystemMgt/adminCodeMgt/adminMetaCpt"
+					},
+					{
+						"id": "adminCommCodeMgt",
+						"name": "업무별 공통 코드관리",
+						"url": "adminSystemMgt/adminCodeMgt/adminCommCodeMgt"
+					}
+				]
+			},
+			{
+				"id": "adminItfMgt",
+				"name": "인터페이스 관리",
+				"children":
+				[
+					{
+						"id": "adminItfInfoMgt",
+						"name": "인터페이스 정보관리",
+						"url": "adminSystemMgt/adminItfMgt/adminItfInfoMgt"
+					},
+					{
+						"id": "adminDivMgt",
+						"name": "인터페이스 구분관리",
+						"url": "adminSystemMgt/adminItfMgt/adminDivMgt"
+					},
+					{
+						"id": "adminServiceMgt",
+						"name": "인터페이스 서비스관리",
+						"url": "adminSystemMgt/adminItfMgt/adminServiceMgt"
+					},
+					{
+						"id": "adminMappingMgt",
+						"name": "인터페이스 매핑관리",
+						"url": "adminSystemMgt/adminItfMgt/adminMappingMgt"
+					},
+					{
+						"id": "adminEimsTest",
+						"name": "EIMS연동 테스트",
+						"url": "adminSystemMgt/adminItfMgt/adminEimsTest"
+					}
+				]
+			},
+			{
+				"id": "adminQualityMgt",
+				"name": "품질 관리",
+				"children":
+				[
+					{
+						"id": "adminAppVerMgt",
+						"name": "앱 버전 관리",
+						"url": "adminSystemMgt/adminQualityMgt/adminAppVerMgt"
+					},
+					{
+						"id": "adminBatchMgt",
+						"name": "배치 관리",
+						"url": "adminSystemMgt/adminQualityMgt/adminBatchMgt"
+					},
+					{
+						"id": "adminSysInfoMgt",
+						"name": "시스템 공지 관리",
+						"url": "adminSystemMgt/adminQualityMgt/adminSysInfoMgt"
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "adminOpMgmt",
+		"name" : "운영 관리",
+		"children" : 
+		[
+			{
+				"id": "adminCommMgt",
+				"name" : "공통 관리",
+				"children" : 
+				[
+					{
+						"id": "adminCommNoticeMgt",
+						"name" : "통합 공지 관리",
+						"url": "adminOpMgmt/adminCommMgt/adminCommNoticeMgt"
+					},
+					{
+						"id": "adminEventMgt",
+						"name" : "이벤트 관리",
+						"url": "adminOpMgmt/adminCommMgt/adminEventMgt"
+					},
+					{
+						"id": "adminAppPushMgt",
+						"name" : "앱 푸시 관리",
+						"url": "adminOpMgmt/adminCommMgt/adminAppPushMgt"
+					}
+				]
+			},
+			{
+				"id": "adminCustomMgt",
+				"name" : "커스텀 관리",
+				"children" : 
+				[
+					{
+						"id": "adminPointMgt",
+						"name" : "포인트 관리",
+						"url": "adminOpMgmt/adminCustomMgt/adminPointMgt"
+					}
+				]
+			}
+		]
+	}
+]

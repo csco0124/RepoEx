@@ -1,0 +1,1 @@
+import{j as n,S as s,d as e,ab as l,B as o}from"./index-98646e71.js";const r=a=>n.jsxs(s,{children:[n.jsx(e,{children:n.jsx("h2",{children:a.message||""})}),n.jsxs(s,{sx:l,children:[n.jsx(o,{variant:"outlined",color:"warning",onClick:a.onClose,children:"취소"}),n.jsx(o,{variant:"contained",color:"warning",onClick:a.onClose,children:"확인"})]})]});export{r as default};

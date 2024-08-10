@@ -1,0 +1,132 @@
+
+/* -------------------------------------------------------------------------------
+    login
+ ------------------------------------------------------------------------------- */ 
+.content.center.login {
+    background: url("../images/common/bg_login.png") no-repeat center bottom/ cover;
+}
+.login-content {
+    padding: 48px;
+    width: 400px;
+    background: #fff;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.login-content .h2-title {
+    margin-bottom: 40px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* -------------------------------------------------------------------------------
+    notFound
+ ------------------------------------------------------------------------------- */ 
+
+.erorr-text {
+    margin: 60px 0 48px;
+    text-align: center;
+}
+.erorr-text em {
+    color: #232527;
+    font-size: 45px;
+    font-family: 'notoB';
+}
+.erorr-text p {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #444;
+}
+/* -------------------------------------------------------------------------------
+    content
+ ------------------------------------------------------------------------------- */ 
+.block {
+    display: block;
+}
+ .mtb8 {
+    margin: 8px 0;
+}
+.mt8 {
+    margin-top: 8px;
+}
+.pd0 {
+    padding: 0;
+}
+
+.title-item {
+    display: flex;
+    justify-content: space-between;
+}
+.title-item .h2-title {
+    font-size: 20px;
+}
+.title-item .h3-title {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+.title-item .location {
+    display: flex;
+    color: #636363;
+    gap: 10px;
+    align-items: center;
+}
+.title-item .location li {
+    position: relative;
+    padding-right: 10px;
+}
+.title-item .location li::after {
+    position: absolute;
+    top: 7px;
+    right: 0px;
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;  
+    border: solid #636363;
+    border-width: 1px 1px 0 0;
+    transform: rotate(45deg);
+}
+.title-item .location li:not(:last-child){
+    font-family: 'notoR';
+}
+.title-item .location li:last-child::after {
+    display: none;
+}
+.title-item + .cont-item {
+    margin-top: 50px;
+}
+.title-item + .btn-area {
+    margin: 28px 0;
+}
+.cont-item {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+
+.cont-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.cont-flex > div {
+    padding: 20px;
+}
+.cont-flex .flex1 {
+    flex: 1;
+}
+.cont-flex .flex2 {
+    flex: 2;
+}
+.cont-flex .flex3 {
+    flex: 3;
+}
+
+.card-sel dl dt {
+    font-size: 16px;
+    font-family: 'notoR';
+}
+.card-sel dl dd {
+    padding: 8px 20px 16px;
+}

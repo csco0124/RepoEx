@@ -1,0 +1,198 @@
+{
+  "root": {
+    "index": "root",
+    "canMove": false,
+    "isFolder": true,
+    "children": [
+      "B-1-2",
+      "B-1-3",
+      "B-1-4",
+      "B-1-5"
+    ],
+    "data": {
+      "title": "root"
+    },
+    "canRename": false
+  },
+  "B-1-2": {
+    "index": "B-1-2",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "시스템 관리"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-2-1"
+    ]
+  },
+  "B-1-2-1": {
+    "index": "B-1-2-1",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "관리자 페이지"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-2-1-1",
+      "B-1-2-1-2",
+      "B-1-2-1-3",
+      "B-1-2-1-4"
+    ]
+  },
+  "B-1-2-1-1": {
+    "index": "B-1-2-1-1",
+    "canMove": true,
+    "isFolder": false,
+    "data": {
+      "title": "계정 관리"
+    },
+    "canRename": true
+  },
+  "B-1-2-1-2": {
+    "index": "B-1-2-1-2",
+    "canMove": true,
+    "isFolder": false,
+    "data": {
+      "title": "프로젝트 관리"
+    },
+    "canRename": true
+  },
+  "B-1-2-1-3": {
+    "index": "B-1-2-1-3",
+    "canMove": true,
+    "isFolder": false,
+    "data": {
+      "title": "알림 관리"
+    },
+    "canRename": true
+  },
+  "B-1-2-1-4": {
+    "index": "B-1-2-1-4",
+    "canMove": true,
+    "isFolder": false,
+    "data": {
+      "title": "로그 관리"
+    },
+    "canRename": true
+  },
+  "B-1-3": {
+    "index": "B-1-3",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "대시보드 메인"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-3-1"
+    ]
+  },
+  "B-1-3-1": {
+    "index": "B-1-3-1",
+    "canMove": true,
+    "isFolder": false,
+    "data": {
+      "title": "대시보드메인"
+    },
+    "canRename": true
+  },
+  "B-1-4": {
+    "index": "B-1-4",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "대시보드 선택"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-4-1"
+    ]
+  },
+  "B-1-4-1": {
+    "index": "B-1-4-1",
+    "canMove": true,
+    "isFolder": false,
+    "data": {
+      "title": "대시보드 선택"
+    },
+    "canRename": true
+  },
+  "B-1-5": {
+    "index": "B-1-5",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "운영 관리"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-5-1",
+      "B-1-5-2"
+    ]
+  },
+  "B-1-5-1": {
+    "index": "B-1-5-1",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "대시보드 구성"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-5-1-1",
+      "B-1-5-1-2"
+    ]
+  },
+  "B-1-5-1-1": {
+    "index": "B-1-5-1-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "대시보드 캔버스 관리",
+      "descriptions": [
+        "캔버스 생성 및 레이아웃 편집"
+      ]
+    }
+  },
+  "B-1-5-1-2": {
+    "index": "B-1-5-1-2",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "대시보드 위젯 관리",
+      "descriptions": [
+        "위젯 추가 및 위치/크기 편집"
+      ]
+    }
+  },
+  "B-1-5-2": {
+    "index": "B-1-5-2",
+    "canMove": true,
+    "isFolder": true,
+    "data": {
+      "title": "대시보드 리포트 분석"
+    },
+    "canRename": true,
+    "children": [
+      "B-1-5-2-1"
+    ]
+  },
+  "B-1-5-2-1": {
+    "index": "B-1-5-2-1",
+    "canMove": true,
+    "isFolder": false,
+    "canRename": true,
+    "data": {
+      "title": "대시보드 리포트 관리",
+      "descriptions": [
+        "리포트 생성 및 다운로드",
+        "데이터 분석 및 리포트를 위해 제공된 쿼리 조회",
+        "기간, 타입, 조건 등으로 필터링 검색"
+      ]
+    }
+  }
+}

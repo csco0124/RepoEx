@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property name="LOG_FILE_NAME" value="logs"/>
+    <property name="ERR_LOG_FILE_NAME" value="err_log"/>
+    <springProperty name="LOG_PATH" source="logging.file.path"/>
+
+    <!-- Console Appender -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <!-- pattern>[%X{traceId}][%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5level][%logger.%method:%line] - %msg%n</pattern -->
+                <pattern>[%d{HH:mm:ss} %-5level][%logger{15}.%method:%line] - %msg%n</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOG_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%X{traceId}][%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5level][%logger.%method:%line] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="jdbc" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="OFF"/>
+    <logger name="jdbc.sqltiming" level="DEBUG"/>
+    <logger name="jdbc.audit" level="OFF"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="jdbc.resultsettable" level="DEBUG"/>
+    <logger name="jdbc.connection" level="OFF"/>
+    <logger name="org.apache.http" level="INFO"/>
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.springframework.jdbc.datasource" level="INFO"/>
+    <logger name="org.mybatis.spring.SqlSessionUtils" level="INFO"/>
+    <logger name="org.springframework.boot.actuate" level="INFO"/>
+    <logger name="org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener" level="INFO"/>
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="INFO"/>
+    <logger name="_org.springframework.web.servlet.HandlerMapping.Mappings" level="INFO"/>
+    <logger name="org.springframework.context.annotation.ClassPathBeanDefinitionScanner" level="INFO"/>
+    <logger name="org.mybatis.spring.mapper.ClassPathMapperScanner" level="INFO"/>
+    <logger name="org.mybatis.spring.SqlSessionFactoryBean" level="INFO"/>    
+    <logger name="org.springframework.vault.core" level="INFO"/>
+    <logger name="org.springframework.jmx.export.annotation.AnnotationMBeanExporter" level="INFO"/>
+    <logger name="org.springframework.boot.devtools" level="INFO"/>
+    <logger name="reactor.netty" level="INFO"/>
+    <logger name="org.springframework.http" level="INFO"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+
+    <springProfile name="local">
+        <root level="DEBUG">
+            <appender-ref ref="console" />
+        </root>
+    </springProfile>
+
+    <springProfile name="prd">
+        <root level="INFO">
+            <appender-ref ref="console" />
+        </root>
+    </springProfile>
+
+
+</configuration>

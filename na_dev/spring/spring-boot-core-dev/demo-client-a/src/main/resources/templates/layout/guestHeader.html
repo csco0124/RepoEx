@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="HeaderFragment">
+	<div class="logo">
+		<img src="../../../../images/logo.png" alt="나루아이">
+	</div>
+	<ul>
+		<li>
+			<dl>
+				<a href="/public/view/exam1">
+					<dt>
+						<span>임시 페이지1</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="/public/view/exam2">
+					<dt>
+						<span>임시 페이지2</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="javascript:uiUtil.privatePageEvent('/private/view/home', 'ROLE_USER')">
+					<dt>
+						<span>회원 페이지(ROLE_USER)</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<a href="/logout" id="logoutBtn" style="display: none">
+					<dt>
+						<span>로그아웃</span>
+					</dt>
+				</a>
+			</dl>
+		</li>
+	</ul>
+	<br>
+	<div>
+		<span style="color: #fff;" id="userAuthorityInfo"></span>
+	</div>
+	<script>
+		$(document).ready(function() {
+			const userAuthorityInfo = $('#userAuthorityInfo');
+			const userInfo = commutil.getLoginUser();
+			let appendContent = userInfo.username + '님의 권한 정보'
+			
+			userInfo.authorities.map((authority) => {
+				appendContent += `<p style="margin-left: 10px;">- ${authority.authority}</p>`;
+			});
+			
+			userAuthorityInfo.append(appendContent);
+			
+			logoutDisplayCheck();
+		});
+		
+		function logoutDisplayCheck(){
+			let url = '/login/autoLogin';
+			jQuery.ajax({
+				url: url,
+				type: 'POST',
+				dataType: 'JSON',
+				success: function (result) {
+					commutil.setLoginUser(result.data);
+					const user = commutil.getLoginUser();
+					
+					if(commutil.isEmpty(user) || commutil.isEmpty(user.username) || user.username == '익명'){
+						return;
+					}
+					
+					$('#logoutBtn').css('display', 'block');
+				}
+			});
+		}
+	</script>
+</html>

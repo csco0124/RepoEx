@@ -1,0 +1,128 @@
+<!DOCUTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>test page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type = "text/css" href="/css/style.css" />
+        <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" charset="UTF-8" src = "/js/sample.js"> </script>
+        
+    </head>
+    <body>
+        <h1 id = "appName">Webapp</h1>
+        <p id = "appDesc"> <em>Webapp</em> 테스트 프로젝트 입니다. </p>
+        
+        <!-- TTS 글씨 읽기 -->
+        <article>
+            <header>
+                <h2>tts</h2>
+            </header>
+            <p>
+            <a href="#scanInput" onclick="speech_text('안녕하세요.하이브리드 웹앱 테스트 앱 입니다.');return false;">TTS test</a><br />
+            <a href="#" onclick = "test();return false;">test</a><br />
+            </p>
+            <form id = "ttsTextInputForm" action="javascript:ttsTest();">
+                <p>
+                ttsTest
+                </p>
+                <p>
+                <input type = "text" name = "text" id = "ttsTextInput" placeholder = "TTS 테스트 문장을 입력" />
+                <input type = "submit" value = "확인" />
+                </p>
+            </form>
+        </article>
+        
+        <!-- 다이얼로그 팝업. 확인버튼만 있는것 : alertPopup1, 확인 취소 버튼만 있는것 : alertPopup2  -->
+        <article>
+            <header><h2>dialog</h2></header>
+            <p>
+            <a href="#" onclick="alert('그냥 알림');return false;">alert('그냥 알림')</a> <br />
+            <a href="#" onclick="alertPopup1('알림','hello world','alertConfirm');return false;"> alertPopup1('알림','hello world','alertConfirm')</a> <br />
+            <a href="#" onclick="alertPopup2('알림','안녕하쇼','확인','취소','alertConfirm');return false;"> alertPopup2('알림','안녕하쇼','확인','취소','alertConfirm')</a> <br />
+            </p>
+        </article>
+        
+        <!-- 위치정보 얻어오기. 시작 : requestLocation   종료 : stopLocation    -->
+        <article>
+            <header><h2>location</h2></header>
+            <ul>
+                <a href="#" onclick = "getLocation();return false;">getLocation(); <sup>위치정보 갱신 (한번만)</sup></a><br />
+                <a href="#" onclick = "requestLocation();return false;">requestLocation(); <sup>위치정보 갱신 시작</sup></a><br />
+                <a href="#" onclick = "stopLocation();return false;">stopLocation(); <sup>위치정보 갱신 중단</sup></a><br />
+            </ul>
+            <div id = "locationResult">
+            </div>
+        </article>
+        
+        <!-- Toast 사용하기       -->
+        <article>
+            <header><h2>toast</h2></header>
+            <p>
+            <a href="#" onclick = "toast('타이틀','toast test입니다');return false;">toast('타이틀','toast test입니다'); <sup>타이틀이 있는 toast test</sup></a><br />
+            <a href="#" onclick = "toast('','toast test입니다');return false;">toast('','toast test입니다'); <sup>타이틀이 없는 toast test</sup></a>
+            </p>
+        </article>
+        
+        <!-- 아이디,비밀번호 저장 및 불러오기  -->
+        <article>
+            <header id = "loginIdPwd"><h2>login id pwd test</h2></header>
+            <form id = "loginTest" action="javascript:saveIdPwd();">
+                <p>
+                <input type="text" name = "id" id = "login_id" placeholder = "ID 입력" />
+                <input type="text" name = "pwd" id = "login_pwd" placeholder = "PWD 입력" />
+                </p>
+                <p>
+                <input type = "submit" value = "저장하기" />
+                </p>
+            </form>
+            <p>
+            <a href="#" onclick = "loadIdPwd();return false;">저장된 아이디 PWD 불러오기</a><br />
+            <a href="#" onclick = "deleteIdPwd();return false;">저장된 아이디 PWD 삭제하기</a><br />
+            </p>
+            
+            <p>
+            <a href="#" onclick= "getFcmId();return false;">FCM ID 가져오기</a>
+            <p id = "fcmIdResult"></p>
+            </p>
+            
+        </article>
+        
+        
+        
+        <!--  전화,문자,이메일 보내기 링크  -->
+        <article>
+            <header><h2>전화하기, 문자보내기</h2></header>
+            <p>
+            <a href="tel:010-0000-0000">010-0000-0000 로 전화걸기</a><br />
+            <a href="sms:010-0000-0000">010-0000-0000 로 문자보내기</a><br />
+            </p>
+        </article>
+        
+        <article>
+            <header><h2>이벤트</h2></header>
+            
+            <form action = "javascript:saveEvent();" id = "saveEvent" >
+                제목 <input type = "text" name = "title" placeholder = "제목"/> <br />
+                시작 <input type = "date" name = "startDate" /> <input type = "time" name = "startTime" /> <br />
+                종료 <input type = "date" name = "endDate"  /> <input type = "time" name = "endTime" /> <br />
+                <input type = "checkbox" name = "isAllDay" /> 하루종일
+                <input type = "submit" value = "저장" />
+            </form>
+            <p>
+            <a href="#" onclick = "saveEventTest1('title','2022.03.22 09:00:00','2022.03.22 18:00:00',false,'테스트',37.62,126.8568);return false;">saveEventTest 1</a><br />
+            <a href="#" onclick = "saveEventTest2('title','2022.03.22 09:00:00','2022.03.22 18:00:00',false);return false;">saveEventTest 2</a><br />
+            </p>
+        </article>
+        
+        <article>
+            <header><h2>app 버전</h2></header>
+            <p id="appVersion"></p>
+            <script type= "text/javascript">
+                getVersion();
+            </script>
+        </article>
+        
+    </body>
+</html>

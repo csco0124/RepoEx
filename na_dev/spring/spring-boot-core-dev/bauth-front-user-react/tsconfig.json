@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "noUnusedLocals": false, //TODO 초기 세팅 이후 true 변환 (변수 선언 후 사용하지 않을 경우 에러 발생)
+    "noUnusedParameters": false, //TODO 초기 세팅 이후 true 변환 (파라미터 선언 후 사용하지 않을 경우 에러 발생)
+
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true,
+    
+    "baseUrl": "./src",
+
+    "paths": {
+      "@/*": ["*"],
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"],
+      "@configs/*": ["configs/*"],
+      "@hooks/*": ["hooks/*"],
+      "@sections/*": ["sections/*"],
+      "@routes/*": ["routes/*"],
+      "@utils/*": ["utils/*"],
+      "@auth/*": ["auth/*"],
+      "@assets/*": ["assets/*"],
+    },
+    
+    "allowJs": true,
+    "typeRoots": ["./node_modules/@types", "./@types"],
+    "types": ["vite/client"],
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

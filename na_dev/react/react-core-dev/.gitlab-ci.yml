@@ -1,0 +1,103 @@
+variables:
+  DOCKER_DRIVER: overlay
+  SPRING_PROFILES_ACTIVE: gitlab-ci  
+  DOCKER_HOST: tcp://localhost:2375
+
+  REPO_URI: dkpr.bluetype.net
+  
+  IMG_TAG: ${CI_COMMIT_SHORT_SHA}  #"2022092701"  ${CI_JOB_ID}
+  APP_NAME: react-core
+
+  #SPIN_URI: https://deck.bluetype.net/api/v1/webhooks/webhook
+  SPIN_URI: https://gate.bluetype.win/webhooks/webhook
+
+cache:
+  paths:
+    - NaruPrj/node_modules
+
+stages: 
+  - build
+  - vlt  
+  - package
+
+#front
+npm-build-frontend:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+      - "**/.gitlab-ci.yml"
+      - "**/NaruPrj/**/*"
+      variables: 
+        BUILD_COMMAND: npm run build:dev
+
+  image: node:18.7.0-slim
+  stage: build
+  script:
+    - cd NaruPrj
+    - npm i
+    - ${BUILD_COMMAND}
+  artifacts:
+    paths:
+      - NaruPrj/dist/*
+
+# 1. VAULT_TOKEN 발행 
+vlt:
+  rules:
+    - changes:
+      - "**/.gitlab-ci.yml"
+      - "**/NaruPrj/**/*"
+  image: vault:1.8.4
+  stage: vlt
+  script:
+    - echo $CI_COMMIT_REF_NAME
+    - echo $CI_COMMIT_REF_PROTECTED
+    - export VAULT_ADDR=https://vlt.bluetype.win
+    - export VAULT_TOKEN="$(vault write -field=token auth/jwt/login role=apps05 jwt=$CI_JOB_JWT)"  
+    
+    - echo "X_GITLAB_TOKEN="$(vault kv get -field=X_GITLAB_TOKEN kv/apps05/key) >> vlt.env
+    - echo "DKPR_USR="$(vault kv get -field=DKPR_USR kv/cloud) >> vlt.env
+    - echo "DKPR_KEY="$(vault kv get -field=DKPR_KEY kv/cloud) >> vlt.env
+            
+  artifacts:
+    reports:
+      dotenv: vlt.env
+  cache: {}
+
+docker-build-kaniko-client:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+      changes:
+        - "**/.gitlab-ci.yml"      
+        - "**/NaruPrj/**/*"
+      variables:
+        IMG_REPO_URI: ${REPO_URI}/dev/${APP_NAME}
+        CURL_URI: ${SPIN_URI}/${APP_NAME}-dev
+
+  stage: package
+  image:
+    #name: gcr.io/kaniko-project/executor:debug
+    name: dkpr.bluetype.net/tom/kaniko-curl
+    entrypoint: [""]
+  script:
+    - echo "DKPR_USR="$DKPR_USR
+    - echo ${IMG_REPO_URI}
+
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$REPO_URI\":{\"username\":\"$DKPR_USR\",\"password\":\"$DKPR_KEY\"}}}" > /kaniko/.docker/config.json
+    - |
+      /kaniko/executor \
+      --cache=true \
+      --context $CI_PROJECT_DIR \
+      --dockerfile $CI_PROJECT_DIR/Dockerfile \
+      --destination ${IMG_REPO_URI}:${IMG_TAG} \
+      --destination ${IMG_REPO_URI}:latest
+
+    # deploy
+    - curl -H "Content-Type:application/json" -X POST ${CURL_URI} -d "{\"X-Gitlab-Token\":\"$X_GITLAB_TOKEN\",\"parameters\":{\"imgtag\":\"$IMG_TAG\",\"cijobid\":\"$CI_JOB_ID\"}}"
+  dependencies:
+    - npm-build-frontend
+    - vlt
+  needs:
+    - npm-build-frontend
+    - vlt
+  cache: {}

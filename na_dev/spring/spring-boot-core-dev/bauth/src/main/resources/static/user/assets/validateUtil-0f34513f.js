@@ -1,0 +1,1 @@
+import"./index-98646e71.js";const r=t=>typeof t>"u"||t===null||typeof t=="string"&&t.trim().length===0?!0:Array.isArray(t)?r(t[0]):typeof t=="object"&&Object.keys(t).length===0,n=t=>!r(t),i=t=>/^[A-Za-z\d_\.\-]+@[A-Za-z\d\-]+\.[A-Za-z\d\-]+/.test(t);export{n as a,i};

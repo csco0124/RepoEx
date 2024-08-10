@@ -1,0 +1,123 @@
+[
+  {
+    "id": "boardSystemManage",
+    "parent": 0,
+    "droppable": true,
+    "ord": 7,
+    "text": "시스템 관리"
+  },
+  {
+    "id": "dashBoardMain",
+    "parent": 0,
+    "droppable": true,
+    "ord": 8,
+    "text": "대시보드 메인"
+  },
+  {
+    "id": "dashBoardMainDep_2",
+    "parent": "dashBoardMain",
+    "droppable": true,
+    "ord": 8,
+    "text": "대시보드 메인",
+    "url": "dashBoardMain/dashBoardMainDep_2"
+  },
+  {
+    "id": "dashBoardChoose",
+    "parent": 0,
+    "droppable": true,
+    "ord": 9,
+    "text": "대시보드 선택"
+  },
+  {
+    "id": "dashBoardChooseDep_2",
+    "parent": "dashBoardChoose",
+    "droppable": true,
+    "ord": 9,
+    "text": "대시보드 선택",
+    "url": "dashBoardChoose/dashBoardChooseDep_2"
+  },
+  {
+    "id": "boardOpMgmt",
+    "parent": 0,
+    "droppable": true,
+    "ord": 10,
+    "text": "운영관리"
+  },
+  {
+    "id": "boardAdminPage",
+    "parent": "boardSystemManage",
+    "droppable": true,
+    "ord": 20,
+    "text": "관리자 페이지"
+  },
+  {
+    "id": "dashBoardCfg",
+    "parent": "boardOpMgmt",
+    "droppable": true,
+    "ord": 21,
+    "text": "대시보드 구성"
+  },
+  {
+    "id": "dashBoardReportAnlys",
+    "parent": "boardOpMgmt",
+    "droppable": true,
+    "ord": 22,
+    "text": "대시보드 리포트 분석"
+  },
+  {
+    "id": "boardAccountManage",
+    "parent": "boardAdminPage",
+    "droppable": true,
+    "ord": 50,
+    "text": "계정 관리",
+    "url": "boardSystemManage/boardAdminPage/boardAccountManage"
+  },
+  {
+    "id": "boardProjectManage",
+    "parent": "boardAdminPage",
+    "droppable": true,
+    "ord": 51,
+    "text": "프로젝트 관리",
+    "url": "boardSystemManage/boardAdminPage/boardProjectManage"
+  },
+  {
+    "id": "boardNotionManage",
+    "parent": "boardAdminPage",
+    "droppable": true,
+    "ord": 52,
+    "text": "알림 관리",
+    "url": "boardSystemManage/boardAdminPage/boardNotionManage"
+  },
+  {
+    "id": "boardLogManage",
+    "parent": "boardAdminPage",
+    "droppable": true,
+    "ord": 53,
+    "text": "로그 관리",
+    "url": "boardSystemManage/boardAdminPage/boardLogManage"
+  },
+  {
+    "id": "dashBoardCbMgt",
+    "parent": "dashBoardCfg",
+    "droppable": true,
+    "ord": 54,
+    "text": "대시보드 캔버스 관리",
+    "url": "boardOpMgmt/dashBoardCfg/dashBoardCbMgt"
+  },
+  {
+    "id": "dashBoardWgMgt",
+    "parent": "dashBoardCfg",
+    "droppable": true,
+    "ord": 55,
+    "text": "대시보드 위젯 관리",
+    "url": "boardOpMgmt/dashBoardCfg/dashBoardWgMgt"
+  },
+  {
+    "id": "dashBoardReptMgt",
+    "parent": "dashBoardReportAnlys",
+    "droppable": true,
+    "ord": 56,
+    "text": "대시보드 리포트 관리",
+    "url": "boardOpMgmt/dashBoardReportAnlys/dashBoardReptMgt"
+  }
+]

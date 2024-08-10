@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../../schema-define/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.narui.democlientb.test.dao.MbyGridDao">
+
+	<!-- 그리드 데이터 추출 -->
+	<select id="getData" parameterType="com.narui.democlientb.test.dto.MbyGridDto" resultType="com.narui.democlientb.test.dto.MbyGridDto">
+		SELECT
+		    *
+		FROM
+		    JSON_DATA
+		WHERE
+		    DEL_YN = 'N'
+		LIMIT
+		    #{howMuchNum} OFFSET #{startRowNum}
+	</select>
+	
+	<!-- 그리드 데이터 추가 -->
+	<insert id="insertData" parameterType="com.narui.democlientb.test.dto.MbyGridDto">
+		INSERT INTO
+		    JSON_DATA 
+		    (
+		        DATA_PATH,
+		        JSON_DATA,
+		        DATA_INFO,
+		        STATUS_CODE,
+		        DELAY_TIME,
+		        METHOD_TYPE
+		    )
+			VALUES
+			(
+		        #{dataPath},
+		        #{jsonData},
+		        #{dataInfo},
+		        #{statusCode},
+		        #{delayTime},
+		        #{methodType}
+			)
+	</insert>
+	
+	<!-- 그리드 데이터 수정 (셀 단위 수정) -->
+	<update id="cellUpdateData" parameterType="com.narui.democlientb.test.dto.MbyGridDto">
+		UPDATE
+		    JSON_DATA
+		SET
+		    ${column} = #{updateCellData}
+		WHERE
+		    UID = #{uid}
+	</update>
+	
+	<!-- 그리드 데이터 수정 (행 단위 수정) --> 
+	<update id="rowUpdateData" parameterType="com.narui.democlientb.test.dto.MbyGridDto">
+		UPDATE
+		    JSON_DATA
+		SET
+		    DATA_PATH = #{dataPath},
+		    JSON_DATA = #{jsonData},
+		    DATA_INFO = #{dataInfo},
+		    STATUS_CODE = #{statusCode},
+		    DELAY_TIME = #{delayTime},
+		    METHOD_TYPE = #{methodType}
+		WHERE
+		    UID = #{uid}
+	</update>
+	
+	<!-- 그리드 데이터 삭제 (DEL_YN ='Y' 업데이트 처리) -->
+	<update id="deleteData" parameterType="com.narui.democlientb.test.dto.MbyGridDto">
+		<foreach collection="mbyDto" item="item" separator=";">
+		UPDATE
+			JSON_DATA 
+		SET
+			DEL_YN = "Y"
+		WHERE
+			UID = #{item.uid}
+		</foreach>
+	</update>
+	
+	<!-- 입력 키워드에 맞는 json데이터 불러오기(API-MOCHA) -->
+	<select id="getJsonData" resultType="com.narui.democlientb.test.dto.MbyGridDto">
+		SELECT 
+			DATA_PATH ,
+			JSON_DATA ,
+			DATA_INFO ,
+			STATUS_CODE ,
+			DELAY_TIME ,
+			METHOD_TYPE
+		FROM
+			JSON_DATA
+		WHERE
+			DATA_PATH = #{data}
+	</select>
+  
+</mapper>

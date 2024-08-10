@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head xmlns:th="http://www.thymeleaf.org">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+	<meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<title>register2FaAuth</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script type="text/javascript" th:src="@{/js/pub.js}"></script>
+	<script type="text/javascript" th:src="@{/js/comm.js}"></script>
+</head>
+<body>
+<header class="header">
+	<button class="head-prev" onclick="history.back()">이전페이지</button>
+	<h1 class="h1-tit"></h1>
+</header>
+
+<section class="container">
+	<div class="cont-btn">
+		<div class="cont-area01">
+			<p class="user-info">
+				OTP 등록 후 인증 성공 시 OTP인증이 활성화 됩니다.
+			</p>
+			<div class="form-box">
+					<div id="2factorContainer"></div>
+		
+					<div class="ipt-box type01">
+						<div class="ipt">
+							<input type="text" name="otpCode" id="otpCode" maxlength="6" minlength="6">
+							<label for="otpCode">CODE</label>
+						</div>
+					</div>
+					<p class="txt-error" id="otpCode_error">Code 코드를 확인해주세요.</p>
+			</div>
+			<div class="btn-box">
+				<div>
+					<button id="2faAuthBtn" class="btnL type-orange" disabled>인증</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+	$(document).ready(function(){
+		const using2FA = JSON.parse(sessionStorage.getItem('identifier')).using2FA;
+		if(!using2FA){
+			$('#2faAuthBtn').attr('disabled', false);
+			view2factor($('#2factorContainer'));
+		}
+	})
+	
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	
+	$('#2faAuthBtn').click(() => {
+		const param = {
+			email: localStorage.getItem("email"),
+			auth: $('#otpCode').val()
+		};
+		
+		$.ajax({
+			type: "PUT",
+			url: '/private/api/multi-factor/otp-auth',
+			dataType: 'json',
+			data: param,
+			beforeSend: function(xhr) {
+				xhr.setRequestHeader(header, token); 
+			},
+			success: (res) => {
+				if(res.error != 'OK'){
+					$("#otpCode").closest('.ipt-box').addClass('err-sel');
+					$("#otpCode_error").html(res.message);
+					return;
+				}
+				
+				commUtil.alert('otp등록이 완료되었습니다.', function(){
+					history.back();
+				});
+			},
+			error: (res) => {
+				$("#otpCode").closest('.ipt-box').addClass('err-sel');
+				$("#otpCode_error").html(res.responseJSON.message);
+			}
+		})
+	})
+	
+	
+</script>
+</body>
+</html>

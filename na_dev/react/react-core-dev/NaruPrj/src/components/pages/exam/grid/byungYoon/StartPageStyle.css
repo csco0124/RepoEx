@@ -1,0 +1,18 @@
+#totalArea {
+  background-image: url('https://img.freepik.com/premium-photo/white-natural-paper-texture-clean-background-wallpaper_118047-8893.jpg?w=1060');
+  background-size: cover;
+  background-position: center;
+}
+
+#mainArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+}
+
+#underArea {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+}

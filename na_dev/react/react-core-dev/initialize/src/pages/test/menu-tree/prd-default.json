@@ -1,0 +1,759 @@
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "droppable": true,
+        "text": "NEXT LAB 통합관리자"
+    },
+
+    {
+        "id": 2,
+        "parent": 0,
+        "droppable": true,
+        "text": "NEXT LAB 대시보드"
+    },
+
+    {
+        "id": 3,
+        "parent": 1,
+        "droppable": true,
+        "text": "메인"
+    },
+
+    {
+        "id": 4,
+        "parent": 1,
+        "droppable": true,
+        "text": "시스템 관리"
+    },
+
+    {
+        "id": 5,
+        "parent": 1,
+        "droppable": true,
+        "text": "운영관리"
+    },
+
+    {
+        "id": 6,
+        "parent": 2,
+        "droppable": true,
+        "text": "메인"
+    },
+
+    {
+        "id": 7,
+        "parent": 2,
+        "droppable": true,
+        "text": "시스템 관리"
+    },
+
+    {
+        "id": 8,
+        "parent": 2,
+        "droppable": true,
+        "text": "대시보드 메인"
+    },
+
+    {
+        "id": 9,
+        "parent": 2,
+        "droppable": true,
+        "text": "대시보드 선택"
+    },
+
+    {
+        "id": 10,
+        "parent": 2,
+        "droppable": true,
+        "text": "운영관리"
+    },
+
+    {
+        "id": 11,
+        "parent": 3,
+        "droppable": true,
+        "text": "메인"
+    },
+
+    {
+        "id": 12,
+        "parent": 4,
+        "droppable": true,
+        "text": "로그인 관리"
+    },
+
+    {
+        "id": 13,
+        "parent": 4,
+        "droppable": true,
+        "text": "관리자 관리"
+    },
+
+    {
+        "id": 14,
+        "parent": 4,
+        "droppable": true,
+        "text": "BIZ 관리"
+    },
+
+    {
+        "id": 15,
+        "parent": 4,
+        "droppable": true,
+        "text": "권한 관리"
+    },
+
+    {
+        "id": 16,
+        "parent": 4,
+        "droppable": true,
+        "text": "코드 관리"
+    },
+
+    {
+        "id": 17,
+        "parent": 4,
+        "droppable": true,
+        "text": "인터페이스 관리"
+    },
+
+    {
+        "id": 18,
+        "parent": 4,
+        "droppable": true,
+        "text": "품질 관리"
+    },
+
+    {
+        "id": 19,
+        "parent": 5,
+        "droppable": true,
+        "text": "공통 관리"
+    },
+
+    {
+        "id": 20,
+        "parent": 5,
+        "droppable": true,
+        "text": "커스텀 관리"
+    },
+
+    {
+        "id": 21,
+        "parent": 6,
+        "droppable": true,
+        "text": "메인"
+    },
+
+    {
+        "id": 22,
+        "parent": 7,
+        "droppable": true,
+        "text": "관리자 페이지"
+    },
+
+    {
+        "id": 23,
+        "parent": 8,
+        "droppable": true,
+        "text": "대시보드 메인"
+    },
+
+    {
+        "id": 24,
+        "parent": 9,
+        "droppable": true,
+        "text": "대시보드 선택"
+    },
+
+    {
+        "id": 25,
+        "parent": 10,
+        "droppable": true,
+        "text": "대시보드 구성"
+    },
+
+    {
+        "id": 26,
+        "parent": 10,
+        "droppable": true,
+        "text": "대시보드 리포트 분석"
+    },
+
+    {
+        "id": 27,
+        "parent": 11,
+        "droppable": true,
+        "text": "로그인 메인 페이지"
+    },
+
+    {
+        "id": 28,
+        "parent": 11,
+        "droppable": true,
+        "text": "비밀번호 찾기"
+    },
+
+    {
+        "id": 29,
+        "parent": 12,
+        "droppable": true,
+        "text": "로그인 허용 IP 관리"
+    },
+
+    {
+        "id": 30,
+        "parent": 13,
+        "droppable": true,
+        "text": "관리자 정보 관리"
+    },
+    
+    {
+        "id": 31,
+        "parent": 13,
+        "droppable": true,
+        "text": "관리자 접속 이력 관리"
+    },
+
+    {
+        "id": 32,
+        "parent": 13,
+        "droppable": true,
+        "text": "대시보드 관리자 관리"
+    },
+
+    {
+        "id": 33,
+        "parent": 14,
+        "droppable": true,
+        "text": "BIZ 메뉴 관리"
+    },
+
+    {
+        "id": 34,
+        "parent": 14,
+        "droppable": true,
+        "text": "BIZ 메뉴 관리"
+    },
+
+    {
+        "id": 35,
+        "parent": 15,
+        "droppable": true,
+        "text": "앱 메뉴 및 화면 접근 권한 관리"
+    },
+
+    {
+        "id": 36,
+        "parent": 15,
+        "droppable": true,
+        "text": "관리자 메뉴 및 화면 접근 권한 관리"
+    },
+
+    {
+        "id": 37,
+        "parent": 15,
+        "droppable": true,
+        "text": "BIZ 메뉴 및 화면 접근 권한 관리"
+    },
+
+    {
+        "id": 38,
+        "parent": 15,
+        "droppable": true,
+        "text": "역할 관리"
+    },
+
+    {
+        "id": 39,
+        "parent": 16,
+        "droppable": true,
+        "text": "META 코드 연계"
+    },
+
+    {
+        "id": 40,
+        "parent": 16,
+        "droppable": true,
+        "text": "업무별 공통 코드관리"
+    },
+
+    {
+        "id": 41,
+        "parent": 17,
+        "droppable": true,
+        "text": "인터페이스 정보관리"
+    },
+
+    {
+        "id": 42,
+        "parent": 17,
+        "droppable": true,
+        "text": "인터페이스 구분관리"
+    },
+
+    {
+        "id": 43,
+        "parent": 17,
+        "droppable": true,
+        "text": "인터페이스 서비스관리"
+    },
+
+    {
+        "id": 44,
+        "parent": 17,
+        "droppable": true,
+        "text": "인터페이스 매핑관리"
+    },
+
+    {
+        "id": 45,
+        "parent": 17,
+        "droppable": true,
+        "text": "EIMS연동 테스트"
+    },
+
+    {
+        "id": 46,
+        "parent": 18,
+        "droppable": true,
+        "text": "앱 버전 관리"
+    },
+
+    {
+        "id": 47,
+        "parent": 18,
+        "droppable": true,
+        "text": "배치 관리"
+    },
+
+    {
+        "id": 48,
+        "parent": 18,
+        "droppable": true,
+        "text": "시스템 공지 관리"
+    },
+
+    {
+        "id": 49,
+        "parent": 19,
+        "droppable": true,
+        "text": "통합 공지 관리"
+    },
+
+    {
+        "id": 50,
+        "parent": 19,
+        "droppable": true,
+        "text": "이벤트 관리"
+    },
+
+    {
+        "id": 51,
+        "parent": 19,
+        "droppable": true,
+        "text": "앱 푸시 관리"
+    },
+
+    {
+        "id": 52,
+        "parent": 20,
+        "droppable": true,
+        "text": "포인트 관리"
+    },
+
+    {
+        "id": 53,
+        "parent": 21,
+        "droppable": true,
+        "text": "로그인 메인 페이지"
+    },
+
+    {
+        "id": 54,
+        "parent": 22,
+        "droppable": true,
+        "text": "계정 관리"
+    },
+
+    {
+        "id": 55,
+        "parent": 22,
+        "droppable": true,
+        "text": "프로젝트 관리"
+    },
+
+    {
+        "id": 56,
+        "parent": 22,
+        "droppable": true,
+        "text": "알림 관리"
+    },
+
+    {
+        "id": 57,
+        "parent": 22,
+        "droppable": true,
+        "text": "로그 관리"
+    },
+
+    {
+        "id": 58,
+        "parent": 25,
+        "droppable": true,
+        "text": "대시보드 캔버스 관리"
+    },
+
+    {
+        "id": 59,
+        "parent": 25,
+        "droppable": true,
+        "text": "대시보드 위젯 관리"
+    },
+
+    {
+        "id": 60,
+        "parent": 26,
+        "droppable": true,
+        "text": "대시보드 리포트 관리"
+    },
+
+    {
+        "id": 61,
+        "parent": 27,
+        "droppable": true,
+        "text": "IAM계정 연동"
+    },
+
+    {
+        "id": 62,
+        "parent": 28,
+        "droppable": true,
+        "text": "사원번호, 성명, 주민번호 사용자 인증 확인"
+    },
+
+    {
+        "id": 63,
+        "parent": 29,
+        "droppable": true,
+        "text": "허용 IP 조회 및 등록"
+    },
+
+    {
+        "id": 64,
+        "parent": 29,
+        "droppable": true,
+        "text": "허용 IP 사용 여부 및 최종 변경 이력 관리"
+    },
+
+    {
+        "id": 65,
+        "parent": 30,
+        "droppable": true,
+        "text": "관리자 정보 등록/수정/삭제"
+    },
+
+    {
+        "id": 66,
+        "parent": 30,
+        "droppable": true,
+        "text": "관리자 역할 및 상태 관리"
+    },
+
+    {
+        "id": 67,
+        "parent": 30,
+        "droppable": true,
+        "text": "관리자 정보 목록 조회"
+    },
+
+    {
+        "id": 68,
+        "parent": 31,
+        "droppable": true,
+        "text": "관리자 접속 이력 조회 및 다운로드"
+    },
+
+    {
+        "id": 69,
+        "parent": 32,
+        "droppable": true,
+        "text": "대시보드 접근 권한 정보 등록/수정/삭제"
+    },
+
+    {
+        "id": 70,
+        "parent": 32,
+        "droppable": true,
+        "text": "대시보드 관리자 역할 및 상태 관리"
+    },
+
+    {
+        "id": 71,
+        "parent": 32,
+        "droppable": true,
+        "text": "대시보드 관리자 정보 목록 조회"
+    },
+
+    {
+        "id": 72,
+        "parent": 32,
+        "droppable": true,
+        "text": "대시보드 관리자 접속 이력 조회 및 다운로드"
+    },
+
+    {
+        "id": 73,
+        "parent": 33,
+        "droppable": true,
+        "text": "BIZ별 관리자 메뉴 정보 등록/수정/삭제"
+    },
+
+    {
+        "id": 74,
+        "parent": 34,
+        "droppable": true,
+        "text": "BIZ별 관리자 화면 정보 등록/수정/삭제"
+    },
+
+    {
+        "id": 75,
+        "parent": 35,
+        "droppable": true,
+        "text": "접근 권한 정보 조회 및 등록/수정/삭제"
+    },
+
+    {
+        "id": 76,
+        "parent": 35,
+        "droppable": true,
+        "text": "접근 권한 변경 이력 관리"
+    },
+
+    {
+        "id": 77,
+        "parent": 35,
+        "droppable": true,
+        "text": "메뉴 및 화면 상태 관리"
+    },
+
+    {
+        "id": 78,
+        "parent": 36,
+        "droppable": true,
+        "text": "접근 권한 정보 조회 및 등록/수정/삭제"
+    },
+
+    {
+        "id": 79,
+        "parent": 36,
+        "droppable": true,
+        "text": "접근 권한 변경 이력 관리"
+    },
+
+    {
+        "id": 80,
+        "parent": 36,
+        "droppable": true,
+        "text": "메뉴 및 화면 상태 관리"
+    },
+
+    {
+        "id": 81,
+        "parent": 37,
+        "droppable": true,
+        "text": "접근 권한 정보 조회 및 등록/수정/삭제"
+    },
+
+    {
+        "id": 82,
+        "parent": 37,
+        "droppable": true,
+        "text": "접근 권한 변경 이력 관리"
+    },
+
+    {
+        "id": 83,
+        "parent": 37,
+        "droppable": true,
+        "text": "메뉴 및 화면 상태 관리"
+    },
+
+    {
+        "id": 84,
+        "parent": 38,
+        "droppable": true,
+        "text": "사용자 역할 구분 조회 및 등록"
+    },
+
+    {
+        "id": 85,
+        "parent": 38,
+        "droppable": true,
+        "text": "사용자 역할 상태 관리"
+    },
+
+    {
+        "id": 86,
+        "parent": 38,
+        "droppable": true,
+        "text": "사용자 역할 변경 이력 관리"
+    },
+
+    {
+        "id": 87,
+        "parent": 39,
+        "droppable": true,
+        "text": "한화생명 META 코드 연계"
+    },
+
+    {
+        "id": 88,
+        "parent": 40,
+        "droppable": true,
+        "text": "비즈 업무별 공통 코드 관리"
+    },
+
+    {
+        "id": 89,
+        "parent": 41,
+        "droppable": true,
+        "text": "인터페이스 ID, 정보 조회 및 등록"
+    },
+
+    {
+        "id": 90,
+        "parent": 42,
+        "droppable": true,
+        "text": "인터페이스 상세 정보 조회 및 등록"
+    },
+
+    {
+        "id": 91,
+        "parent": 43,
+        "droppable": true,
+        "text": "인터페이스 서비스 ID, 정보 조회 및 등록"
+    },
+
+    {
+        "id": 92,
+        "parent": 44,
+        "droppable": true,
+        "text": "시스템간 입출력 파라미터 매핑 정보 조회 및 등록"
+    },
+
+    {
+        "id": 93,
+        "parent": 45,
+        "droppable": true,
+        "text": "EIMS 인터페이스 호출 테스트"
+    },
+
+    {
+        "id": 94,
+        "parent": 46,
+        "droppable": true,
+        "text": "앱 버전 목록 조회 및 등록/수정"
+    },
+
+    {
+        "id": 95,
+        "parent": 47,
+        "droppable": true,
+        "text": "배치 실행 이력 조회 및 실행"
+    },
+
+    {
+        "id": 96,
+        "parent": 48,
+        "droppable": true,
+        "text": "시스템 점검 알림 내용 목록 조회 및 등록"
+    },
+
+    {
+        "id": 97,
+        "parent": 49,
+        "droppable": true,
+        "text": "공지사항 내용 조회 및 등록/수정"
+    },
+
+    {
+        "id": 98,
+        "parent": 50,
+        "droppable": true,
+        "text": "이벤트 내용 조회 및 등록/수정"
+    },
+
+    {
+        "id": 99,
+        "parent": 51,
+        "droppable": true,
+        "text": "앱 푸시 발송"
+    },
+
+    {
+        "id": 100,
+        "parent": 51,
+        "droppable": true,
+        "text": "앱 푸시 발송 결과 확인"
+    },
+
+    {
+        "id": 101,
+        "parent": 52,
+        "droppable": true,
+        "text": "적립 포인트 설정 목록 조회 및 등록/수정/삭제"
+    },
+
+    {
+        "id": 102,
+        "parent": 52,
+        "droppable": true,
+        "text": "포인트 개별 지급 및 내역 조회"
+    },
+
+    {
+        "id": 103,
+        "parent": 53,
+        "droppable": true,
+        "text": "IAM계정 연동, ADMIN 권한 인증"
+    },
+
+    {
+        "id": 104,
+        "parent": 58,
+        "droppable": true,
+        "text": "캔버스 생성 및 레이아웃 편집"
+    },
+
+    {
+        "id": 105,
+        "parent": 59,
+        "droppable": true,
+        "text": "위젯 추가 및 위치/크기 편집"
+    },
+
+    {
+        "id": 106,
+        "parent": 60,
+        "droppable": true,
+        "text": "리포트 생성 및 다운로드"
+    },
+
+    {
+        "id": 107,
+        "parent": 60,
+        "droppable": true,
+        "text": "데이터 분석 및 리포트를 위해 제공된 쿼리 조회"
+    },
+
+    {
+        "id": 108,
+        "parent": 60,
+        "droppable": true,
+        "text": "기간, 타입, 조건 등으로 필터링 검색"
+    }
+
+
+]

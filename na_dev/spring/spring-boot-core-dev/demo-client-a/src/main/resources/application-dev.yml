@@ -1,0 +1,44 @@
+logging:
+  file:
+    path: /logs
+
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          nauth:
+            client-name: demo-client-a-dev
+            client-id: b2602286-c971-4a91-9b8f-11d26f5be3ac.naruint.com
+            client-secret: ced6691f-ca28-408d-8cd1-5cbaa2cd243a
+            authorization-grant-type: authorization_code
+            redirect-uri: https://aaa.bluetype.win/login/oauth2/code/nauth
+            provider: naru-oidc-provider
+            scope: openid, profile, roles, phone
+        provider:
+          naru-oidc-provider:
+            issuer-uri: https://bauth.bluetype.win
+  main:
+    allow-bean-definition-overriding: true
+  thymeleaf:
+    cache: true
+    check-template-location: true
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  freemarker:
+    cache: false
+frontend:
+  cors:
+    url: http://localhost:5173,http://localhost:5174,http://localhost:3000,http://localhost:8060,https://rc.bluetype.win
+internal-server-url: https://office.workday.bluetype.win
+authorization-server-url: https://bauth.bluetype.win
+server-url: https://aaa.bluetype.win
+
+#해당 권한이 없으면 클라이언트 접속 불가
+client-authority: A_USER

@@ -1,0 +1,58 @@
+.app {
+    height: 100%;
+}
+
+.actions {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    margin: 8px;
+    padding: 8px;
+}
+
+.storyRoot {
+    display: grid;
+    height: 100%;
+    grid-template-rows: auto 1fr;
+}
+
+.information {
+    max-width: 600px;
+    padding: 24px 40px 0;
+}
+
+.information>p {
+    font-size: 14px;
+    margin: 0;
+    padding: 16px;
+}
+
+.usage {
+    background-color: #f3f3f3;
+    border-radius: 4px;
+}
+
+.note::first-line {
+    font-weight: bold;
+}
+
+.treeRoot {
+    height: 100%;
+}
+
+.draggingSource {
+    opacity: 0.3;
+}
+
+.dropTarget {
+    /* background-color: #e8f0fe; */
+    box-shadow: 0 0 0 1px #1967d2 inset;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding-left: 0;
+}

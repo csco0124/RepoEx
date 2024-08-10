@@ -1,0 +1,441 @@
+[
+  
+  {
+    "id" : "nextLabAdmin",
+    "name" : "NEXT LAB 통합관리자",
+    "children" : 
+    [
+      {
+        "id" : "adminMain",
+        "name" : "메인",
+        "children" : 
+        
+        [
+          {
+            "id": "adminMain/main",
+            "name": "메인",
+            "children": 
+            [
+              { 
+                "id": "adminMain/main/loginMainPage", 
+                "name": "로그인 메인 페이지", 
+                "children" : [
+                  {
+                    "id" : "adminMain/main/loginMainPage/iamAccount",
+                    "name" : "IAM계정 연동"
+                  }
+                ] 
+              },
+
+              { 
+                "id": "adminMain/main/findPassword", 
+                "name": "비밀번호 찾기", 
+                "children" : [
+                  {
+                    "id" : "adminMain/main/findPassword/userAuthorization",
+                    "name" : "사원번호, 성명, 주민번호 사용자 인증 확인"
+                  }
+                ] 
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "adminSystemMgt",
+        "name" : "시스템 관리",
+        "children" : [
+          {
+            "id": "adminSystemMgt/adminLoginMgt",
+            "name": "로그인 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminLoginMgt/ipMgt",
+                "name": "로그인 허용 IP관리",
+                "children":
+                [
+                  {
+                    "id": "adminSystemMgt/adminLoginMgt/ipMgt/ipLookup",
+                    "name": "허용 IP 조회 및 등록"
+                  },
+                  {
+                    "id": "adminSystemMgt/adminLoginMgt/ipMgt/ipHistoryMgt",
+                    "name": "허용 IP 사용 여부 및 최종 변경 이력 관리"
+                  }
+                  
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adminSystemMgt/adminAdminMgt",
+            "name": "관리자 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminAdminMgt/adminInfoMgt",
+                "name": "관리자 정보 관리",
+                "children":
+                [
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminInfoCrd",
+                    "name": "관리자 정보 등록/수정/삭제"
+                  },
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminRoleMgt",
+                    "name": "관리자 역할 및 상태 관리"
+                  },
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminInfoListLookup",
+                    "name": "관리자 정보 목록 조회"
+                  }
+                ]
+              },
+              {
+                "id": "adminSystemMgt/adminAdminMgt/adminAccessHistoryMgt",
+                "name": "관리자 접속 이력 관리",
+                "children":
+                [
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminAccessHistoryMgt/download",
+                    "name": "관리자 접속 이력 조회 및 다운로드"
+                  }
+                ]
+              },
+              {
+                "id": "adminSystemMgt/adminAdminMgt/adminMgt",
+                "name": "대시보드 관리자 관리",
+                "children":
+                [
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminMgt/Crd",
+                    "name": "대시보드 접근 권한 정보 등록/수정/삭제"
+                  },
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminMgt/roleMgt",
+                    "name": "대시보드 관리자 역할 및 상태 관리"
+                  },
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminMgt/listLookup",
+                    "name": "대시보드 관리자 정보 목록 조회"
+                  },
+                  {
+                    "id": "adminSystemMgt/adminAdminMgt/adminMgt/download",
+                    "name": "대시보드 관리자 접속 이력 조회 및 다운로드"
+                  }
+                ]
+              }
+            ]
+          }  
+          ,{
+            "id": "adminSystemMgt/adminBizMgt",
+            "name": "BIZ 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminBizMgt/menuMgt",
+                "name": "BIZ 메뉴 관리",
+                "children":
+                [
+                  {
+                    "id": "adminSystemMgt/adminBizMgt/menuMgt/infoCrd",
+                    "name": "BIZ별 관리자 메뉴 정보 등록/수정/삭제"
+                  }
+                ]
+              },
+              {
+                "id": "adminSystemMgt/adminBizMgt/pageMgt",
+                "name": "BIZ 화면 관리",
+                "children":
+                [
+                  {
+                    "id": "adminSystemMgt/adminBizMgt/pageMgt/infoMgt",
+                    "name": "BIZ별 관리자 화면 정보 등록/수정/삭제"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "adminSystemMgt/adminAuthorizationMgt",
+            "name": "권한 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminAuthorizationMgt/accessAuthMgt",
+                "name": "앱 메뉴 및 화면 접근 권한 관리"
+              },
+              {
+                "id": "adminSystemMgt/adminAuthorizationMgt/adminAccessAuthMgt",
+                "name": "관리자 메뉴 및 화면 접근 권한 관리"
+              },
+              {
+                "id": "adminSystemMgt/adminAuthorizationMgt/bizAccessAuthMgt",
+                "name": "BIZ 메뉴 및 화면 접근 권한 관리"
+              },
+              {
+                "id": "adminSystemMgt/adminAuthorizationMgt/roleMgt",
+                "name": "역할 관리"
+              }
+            ]
+          },
+          {
+            "id": "adminSystemMgt/adminCodeMgt",
+            "name": "코드 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminCodeMgt/metaCpt",
+                "name": "META 코드 연계"
+              },
+              {
+                "id": "adminSystemMgt/adminCodeMgt/codeMgt",
+                "name": "업무별 공통 코드관리"
+              }
+            ]
+          },
+          {
+            "id": "adminSystemMgt/adminItfMgt",
+            "name": "인터페이스 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminItfMgt/infoMgt",
+                "name": "인터페이스 정보관리"
+              },
+              {
+                "id": "adminSystemMgt/adminItfMgt/divMgt",
+                "name": "인터페이스 구분관리"
+              },
+              {
+                "id": "adminSystemMgt/adminItfMgt/serviceMgt",
+                "name": "인터페이스 서비스관리"
+              },
+              {
+                "id": "adminSystemMgt/adminItfMgt/mappingMgt",
+                "name": "인터페이스 매핑관리"
+              },
+              {
+                "id": "adminSystemMgt/adminItfMgt/eimsTest",
+                "name": "EIMS연동 테스트"
+              }
+            ]
+          },
+          {
+            "id": "adminSystemMgt/adminQualityMgt",
+            "name": "품질 관리",
+            "children":
+            [
+              {
+                "id": "adminSystemMgt/adminQualityMgt/appVerMgt",
+                "name": "앱 버전 관리"
+              },
+              {
+                "id": "adminSystemMgt/adminQualityMgt/batchMgt",
+                "name": "배치 관리"
+              },
+              {
+                "id": "adminSystemMgt/adminQualityMgt/sysInfoMgt",
+                "name": "시스템 공지 관리"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "adminOpMgmt",
+        "name" : "운영 관리",
+        "children" : 
+        [
+          {
+            "id": "adminOpMgmt/commMgt",
+            "name" : "공통 관리",
+            "children" : 
+            [
+              {
+                "id": "adminOpMgmt/commMgt/commNoticeMgt",
+                "name" : "통합 공지 관리"
+              },
+              {
+                "id": "adminOpMgmt/commMgt/eventMgt",
+                "name" : "이벤트 관리"
+              },
+              {
+                "id": "adminOpMgmt/commMgt/appPushMgt",
+                "name" : "앱 푸시 관리"
+              }
+            ]
+          },
+          {
+            "id": "adminOpMgmt/customMgt",
+            "name" : "커스텀 관리",
+            "children" : 
+            [
+              {
+                "id": "adminOpMgmt/customMgt/pointMgt",
+                "name" : "포인트 관리"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id" : "nextLabDashBoard",
+    "name" : "NEXT LAB 대시보드",
+    "children" : 
+    [
+      {
+        "id" : "boardMain",
+        "name" : "메인",
+        "children" : 
+        
+        [
+          {
+            "id": "boardMain/main",
+            "name": "메인",
+            "children": 
+            [
+              { 
+                "id": "boardMain/main/loginMainPage", 
+                "name": "로그인 메인 페이지", 
+                "children" : [
+                  {
+                    "id" : "boardMain/main/loginMainPage/iamAccount",
+                    "name" : "IAM계정 연동, ADMIN 권한 인증"
+                  }
+                ] 
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "systemManage",
+        "name": "시스템 관리",
+        "children" : 
+        [
+          {
+            "id": "systemManage/adminPage",
+            "name": "관리자 페이지",
+            "children": 
+            [
+              { 
+                "id": "systemManage/adminPage/accountManage", 
+                "name": "계정 관리"
+              },
+
+              { 
+                "id": "systemManage/adminPage/projectManage", 
+                "name": "프로젝트 관리"
+              },
+
+              { 
+                "id": "systemManage/adminPage/notionManage", 
+                "name": "알림 관리"
+              },
+
+              { 
+                "id": "systemManage/adminPage/logManage", 
+                "name": "로그 관리"
+              }
+              
+            ]
+          }
+        ]
+      },
+
+      {
+        "id": "dashBoardMain",
+        "name" : "대시보드 메인",
+        "children" : 
+        [
+          {
+            "id": "dashBoardMain/dashBoardMain",
+            "name" : "대시보드 메인"
+          }
+        ]
+      },
+      {
+        "id": "dashBoardChoose",
+        "name" : "대시보드 선택",
+        "children" : 
+        [
+          {
+            "id": "dashBoardChoose/dashBoardChoose",
+            "name" : "대시보드 선택"
+          }
+        ]
+      },
+      {
+        "id": "opMgmt",
+        "name" : "운영 관리",
+        "children" : 
+        [
+          {
+            "id": "opMgmt/dashBoardCfg",
+            "name" : "대시보드 구성",
+            "children" : 
+            [
+              {
+                "id" : "opMgmt/dashBoardCfg/dashBoardCbMgt",
+                "name" : "대시보드 캔버스 관리",
+                "children" : 
+                [
+                  {
+                    "id" : "opMgmt/dashBoardCfg/dashBoardCbMgt/layout",
+                    "name" : "캔버스 생성 및 레이아웃 편집"
+
+                  }
+                ]
+              },
+              {
+                "id" : "opMgmt/dashBoardCfg/dashBoardWgMgt",
+                "name" : "대시보드 위젯 관리",
+                "children" : 
+                [
+                  {
+                    "id" : "opMgmt/dashBoardCfg/dashBoardWgMgt/layout",
+                    "name" : "위젯 추가 및 위치/크기 편집"
+
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "opMgmt/dashBoardReportAnlys",
+            "name" : "대시보드 리포트 분석",
+            "children" : 
+            [
+              {
+                "id" : "opMgmt/dashBoardReportAnlys/dashBoardReptMgt",
+                "name" : "대시보드 리포트 관리",
+                "children" : 
+                [
+                  {
+                    "id" : "opMgmt/dashBoardReportAnlys/dashBoardReptMgt/download",
+                    "name" : "리포트 생성 및 다운로드"
+
+                  },
+                  {
+                    "id" : "opMgmt/dashBoardReportAnlys/dashBoardReptMgt/selectQry",
+                    "name" : "데이터 분석 및 리포트를 위해 제공된 쿼리 조회"
+                  },
+                  {
+                    "id" : "opMgmt/dashBoardReportAnlys/dashBoardReptMgt/filtering",
+                    "name" : "기간, 타입, 조건 등으로 필터링 검색"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

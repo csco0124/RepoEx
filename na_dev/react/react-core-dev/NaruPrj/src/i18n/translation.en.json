@@ -1,0 +1,4 @@
+{
+  "hello": "Hello !!",
+	"setVal": "text value : {{value}}"
+}
